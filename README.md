@@ -75,6 +75,14 @@ docker run -d \
 
 ## 🔧 Integrações Comuns
 
+| Ferramenta |	Função |
+|-----------|------------|
+| GitHub / GitLab |	Versionamento e Webhooks |
+| Docker	|Empacotamento de aplicações |
+| Kubernetes	| Deploy automatizado em clusters |
+| SonarQube |	Análise de qualidade do código |
+| Maven / Gradle |	Build e gestão de dependências |
+
 
 
 
