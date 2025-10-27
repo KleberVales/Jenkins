@@ -34,6 +34,33 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 
 Um pipeline no Jenkins é composto por **stages** e **steps**:
 
+```groovy
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Compilando o código...'
+                sh './gradlew build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Executando testes...'
+                sh './gradlew test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Fazendo deploy da aplicação...'
+                sh './deploy.sh'
+            }
+        }
+    }
+}
+```
+
 
 
 
