@@ -14,7 +14,7 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 - 🏗️ **Automação de Builds:** compila, testa e empacota automaticamente seu código.
 - 🧩 **Plugins:** mais de 1800 plugins disponíveis para integração com Git, Docker, Kubernetes, Maven, Gradle, SonarQube, etc.
 - 🌀 **Pipelines:** definem o fluxo de CI/CD como código (`Jenkinsfile`).
-- **Interface Web Intuitiva:** gerenciamento de jobs e monitoramento em tempo real.
+- 🖥️ **Interface Web Intuitiva:** gerenciamento de jobs e monitoramento em tempo real.
 - 🔐 **Integração com Controle de Acesso:** autenticação e autorização de usuários.
 
 
