@@ -63,6 +63,8 @@ pipeline {
 
 ## 🐳 Exemplo com Docker
 
+Você pode executar o Jenkins localmente com Docker:
+
 
 
 
