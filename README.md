@@ -94,6 +94,7 @@ docker run -d \
 ## 🧠 Conceitos-Chave
 
 * Job: unidade de execução configurável no Jenkins.
+* Node: máquina (física ou virtual) onde o job é executado.
 
 
 
