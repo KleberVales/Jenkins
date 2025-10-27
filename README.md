@@ -18,6 +18,10 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 - 🔐 **Integração com Controle de Acesso:** autenticação e autorização de usuários.
 - ☁️ **Suporte a Nuvem:** integração com AWS, Azure, GCP e outras plataformas.
 
+---
+
+## 🚀 Benefícios do Jenkins
+
 
 
 
