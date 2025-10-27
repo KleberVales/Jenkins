@@ -32,6 +32,9 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 
 ## 🧱 Estrutura Básica
 
+Um pipeline no Jenkins é composto por **stages** e **steps**:
+
+
 
 
 
