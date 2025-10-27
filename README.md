@@ -91,6 +91,8 @@ docker run -d \
 4. Deploy no Ambiente de Teste
 5. Deploy em Produção (manual ou automatizado)
 
+## 🧠 Conceitos-Chave
+
 
 
 
