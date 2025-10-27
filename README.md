@@ -12,7 +12,8 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 ## ⚙️ Principais Recursos
 
 - 🏗️ **Automação de Builds:** compila, testa e empacota automaticamente seu código.
-- 🧩 **Plugins:** mais de 1800 plugins disponíveis para integração com Git, Docker, Kubernetes, Maven, Gradle, SonarQube, etc.  
+- 🧩 **Plugins:** mais de 1800 plugins disponíveis para integração com Git, Docker, Kubernetes, Maven, Gradle, SonarQube, etc.
+- 🌀 **Pipelines:** definem o fluxo de CI/CD como código (`Jenkinsfile`).  
 
 
 
