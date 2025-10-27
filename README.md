@@ -95,6 +95,7 @@ docker run -d \
 
 * Job: unidade de execução configurável no Jenkins.
 * Node: máquina (física ou virtual) onde o job é executado.
+* Agent: responsável por executar etapas do pipeline.
 
 
 
