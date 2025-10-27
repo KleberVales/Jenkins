@@ -26,6 +26,8 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 ✅ Garante builds reprodutíveis e rastreáveis  
 ✅ Melhora a colaboração entre desenvolvedores e equipes DevOps  
 ✅ Detecta erros rapidamente com feedback contínuo  
+✅ Permite escalar pipelines com agentes distribuídos
+
 
 
 
