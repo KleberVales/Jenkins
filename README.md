@@ -28,6 +28,10 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 ✅ Detecta erros rapidamente com feedback contínuo  
 ✅ Permite escalar pipelines com agentes distribuídos
 
+---
+
+## 🧱 Estrutura Básica
+
 
 
 
