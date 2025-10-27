@@ -22,6 +22,9 @@ Criado originalmente em Java, o Jenkins suporta **diversas linguagens** e **ferr
 
 ## 🚀 Benefícios do Jenkins
 
+✅ Reduz falhas humanas no processo de deploy  
+
+
 
 
 
