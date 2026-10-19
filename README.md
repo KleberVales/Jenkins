@@ -85,4 +85,4 @@ docker run -d \
 
 ## 📈 Pipeline de CI/CD Simplificado
 
-1. Commit no 
+1. Commit
