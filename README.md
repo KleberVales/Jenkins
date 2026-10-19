@@ -83,4 +83,3 @@ docker run -d \
 | SonarQube |	Análise de qualidade do código |
 | Maven / Gradle |	Build e gestão de dependências |
 
-## 📈 
