@@ -93,4 +93,3 @@ docker run -d \
 
 ## 🧠 Conceitos-Chave
 
-* Job: 
