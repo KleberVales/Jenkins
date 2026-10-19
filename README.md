@@ -85,4 +85,4 @@ docker run -d \
 
 ## 📈 Pipeline de CI/CD Simplificado
 
-1. Commit no GitHub → dispara
+1. Commit no GitHub
