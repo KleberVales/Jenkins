@@ -87,4 +87,3 @@ docker run -d \
 
 1. Commit no GitHub → dispara o job no Jenkins
 2. Build & Testes Automatizados → valida o código
-3. Build
