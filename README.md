@@ -86,4 +86,4 @@ docker run -d \
 ## 📈 Pipeline de CI/CD Simplificado
 
 1. Commit no GitHub → dispara o job no Jenkins
-2. Build & Testes
+2. Build
