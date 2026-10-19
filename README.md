@@ -93,4 +93,4 @@ docker run -d \
 
 ## 🧠 Conceitos-Chave
 
-* Job: unidade de 
+* Job: unidade
