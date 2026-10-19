@@ -89,4 +89,4 @@ docker run -d \
 2. Build & Testes Automatizados → valida o código
 3. Build de Imagem Docker → empacota a aplicação
 4. Deploy no Ambiente de Teste
-5. Deploy em Produção (manual
+5. Deploy em Produção
