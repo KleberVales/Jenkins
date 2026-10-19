@@ -97,10 +97,5 @@ docker run -d \
 * Node: máquina (física ou virtual) onde o job é executado.
 * Agent: responsável por executar etapas do pipeline.
 * Workspace: diretório onde o código é clonado e processado.
-* Executor: thread que executa os jobs 
-
-
-
-
-
+* Executor: thread que executa
 
