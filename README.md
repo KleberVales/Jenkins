@@ -84,5 +84,3 @@ docker run -d \
 | Maven / Gradle |	Build e gestão de dependências |
 
 ## 📈 Pipeline de CI/CD Simplificado
-
-1. 
