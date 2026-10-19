@@ -90,6 +90,3 @@ docker run -d \
 3. Build de Imagem Docker → empacota a aplicação
 4. Deploy no Ambiente de Teste
 5. Deploy em Produção (manual ou automatizado)
-
-## 🧠 
-
