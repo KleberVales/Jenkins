@@ -9,6 +9,10 @@ Connectivity deals with the connection between VCNs, which can be VCN to VCN in 
 
 **Local VCN Peering**
 
+Local VCN peering privately connects two VCNs in the same region. Instead of communicating over the public internet using public IP addresses, peered instances communicate through private IP addresses.
+
+A VCN can have up to 10 local peering gateways and can be attached to one dynamic routing gateway.
+
 Local peering can be configured in two ways:  
 - Local Peering Gateway (LPG)
 - Dynamic Routing Gateway (DRG)
