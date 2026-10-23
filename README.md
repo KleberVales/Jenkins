@@ -103,6 +103,8 @@ Therefore, it is not recommended for sensitive data or critical workloads withou
 
 ## Site-to-Site VPN
 
+Site-to-Site, also known as VPN or IPsec VPN, provides an encrypted IPsec connection between an on-premises environment and an OCI VCN.
+
 ## FastConnect
 
 # 4. BGP Basics
