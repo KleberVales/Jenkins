@@ -3,6 +3,10 @@
 
 # 1. VCN Connectivity Options
 
+Connectivity deals with the connection between VCNs, which can be VCN to VCN in the same region, VCN to VCN in different regions, and VCN to on-premises.
+
+
+
 # 2. Local VCN Peering 
 
 # 3. Remote VCN Peering
