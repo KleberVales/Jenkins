@@ -79,6 +79,28 @@ In short:
 
 ## Public Internet
 
+Communication between the on-premises network and the VCN occurs via the public internet. To achieve this, you use specific gateways within the VCN:
+
+Internet Gateway (IGW): allows resources with public IP addresses in the VCN to communicate directly with the internet (and therefore with the on-premises environment).
+
+NAT Gateway: allows resources without public IP addresses (in private subnets) to initiate outbound connections to the internet without being directly accessible from the outside.
+
+In other words, traffic leaves the VCN → passes through the gateway → traverses the public internet → reaches the on-premises environment (and vice versa, depending on the configuration).
+
+**Use Case**
+
+Proof of Concept (POC): useful for quick tests, validations, and temporary environments, precisely because it is simple to configure and does not require dedicated links.
+
+SaaS Applications: when accessing services exposed on the internet, using an IGW/NAT Gateway is the natural approach.
+
+**Security**
+
+Traffic is unencrypted by default when traversing the internet.
+
+It is possible to apply application-level encryption (e.g., HTTPS/TLS, SSH), but this depends on the application—it is not network protection.
+
+Therefore, it is not recommended for sensitive data or critical workloads without additional layers of protection.
+
 ## Site-to-Site VPN
 
 ## FastConnect
