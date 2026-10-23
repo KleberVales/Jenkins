@@ -169,6 +169,15 @@ Oracle supports both:
 - IKE version 1
 - IKE version 2
 
+**CPE Object**
+
+When creating an IPsec connection, you need a CPE object. This object is the virtual representation of your on-premises router. To create a CPE object, you provide:
+
+- A name
+- A public IP address
+
+A single CPE object public IP can have up to eight IPsec connections.
+
 ## FastConnect
 
 # 4. BGP Basics
