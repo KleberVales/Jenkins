@@ -109,7 +109,13 @@ The connection uses the public internet but keeps traffic encrypted. IPsec has t
 
 Site-to-Site VPN is cost effective, quick to set up, encrypted, and provides two redundant tunnels per connection.
 
-Routing can be static, dynamic using BGP, or policy-based, and it is configured per tunnel, 
+Routing can be static, dynamic using BGP, or policy-based, and it is configured per tunnel.
+
+**In a Site-to-Site VPN setup:**
+
+- The on-premises side has a Customer Premises Equipment (CPE) device.
+- The OCI side has a Dynamic Routing Gateway (DRG).
+- An IPsec connection is established between them.
 
 ## FastConnect
 
