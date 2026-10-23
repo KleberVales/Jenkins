@@ -180,6 +180,24 @@ A single CPE object public IP can have up to eight IPsec connections.
 
 ## FastConnect
 
+Oracle FastConnect is a dedicated, private connection between an on-premises environment and Oracle Cloud Infrastructure, offering higher bandwidth, greater reliability, and more consistent network performance.
+
+**Physical vs. Logical Connection**
+
+- Cross-Connect
+
+  Cross-connect is the physical connection in FastConnect. It is a physical cable connecting your network to Oracle in a FastConnect location.
+
+- Virtual Circuit
+
+  A virtual circuit is the logical connection in FastConnect. It represents an isolated network path that runs over the physical network.
+
+  There are two types of virtual circuits:
+
+  - Public virtual circuit: Used for a dedicated connection between an on-premises network and public OCI services.
+  - Private virtual circuit: Used for private communication between an on-premises environment and a Virtual Cloud Network.
+
+
 # 4. BGP Basics
 
 # 5. Dynamic Routing Gateway 
