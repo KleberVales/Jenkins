@@ -105,6 +105,12 @@ Therefore, it is not recommended for sensitive data or critical workloads withou
 
 Site-to-Site, also known as VPN or IPsec VPN, provides an encrypted IPsec connection between an on-premises environment and an OCI VCN.
 
+The connection uses the public internet but keeps traffic encrypted. IPsec has two modes: transport mode, which encrypts only the payload, and tunnel mode, which encrypts and authenticates the entire packet; Oracle supports tunnel mode.
+
+Site-to-Site VPN is cost effective, quick to set up, encrypted, and provides two redundant tunnels per connection.
+
+Routing can be static, dynamic using BGP, or policy-based, and it is configured per tunnel, 
+
 ## FastConnect
 
 # 4. BGP Basics
