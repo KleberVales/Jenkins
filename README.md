@@ -15,6 +15,12 @@ Local VCN peering privately connects two VCNs in the same region. Instead of com
 
 A VCN can have up to 10 local peering gateways and can be attached to one dynamic routing gateway.
 
+To configure it using local peering gateways, you need non-overlapping CIDRs, one LPG on each VCN, a connection between the two LPGs, route rules on both sides, and supporting security rules.
+
+To configure it using an upgraded dynamic routing gateway, you still need non-overlapping CIDRs, but instead of two LPGs, you create one DRG and attach it to both VCNs.
+
+If VCNs are peered, one VCN cannot use the other VCN’s internet gateway for outbound internet traffic, although it can receive traffic in the reverse direction.
+
 Local peering can be configured in two ways:  
 - Local Peering Gateway (LPG)
 - Dynamic Routing Gateway (DRG)
