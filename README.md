@@ -240,8 +240,25 @@ The third-party provider is not an Oracle partner.
   
 In this model, Oracle provides you with a Letter of Authorization (LOA) . You must provide this LOA to the third-party provider. The third-party provider then uses it to provision the circuit for you.
 
-
 **Co-location with Oracle**
+
+FastConnect co-location with Oracle is a connectivity model where the customer already has a presence in the FastConnect data center location, with their own cage and Customer Premises Equipment deployed there.
+
+This model is suitable when you already have equipment in an Oracle FastConnect location. To establish the connection, you create a direct cross-connect between your edge and the FastConnect edge device in the Oracle cage.
+
+Oracle provides a Letter of Authorization, which you hand over to the data center provider to configure the direct cross-connect.
+
+This model offers a direct, high-bandwidth, private connection for customers who already have infrastructure in an Oracle FastConnect location.
+
+- Configuration
+
+   - OCI region containing the VCN.
+   - FastConnect location containing:
+      - Oracle cage with FastConnect edge devices.
+      - Customer cage with Customer Premises Equipment.
+   - Customer data center (separate from the FastConnect location).
+     
+In co-location, you establish a redundant physical connection (cross-connect) between the customer equipment and the FastConnect edge device deployed in the Oracle cage.
 
 ### C. BGP 
 
