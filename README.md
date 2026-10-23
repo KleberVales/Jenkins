@@ -147,6 +147,28 @@ The CPE lies on the on-premises side. However, when creating a Site-to-Site VPN 
 
 The CPE has a public IP address. This public IP address can have up to eight IPsec connections.
 
+**IPsec Connection**
+
+An IPsec connection connects the CPE object to the Dynamic Routing Gateway on the OCI side. It represents the Site-to-Site VPN connection.
+
+Each IPsec connection has two tunnels for redundancy. Each tunnel includes configuration information such as:
+
+- A public IP address
+- A shared secret
+  
+This configuration information is required when configuring the CPE on the on-premises side.
+
+**NAT and IKE Considerations**
+
+Sometimes the CPE device may lie behind a NAT device on the on-premises side.
+
+By default, Oracle uses the CPE’s public IP address. However, if the CPE is behind a NAT device, you need to change the CPE Internet Key Exchange (IKE) identifier and point it to the CPE’s private IP address.
+
+Oracle supports both:
+
+- IKE version 1
+- IKE version 2
+
 ## FastConnect
 
 # 4. BGP Basics
