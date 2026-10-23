@@ -207,21 +207,8 @@ FastConnect has two aspects:
 
 **Co-location with Oracle**
 
+### BGP 
 
-# 4. BGP Basics
+### Dynamic Routing Gateway 
 
-# 5. Dynamic Routing Gateway 
-
-# 6. Site-to-Site VPN 
-
-# 7. Fast Connect Overview
-
-# 8. Fast Connect With an Oracle Partner
-
-# 9. Fast Connect With a Third-Party Provider
-
-# 10. Fast Connect Colocation with Oracle
-
-# 11. FastConnect Redundancy Best Practices
-
-# 12. Transit Routing Scenarios
+## Transit Routing Scenarios
