@@ -203,6 +203,17 @@ FastConnect has two aspects:
 
 **Oracle partner**
 
+An Oracle partner is a network service provider that has already established a connection with the FastConnect location. Because this connection already exists, there is no need for a Letter of Authorization (LOA).
+
+You work with the Oracle partner to provision a physical connection from your data center to the partner edge inside the FastConnect location. You can think of this as connecting through the partner network.
+
+Configuration
+
+- The OCI region contains a VCN with a private subnet and a public subnet.
+- The FastConnect location contains an Oracle cage with an edge device.
+- The customer data centers contain Customer Premises Equipment (CPE).
+- In the case of an Oracle partner, the partner has already established redundant cross-connects with the FastConnect edge devices. Because of this, no Letter of Authorization (LOA) is needed.
+
 **Third-party provider**
 
 **Co-location with Oracle**
