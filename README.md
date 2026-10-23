@@ -231,12 +231,8 @@ Configuration
 The third-party provider is not an Oracle partner.
 
 - Physical Connections
-
-There are two physical connections in this model:
-
    - Connection from the customer data center to the provider  
       -  This connects your on-premises environment to the third-party provider.
-
    - Physical fiber connection (cross-connect) in the FastConnect data center  
       - The third-party provider sets up this cross-connect in the FastConnect location on your behalf.
 
