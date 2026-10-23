@@ -184,6 +184,8 @@ Oracle FastConnect is a dedicated, private connection between an on-premises env
 
 **Physical vs. Logical Connection**
 
+FastConnect has two aspects:
+
 - Cross-Connect
 
   Cross-connect is the physical connection in FastConnect. It is a physical cable connecting your network to Oracle in a FastConnect location.
