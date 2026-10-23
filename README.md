@@ -312,6 +312,12 @@ When data moves from source to destination, it may travel through several networ
 
 ### D. Dynamic Routing Gateway 
 
+Um Gateway de Roteamento Dinâmico (DRG) é um roteador virtual que pode ser conectado a VCNs, conexões de peering remotas, túneis IPsec, circuitos virtuais e conexões de loopback.
+
+O roteamento em um DRG é controlado pelas tabelas de roteamento e distribuições de rotas do DRG.
+
+Quando um DRG é criado, duas tabelas de roteamento são criadas automaticamente: uma para conexões RPC, circuitos virtuais e IPsec, e outra para conexões VCN.
+
 ## Transit Routing Scenarios
 
 
