@@ -332,6 +332,32 @@ Routing in a DRG is controlled by two main entities:
 Two import route distributions
 One export route distribution
 
+**Dynamic Route Import Distribution**
+
+A dynamic route import distribution controls how route advertisements coming in through DRG attachments are inserted into the DRG route table.
+
+It contains a list of statements with match criteria. For example, if a statement uses the match criteria all traffic, then all route advertisements coming through the attachments are inserted into the respective DRG route table.
+
+The flow works like this:
+
+Write a statement with a match criteria.  
+The statement matches an attachment.  
+Routes associated with that attached object are dynamically imported into the DRG route table assigned to the distribution.  
+Each DRG route table has a dynamic route import distribution assigned to it. When writing statements, you assign a number to each statement. The lowest number has the highest priority.
+
+**Dynamic Route Export Distribution**
+
+A dynamic route export distribution is the reverse of import distribution. It specifies how routes are advertised to attachments from their assigned route tables.
+
+In other words, it controls how routes from a DRG route table are exported or advertised to DRG attachments.
+
+There is an important exception:
+
+Routes imported from an IPsec tunnel are never exported to other IPsec tunnel or virtual circuit attachments.  
+By default, one route export distribution is created when you create a DRG.
+
+
+
 ## Transit Routing Scenarios
 
 Transit routing enables an on-premises network to communicate with multiple VCNs through a single connection to a hub VCN, avoiding the cost and overhead of multiple Site-to-Site VPN or FastConnect connections.
