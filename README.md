@@ -305,7 +305,7 @@ A BGP peer is a device on the edge or boundary of an autonomous system. BGP peer
 
 BGP performs two major functions:
 
-a. Route discovery – It learns about available network paths.
+a. Route discovery – It learns about available network paths.  
 b. Path selection – It chooses the best route for traffic.
 
 When data moves from source to destination, it may travel through several networks. BGP evaluates the possible paths and determines the best network route.
