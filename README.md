@@ -15,6 +15,10 @@ Local peering can be configured in two ways:
 
 **Remote VCN Peering**
 
+Configuration:  
+- Dynamic Routing Gateway (DRG)
+
+
 ### VCN to On-Premises
 
 # 4. BGP Basics
