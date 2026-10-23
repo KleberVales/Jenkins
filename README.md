@@ -182,7 +182,7 @@ A single CPE object public IP can have up to eight IPsec connections.
 
 Oracle FastConnect is a dedicated, private connection between an on-premises environment and Oracle Cloud Infrastructure, offering higher bandwidth, greater reliability, and more consistent network performance.
 
-**Physical vs. Logical Connection**
+### Physical vs. Logical Connection
 
 FastConnect has two aspects:
 
@@ -199,13 +199,13 @@ FastConnect has two aspects:
   - Public virtual circuit: Used for a dedicated connection between an on-premises network and public OCI services.
   - Private virtual circuit: Used for private communication between an on-premises environment and a Virtual Cloud Network.
  
-**Three Connectivity Models**
+### Three Connectivity Models
 
-- Oracle partner
+**Oracle partner**
 
-- Third-party provider
+**Third-party provider**
 
-- Co-location with Oracle
+**Co-location with Oracle**
 
 
 # 4. BGP Basics
