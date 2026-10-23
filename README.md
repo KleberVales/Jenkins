@@ -23,6 +23,11 @@ If VCNs are peered, one VCN cannot use the other VCN’s internet gateway for ou
 
 Local peering can be configured in two ways:  
 - Local Peering Gateway (LPG)
+
+  This approach connects two VCNs within the same region privately. Provides extremely high bandwidth and super low latency.
+
+  For this type of connection, you need to create a LPG for each VCN and connect them.
+  
 - Dynamic Routing Gateway (DRG)
 
 **Remote VCN Peering**
