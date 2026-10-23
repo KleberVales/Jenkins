@@ -136,6 +136,17 @@ Tunnel Mode
 
 Important: Oracle supports tunnel mode.
 
+**Customer Premises Equipment (CPE) and CPE Object**
+
+The Customer Premises Equipment (CPE) can be:
+
+- Software-based
+- Hardware-based
+
+The CPE lies on the on-premises side. However, when creating a Site-to-Site VPN connection in OCI, you must provide a virtual representation of the CPE on the OCI side. This virtual representation is called the CPE object.
+
+The CPE has a public IP address. This public IP address can have up to eight IPsec connections.
+
 ## FastConnect
 
 # 4. BGP Basics
