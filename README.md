@@ -7,7 +7,7 @@ Connectivity deals with the connection between VCNs, which can be VCN to VCN in 
 
 # 2. VCN to VCN
 
-### Local VCN Peering
+## Local VCN Peering
 
 Peering means connecting two virtual cloud networks so they can communicate with each other. Connections can use either a public IP address (public internet) or a private IP address (private direct access).
 
@@ -45,7 +45,7 @@ Local peering can be configured in two ways:
           Target: Dynamic Routing Gateway  
    - Configure security rules.
 
-### Remote VCN Peering
+## Remote VCN Peering
 
 Configuration:  
 - Dynamic Routing Gateway (DRG)
