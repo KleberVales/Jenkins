@@ -5,9 +5,13 @@
 
 Connectivity deals with the connection between VCNs, which can be VCN to VCN in the same region, VCN to VCN in different regions, and VCN to on-premises.
 
-### VCN-to-VCN
+### VCN to VCN
 
 **Local VCN Peering**
+
+Local peering can be configured in two ways:  
+- Local Peering Gateway (LPG)
+- Dynamic Routing Gateway (DRG)
 
 **Remote VCN Peering**
 
