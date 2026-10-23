@@ -334,7 +334,7 @@ Hub VCN: A centralized VCN that connects to the on-premises network.
 Spoke VCNs: Other VCNs that connect to the hub VCN via local peering.
 
 - Architecture
-- 
+  
 The on-premises environment contains a Customer Premises Equipment (CPE).  
 The hub VCN connects to the on-premises network using either Site-to-Site VPN or FastConnect.  
 Each spoke VCN connects to the hub VCN using a local peering gateway (LPG) .
