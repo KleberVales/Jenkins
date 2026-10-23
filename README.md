@@ -318,6 +318,14 @@ O roteamento em um DRG é controlado pelas tabelas de roteamento e distribuiçõ
 
 Quando um DRG é criado, duas tabelas de roteamento são criadas automaticamente: uma para conexões RPC, circuitos virtuais e IPsec, e outra para conexões VCN.
 
+**Routing in a DRG**
+
+Routing in a DRG is controlled by two main entities:
+
+- DRG route tables
+
+- DRG route distribution
+
 ## Transit Routing Scenarios
 
 Transit routing enables an on-premises network to communicate with multiple VCNs through a single connection to a hub VCN, avoiding the cost and overhead of multiple Site-to-Site VPN or FastConnect connections.
