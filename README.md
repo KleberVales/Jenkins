@@ -51,7 +51,7 @@ Configuration:
 - Dynamic Routing Gateway (DRG)
 
 
-### VCN to On-Premises
+# 3. VCN to On-Premises
 
 **Public Internet**
 
