@@ -5,11 +5,13 @@
 
 Connectivity deals with the connection between VCNs, which can be VCN to VCN in the same region, VCN to VCN in different regions, and VCN to on-premises.
 
-### Local VCN Peering 
+### VCN-to-VCN
 
-### Remote VCN Peering
+**Local VCN Peering**
 
-### VCN-to-On-Premises
+**Remote VCN Peering**
+
+### VCN to On-Premises
 
 # 4. BGP Basics
 
