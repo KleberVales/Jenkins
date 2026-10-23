@@ -7,9 +7,9 @@ Connectivity deals with the connection between VCNs, which can be VCN to VCN in 
 
 # 2. VCN to VCN
 
-## Local VCN Peering
-
 Peering means connecting two virtual cloud networks so they can communicate with each other. Connections can use either a public IP address (public internet) or a private IP address (private direct access).
+
+## Local VCN Peering
 
 Local VCN peering privately connects two VCNs in the same region. Instead of communicating over the public internet using public IP addresses, peered instances communicate through private IP addresses.
 
@@ -47,9 +47,33 @@ Local peering can be configured in two ways:
 
 ## Remote VCN Peering
 
-Configuration:  
-- Dynamic Routing Gateway (DRG)
+Remote peering connects VCNs in different regions. To make this connection, one uses   Dynamic Routing Gateway (DRG) to facilitate communication between VCNs in different regions.
 
+so that their resources can communicate privately using private IP addresses without sending traffic over the internet.
+
+To set it up, you need two VCNs with non-overlapping CIDRs, a dynamic routing gateway attached to each VCN, a remote peering connection on each DRG, and a connection between the two RPCs.
+
+You must also configure route tables and security lists. Remote peering connections are typically used across different regions but can technically be used within the same region.
+
+legacy DRGs only support remote peering within the same tenancy, while upgraded DRGs support both same-tenancy and cross-tenancy connections.
+
+To configure remote VCN peering, you need:
+
+- Two VCNs with non-overlapping CIDRs in different regions.
+- A dynamic routing gateway (DRG) created and attached to each VCN.
+- A remote peering connection (RPC) created on each DRG.
+- A connection between the two RPCs.
+- Supporting route tables and security lists.
+  
+In short:
+
+- Region 1 contains VCN-1.
+- Region 2 contains VCN-2.
+- VCN-1 is attached to DRG-1.
+- VCN-2 is attached to DRG-2.
+- DRG-1 has RPC-1.
+- DRG-2 has RPC-2.
+- A connection is established between RPC-1 and RPC-2.
 
 # 3. VCN to On-Premises
 
