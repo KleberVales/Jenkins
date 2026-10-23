@@ -21,6 +21,12 @@ Configuration:
 
 ### VCN to On-Premises
 
+**Public Internet**
+
+**Site-to-Site VPN**
+
+**FastConnect**
+
 # 4. BGP Basics
 
 # 5. Dynamic Routing Gateway 
