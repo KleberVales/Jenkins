@@ -42,5 +42,21 @@ In the example **10.0.0.0/16**, the first two octets are fixed because the prefi
 
 ## How Many IP Addresses Are in a CIDR Block?
 
+To calculate the total number of IP addresses in a CIDR block, use this formula:
+
+**2^(32 − prefix length)**
+
+The **32** comes from the total number of bits in an IPv4 address. The **prefix length** is the number after the slash.
+
+For **10.0.0.0/16**:
+
+**2^(32 − 16) = 2^16 = 65,536 addresses**
+
+So a `/16` block contains 65,536 total IP addresses. In practical networking, the first and last addresses may be reserved for the network address and broadcast address, but the total block size is still 2^16.
+
+Another example: a `/24` block has:
+
+**2^(32 − 24) = 2^8 = 256 addresses**
+
 
 
