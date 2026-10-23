@@ -66,37 +66,3 @@ For example, a larger network can be split into multiple smaller subnets to orga
 
 We will explore subnetting in more detail in upcoming sections.
 
-## Prefix Length and Network Size
-
-An important rule to remember is:
-
-**The smaller the prefix number, the larger the network.**
-
-For example:
-
-- **/16** is a larger network than **/24**
-- **/16** gives **2^(32−16) = 2^16 = 65,536** addresses
-- **/24** gives **2^(32−24) = 2^8 = 256** addresses
-
-So even though `/16` looks like a smaller number than `/24`, it actually represents a much larger address range.
-
-## Network Bits and Host Bits
-
-The prefix length separates the network portion from the host portion.
-
-For a **/24** network:
-
-- The first **24 bits** are the network address
-- The last **8 bits** are the host address
-
-For a **/16** network:
-
-- The first **16 bits** are the network address
-- The remaining **16 bits** are for host addresses
-
-In a **/16** network, the host portion can range from:
-
-**0.0 to 255.255**
-
-
-
