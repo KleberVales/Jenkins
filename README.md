@@ -283,6 +283,33 @@ The customer must ensure that the connection between the customer edge and the p
 
 ### C. BGP 
 
+Border Gateway Protocol (BGP) is the routing protocol of the internet. It determines the best network routes for data traveling across multiple networks.
+
+An autonomous system is a network controlled by a single administrative entity, and each autonomous system has an autonomous system number.
+
+BGP peers sit at the edge of autonomous systems and exchange routing information with neighboring peers.
+
+BGP performs route discovery and path selection, choosing the best path based on available routes—such as selecting the path with fewer hops in the example from AS 1 to AS 3.
+
+In OCI, BGP is especially important because Site-to-Site VPN can use BGP, static routing, or both, while FastConnect always uses BGP for route advertisements.
+
+**Autonomous Systems and BGP Peers**
+
+An autonomous system (AS) can be thought of as a smaller network under the control of a single administrative entity. It is essentially a collection of connected IP networks managed by one organization.
+
+Each autonomous system has an autonomous system number (ASN). For example, you may have AS 1 and AS 2.
+
+A BGP peer is a device on the edge or boundary of an autonomous system. BGP peers exchange routing information with neighboring BGP peers. This exchange helps BGP discover routes and choose the best path.
+
+**How BGP Works**
+
+BGP performs two major functions:
+
+a. Route discovery – It learns about available network paths.
+b. Path selection – It chooses the best route for traffic.
+
+When data moves from source to destination, it may travel through several networks. BGP evaluates the possible paths and determines the best network route.
+
 ### D. Dynamic Routing Gateway 
 
 ## Transit Routing Scenarios
