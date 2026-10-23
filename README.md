@@ -53,11 +53,11 @@ Configuration:
 
 # 3. VCN to On-Premises
 
-**Public Internet**
+## Public Internet
 
-**Site-to-Site VPN**
+## Site-to-Site VPN
 
-**FastConnect**
+## FastConnect
 
 # 4. BGP Basics
 
