@@ -45,7 +45,7 @@ Local peering can be configured in two ways:
           Target: Dynamic Routing Gateway  
    - Configure security rules.
 
-**Remote VCN Peering**
+### Remote VCN Peering
 
 Configuration:  
 - Dynamic Routing Gateway (DRG)
