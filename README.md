@@ -81,9 +81,9 @@ In short:
 
 Communication between the on-premises network and the VCN occurs via the public internet. To achieve this, you use specific gateways within the VCN:
 
-Internet Gateway (IGW): allows resources with public IP addresses in the VCN to communicate directly with the internet (and therefore with the on-premises environment).
+**Internet Gateway (IGW):** allows resources with public IP addresses in the VCN to communicate directly with the internet (and therefore with the on-premises environment).
 
-NAT Gateway: allows resources without public IP addresses (in private subnets) to initiate outbound connections to the internet without being directly accessible from the outside.
+**NAT Gateway:** allows resources without public IP addresses (in private subnets) to initiate outbound connections to the internet without being directly accessible from the outside.
 
 In other words, traffic leaves the VCN → passes through the gateway → traverses the public internet → reaches the on-premises environment (and vice versa, depending on the configuration).
 
