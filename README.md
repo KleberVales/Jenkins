@@ -117,6 +117,25 @@ Routing can be static, dynamic using BGP, or policy-based, and it is configured 
 - The OCI side has a Dynamic Routing Gateway (DRG).
 - An IPsec connection is established between them.
 
+**IPsec Modes**
+
+To understand IPsec modes, first distinguish between:
+
+Header – like an envelope or box; contains packet information such as origin IP and destination IP.
+Payload – the actual data or content.
+
+Transport Mode
+
+- The header stays intact.
+- IPsec encrypts only the payload.
+
+Tunnel Mode
+
+- IPsec encrypts and authenticates the entire packet.
+- This includes both the header and the payload.
+
+Important: Oracle supports tunnel mode.
+
 ## FastConnect
 
 # 4. BGP Basics
