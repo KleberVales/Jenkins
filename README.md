@@ -260,6 +260,27 @@ This model offers a direct, high-bandwidth, private connection for customers who
      
 In co-location, you establish a redundant physical connection (cross-connect) between the customer equipment and the FastConnect edge device deployed in the Oracle cage.
 
+**Redundancy Best Practices**
+
+FastConnect redundancy best practices focus on eliminating single points of failure.
+
+Layer 2 vs. Layer 3 Connections
+
+Partner connections come in two types:
+
+Layer 2 Connection  
+The FastConnect BGP session is directly between the customer edge and Oracle.  
+At a minimum, each partner has two separate physical connections to Oracle.  
+Each virtual circuit should go to a different physical router in the FastConnect location.
+
+Layer 3 Connection  
+There is only a single virtual circuit, and it is automatically redundant and diverse.  
+The FastConnect BGP session is between the customer edge and the Oracle Partner.  
+Separate redundant BGP sessions already exist between Oracle and the Oracle Partner.  
+The customer must ensure that the connection between the customer edge and the provider is redundant and diverse.
+
+
+
 ### C. BGP 
 
 ### D. Dynamic Routing Gateway 
