@@ -30,19 +30,20 @@ Local peering can be configured in two ways:
   For this type of connection, you need to create a LPG for each VCN and connect them.
   
 - Dynamic Routing Gateway (DRG)
+  
   A DRG can be attached to up to 300 VCNs. The single DRG is attached to both VCN 1 and VCN 2.
 
-  Create VCN 1 and VCN 2 with non-overlapping CIDRs.  
-  Create a single dynamic routing gateway.  
-  Attach the DRG to both VCN 1 and VCN 2.  
-  Configure route tables:  
-     For a subnet in VCN 1:  
+  - Create VCN 1 and VCN 2 with non-overlapping CIDRs.  
+  - Create a single dynamic routing gateway.  
+  - Attach the DRG to both VCN 1 and VCN 2.  
+  - Configure route tables:  
+     - For a subnet in VCN 1:  
           Destination: VCN 2 CIDR, such as 192.168.0.0/16  
           Target: Dynamic Routing Gateway  
-     For a subnet in VCN 2:  
+     - For a subnet in VCN 2:  
           Destination: VCN 1 CIDR, such as 10.0.0.0/16  
           Target: Dynamic Routing Gateway  
-   Configure security rules.
+   - Configure security rules.
 
 **Remote VCN Peering**
 
