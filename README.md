@@ -216,6 +216,35 @@ Configuration
 
 **Third-party provider**
 
+FastConnect with a third-party provider uses a network carrier that is not an Oracle partner to establish the physical connection between your on-premises environment and the Oracle FastConnect edge devices.
+
+In this model, the third-party provider is responsible for the physical connection from your data center to the provider and for setting up the physical fiber cross-connect in the FastConnect location on your behalf.
+
+Oracle provides a Letter of Authorization, which you forward to the third-party provider so they can provision the circuit. This model is suitable if you already have a relationship with a third-party provider or if Oracle partners do not serve your data center.
+
+Configuration
+
+- The OCI region contains the VCN.
+- The FastConnect location contains the Oracle cage and FastConnect edge devices.
+- A third-party provider (network carrier) is responsible for the physical connection between the on-premises environment and the Oracle FastConnect edge devices.
+
+The third-party provider is not an Oracle partner.
+
+- Physical Connections
+
+There are two physical connections in this model:
+
+   - Connection from the customer data center to the provider  
+      -  This connects your on-premises environment to the third-party provider.
+
+   - Physical fiber connection (cross-connect) in the FastConnect data center  
+      - The third-party provider sets up this cross-connect in the FastConnect location on your behalf.
+
+- Role of the Letter of Authorization (LOA)
+  
+In this model, Oracle provides you with a Letter of Authorization (LOA) . You must provide this LOA to the third-party provider. The third-party provider then uses it to provision the circuit for you.
+
+
 **Co-location with Oracle**
 
 ### C. BGP 
