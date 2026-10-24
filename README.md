@@ -446,6 +446,25 @@ An NSG is a virtual firewall in which you define ingress and egress security rul
 
 Ingress rules control traffic flowing into the instance and require a source type (CIDR block, service, or NSG), the corresponding source value, an IP protocol (such as RDP, SSH, or ICMP), and optional source and destination port ranges—the destination port range being automatically populated based on the chosen protocol. 
 
+Assume we have an instance with a virtual NIC (VNIC). This is where we associate the network security group.
+
+An *ingress rule means ingress to the instance—the direction of the arrow points toward the instance.
+
+What You Define in an Ingress Rule
+
+Since traffic is coming from outside, you must decide which traffic is allowed inside the instance. To do this, you define:
+
+- Source type — where the traffic is coming from. There are three types of source supported in an NSG ingress rule:
+  1. CIDR block
+  2. Service (for example, the object storage service)
+  3. NSG
+- Depending on the source type, you provide the source CIDR, source service, or source NSG
+- IP protocol — different protocols are supported, for example RDP, SSH, ICMP
+- Source port range — optional
+- Destination port range — optional; it gets automatically populated depending on the IP protocol you select
+
+---
+
 **Egress Rules**
 
 Egress rules mirror this structure with a destination type (again CIDR, service, or NSG) and the corresponding destination, plus the optional port ranges. 
