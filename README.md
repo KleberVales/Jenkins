@@ -1,5 +1,15 @@
 # 1. CIDR Blocks/Prefixes 
 
+## What is CIDR?
+## CIDR Notation
+## Octets and IPv4 Bits
+## How Many IP Addresses Are in a CIDR Block?
+## Reserved IP Addresses
+
+# 2. Virtual Cloud Network
+
+## What is a VCN?
+## Availability Domains
 
 
 ---
