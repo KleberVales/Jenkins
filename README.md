@@ -56,6 +56,56 @@ So having secondary private IPs on a VNIC is what unlocks the ability to attach 
 
 ## Public IP Address
 
+**1. What a Public IP Address Is**
+
+A public IP address is an IP address that is reachable from the internet. Critically, in OCI it is always assigned to a private IP object on a resource — it does not exist independently. The private IP lives on the VNIC, and the public IP is attached to it.
+
+Some OCI resources are designed to be directly reachable from the internet — for example the NAT gateway, which comes with a public IP address.
+
+---
+
+**2. Conditions for Internet Reachability**
+
+Having a public IP is not sufficient on its own. For the public IP to actually be reachable over the internet, all of the following must be in place:
+
+1. Internet Gateway created in the VCN.
+2. Route table on the public subnet correctly configured — there must be a route out to the internet through the internet gateway.
+3. Security lists correctly configured to permit the traffic.
+
+So reachability = public IP + internet gateway + correct route table + correct security rules.
+
+---
+
+**3. How Many Public IPs a Resource Can Have**
+
+A resource can have multiple public IP addresses, because:
+
+- An instance can have multiple VNICs (primary + secondary).
+- Each VNIC has 1 primary private IP + up to 32 secondary private IPs (33 total).
+- Each of those private IPs can have a public IP assigned.
+
+So public IP capacity scales with VNICs and their private IPs.
+
+---
+
+**4. The Two Types of Public IP Addresses**
+
+- Ephemeral Public IP
+   - Temporary — "ephemeral" means not permanent.
+   - Exists for the lifetime of the instance.
+   - If you terminate the instance, the IP goes away.
+   - Can only be assigned to a VNIC's primary private IP.
+
+- Reserved Public IP
+   - Persistent — exists beyond the lifetime of the instance.
+   - If the instance is terminated, the reserved IP still exists and can be reassigned to another resource.
+   - Can be assigned to either a primary or a secondary private IP.
+   - Never automatically deleted — it exists until you explicitly delete it.
+   - When unassigned, it returns to the tenancy's pool of reserved public IPs.
+   - Regional scope — can be assigned to a private IP in any availability domain in the region.
+   - Creation is one at a time, and there is a limit of 50 reserved public IPs per region.
+   - When moved (e.g., a private IP moving from VNIC 1 to VNIC 2), the reserved IP moves with the private IP.
+   
 ## Private IP address
 
 ## Reserved Public IP
