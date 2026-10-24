@@ -284,10 +284,10 @@ A route table has **two columns**:
 
 ### Example: Routing Traffic to the Internet
 
-Imagine a VCN containing Subnet A, with an instance that wants to talk to the internet. Between the VCN and the internet sits an **internet gateway**.
+Imagine a VCN containing Subnet A, with an instance that wants to talk to the internet. Between the VCN and the internet sits an internet gateway.
 
-- **Destination CIDR block:** The destination is the internet, so we specify the internet's CIDR range: `0.0.0.0/0`
-- **Target (next hop):** We want to send the traffic to the **internet gateway**, so we specify the internet gateway as the target
+- Destination CIDR block: The destination is the internet, so we specify the internet's CIDR range: `0.0.0.0/0`
+- Target (next hop): We want to send the traffic to the internet gateway, so we specify the internet gateway as the target
 
 This is just one example to show how a route table looks.
 
@@ -297,14 +297,14 @@ This is just one example to show how a route table looks.
 
 This is a key learning objective:
 
-- **One subnet can be associated with only one route table.**
-- **The same route table can be associated with multiple subnets.**
+- One subnet can be associated with only one route table.
+- The same route table can be associated with multiple subnets.
 
 For example, the default route table can be associated with three subnets if there are three subnets.
 
-Now consider two route tables—a default route table and a custom route table—and two subnets, Subnet A and Subnet B. **It cannot be the case where one subnet is associated with both route tables.** That configuration is not possible.
+Now consider two route tables—a default route table and a custom route table—and two subnets, Subnet A and Subnet B. It cannot be the case where one subnet is associated with both route tables. That configuration is not possible.
 
-**What is possible:** One subnet is associated with only one route table. But the reverse is possible—**each route table can be associated with multiple subnets**. That is exactly the case with the default route table.
+What is possible: One subnet is associated with only one route table. But the reverse is possible—each route table can be associated with multiple subnets. That is exactly the case with the default route table.
 
 ---
 
@@ -312,15 +312,15 @@ Now consider two route tables—a default route table and a custom route table�
 
 ## Internet Gateway
 
-An internet gateway is the gateway you add to a VCN to enable direct connectivity to the internet, and it supports both **ingress** traffic (internet → VCN) and **egress** traffic (VCN → internet)—making it a **bidirectional** communication path where even internet instances can reach instances within the VCN. 
+An internet gateway is the gateway you add to a VCN to enable direct connectivity to the internet, and it supports both ingress traffic (internet → VCN) and egress traffic (VCN → internet)—making it a bidirectional communication path where even internet instances can reach instances within the VCN. 
 
-To use it, three conditions must be met: the instance must be in a **public subnet**, the instance must have a **public IP**, and the subnet's **route table must contain a valid entry pointing to the internet gateway** (destination `0.0.0.0/0`, target: internet gateway). 
+To use it, three conditions must be met: the instance must be in a public subnet, the instance must have a public IP, and the subnet's route table must contain a valid entry pointing to the internet gateway (destination `0.0.0.0/0`, target: internet gateway). 
 
-Only **one internet gateway is needed per VCN**—in fact, you cannot create multiple—and as a managed service, OCI handles its scaling, high availability, and fault tolerance. 
+Only one internet gateway is needed per VCN—in fact, you cannot create multiple—and as a managed service, OCI handles its scaling, high availability, and fault tolerance. 
 
-Remember that routing alone isn't enough: you must also ensure the appropriate **ports are opened** via security lists or network security groups, which are covered in dedicated upcoming lessons.
+Remember that routing alone isn't enough: you must also ensure the appropriate ports are opened via security lists or network security groups, which are covered in dedicated upcoming lessons.
 
-### Conditions for Using the Internet Gateway
+**Conditions for Using the Internet Gateway**
 
 To use the gateway, some conditions must be met. Who can send traffic to the internet? For that to occur:
 
@@ -328,7 +328,7 @@ To use the gateway, some conditions must be met. Who can send traffic to the int
 2. The instance must have a public IP.
 3. The subnet in which the instance resides must have a valid route table entry pointing to the internet gateway.
 
-### One Gateway per VCN
+**One Gateway per VCN**
 
 For a VCN, you just need one internet gateway—only one internet gateway is needed for each VCN. It's a managed service: you don't need to worry about scaling, high availability, or fault tolerance. Oracle Cloud Infrastructure takes care of these things.
 
@@ -350,7 +350,7 @@ This is why the architecture places database servers in the private subnet: they
 
 ---
 
-### NAT Is Unidirectional
+**NAT Is Unidirectional**
 
 There are two or three important things to know:
 
@@ -365,7 +365,7 @@ So: they can initiate connections to the internet and receive responses, but inb
 
 The Oracle Services Network is reserved for Oracle services. Typically, we reach those services over the internet because these services have public IP addresses. But is this the best practice? No. The best practice is to access those services privately without exposing the data—and that is where the service gateway comes into action.
 
-### Key Characteristics
+**Key Characteristics**
 
 Using the service gateway, you can access Oracle services privately, wherein:
 
