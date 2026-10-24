@@ -11,6 +11,8 @@
 
 ## Reserved Public IP
 
+## Public IP Pools
+
 # 2. BYOIP
 
-# 3. Public IP Pools
+
