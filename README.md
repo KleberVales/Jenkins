@@ -141,6 +141,18 @@ For IPv6, you can use an Oracle-allocated `/56` prefix or bring your own IPv6 pr
 
 ## Availability Domains
 
+An OCI region can have:
+
+- One availability domain, or
+- Three availability domains
+
+A VCN is regional, so it resides in a single region. However, if the region has multiple availability domains, the VCN can span across them. This allows resources in different ADs to be part of the same VCN.
+
+Remember:
+
+- **VCN can span multiple ADs within one region.**
+- **VCN cannot span multiple regions.**
+
 # 3. Subnets
 
 # 4. Route Tables
