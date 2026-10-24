@@ -1,3 +1,17 @@
+# 1. CIDR Blocks/Prefixes 
+
+
+
+---
+
+.\
+.\
+.\
+.\
+.
+
+---
+
 # 1. CIDR Blocks/Prefixes
 
 ## What is CIDR?
@@ -92,6 +106,8 @@ These three IPs cannot be allocated to hosts.
 
 # 2. Virtual Cloud Network
 
+## What is a VCN?
+
 A Virtual Cloud Network,  is a software-defined private network that you create inside an Oracle Cloud Infrastructure region. 
 
 VCN acts like a private, isolated network for your cloud resources. 
@@ -109,8 +125,10 @@ For IPv6, you can use an Oracle-allocated `/56` prefix or bring your own IPv6 pr
 ## Availability Domains
 
 # 3. Subnets
-# 4. Route Tables
-# 5. Gateway
-# 6. Security
 
+# 4. Route Tables
+
+# 5. Gateway
+
+# 6. Security
 
