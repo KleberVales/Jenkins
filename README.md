@@ -223,6 +223,83 @@ When you create a subnet, you typically specify information such as:
 
 # 4. Route Tables
 
+A route table determines how traffic flows inside the VCN and how it flows outward when originating from the VCN, effectively defining the path to a destination. 
+
+There are two types of route tables: the default route table, which is automatically created with every VCN, and custom route tables, which you create yourself. 
+
+Both types contain an implicit local route—invisible in the console, making the default route table appear empty when it isn't—that enables subnets and their instances to communicate with each other without any additional rules. 
+
+Custom route tables are useful because public and private subnets typically cannot share a single route table when you need to influence their routing differently. 
+
+A route table consists of two columns: the destination CIDR block (such as `0.0.0.0/0` for the internet) and the target or next hop (such as an internet gateway). 
+
+Beyond internet gateways, allowed targets include service gateways, NAT gateways, dynamic routing gateways, local peering gateways, and private IPs.
+
+## What Does a Route Table Do?
+
+A route table is going to determine:
+
+- **How traffic flows inside the VCN**
+- **How traffic flows when it originates from the VCN** and heads outward
+- **The path for a destination**—in a way, the route table defines the path traffic takes
+
+---
+
+## Two Types of Route Tables
+
+### Default Route Table
+
+The **default route table** is **automatically created**. Whenever you create a VCN, a default route table is created for you.
+
+**The Implicit Local Rule:**
+The default route table has a rule that is **implicit**. Consider a VCN with three subnets—Subnet A, Subnet B, and Subnet C. When you create the VCN, you get the default route table, and all these subnets are associated with it. This means **they can communicate with each other**, and there is **no requirement to add any rule** to establish communication between subnets inside the VCN.
+
+**Why is this so?** Because the default route table contains a **local route**—which is why it's called implicit. If you go to the route table, you will not be able to see this local route. It will feel like the default route table is empty—**but it is not empty**. It has a local route that facilitates communication between the subnets (and the instances within them). That is the significance of the local route and the default route table.
+
+### Custom Route Table
+
+The second type is the **custom route table**—one that you create yourself. When creating it, you give it a name and click Create.
+
+**Key point:** Whether it is a default route table or a custom route table, it is **going to have the local route**.
+
+**Why create a custom route table?** Because your VCN can have two types of subnets—**public and private**. To influence the routing of each of these subnets differently, they typically cannot be associated with a single route table. Hence, we create custom route tables and associate them with, for example, our public subnet.
+
+---
+
+## Anatomy of a Route Table
+
+A route table has **two columns**:
+
+| Destination CIDR Block | Target (Next Hop) |
+|---|---|
+| The CIDR range of the destination | Where to send the traffic |
+
+### Example: Routing Traffic to the Internet
+
+Imagine a VCN containing Subnet A, with an instance that wants to talk to the internet. Between the VCN and the internet sits an **internet gateway**.
+
+- **Destination CIDR block:** The destination is the internet, so we specify the internet's CIDR range: `0.0.0.0/0`
+- **Target (next hop):** We want to send the traffic to the **internet gateway**, so we specify the internet gateway as the target
+
+This is just one example to show how a route table looks.
+
+---
+
+## Key Rule: One-to-Many Association
+
+This is a key learning objective:
+
+- **One subnet can be associated with only one route table.**
+- **The same route table can be associated with multiple subnets.**
+
+For example, the default route table can be associated with three subnets if there are three subnets.
+
+Now consider two route tables—a default route table and a custom route table—and two subnets, Subnet A and Subnet B. **It cannot be the case where one subnet is associated with both route tables.** That configuration is not possible.
+
+**What is possible:** One subnet is associated with only one route table. But the reverse is possible—**each route table can be associated with multiple subnets**. That is exactly the case with the default route table.
+
+---
+
 # 5. Gateway
 
 # 6. Security
