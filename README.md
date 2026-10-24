@@ -467,7 +467,18 @@ Since traffic is coming from outside, you must decide which traffic is allowed i
 
 **Egress Rules**
 
-Egress rules mirror this structure with a destination type (again CIDR, service, or NSG) and the corresponding destination, plus the optional port ranges. 
+An egress rule controls traffic flowing out of an instance.,
+
+Because traffic is leaving the instance, you must specify where it is going:
+
+| Field | Description |
+|---|---|
+| Destination Type | CIDR block, Service (e.g., Object Storage), or NSG |
+| Destination | The actual value based on the destination type (destination CIDR, service, or NSG) |
+| IP Protocol | E.g., TCP, RDP, SSH, ICMP |
+| Source Port Range | Optional |
+| Destination Port Range | Optional |
+
 
 **NSG**
 
