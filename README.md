@@ -7,3 +7,10 @@
 
 ## Public IP Address
 
+## Private IP address
+
+## Reserved Public IP
+
+# 2. BYOIP
+
+
