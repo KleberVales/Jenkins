@@ -495,9 +495,29 @@ That is the fundamental difference between stateful and stateless rules.
 
 ## Security Lists
 
+Like an NSG, a Security List is a common set of firewall rules—a collection of ingress and egress rules—but the key difference is that a Security List is associated with a subnet, whereas an NSG is associated with a VNIC.
 
+This makes Security Lists the best choice when you want the same rules applied to all instances in a subnet, since the list is applied to every instance inside it (though ultimately enforced at the VNIC level).
 
+In the architecture example, one Security List with an egress rule and an ingress rule (both stateful) was associated with all three subnets (A, B, and C).
 
+You can use Security Lists alone, NSGs alone, or both together—and when multiple Security Lists and NSGs apply to the same VNIC, the result is the union of all rules, with the guiding principle that a packet is allowed if there is an Allow rule in either the Security List or the NSG (any construct).
 
+A key difference from NSGs is the source type: Security Lists support CIDR and service, but not Security List as a source type, whereas NSG ingress rules can use CIDR, service, or the NSG itself.
 
+**Combining Security Lists and NSGs**
+
+When configuring security for the VCN, you can:
+
+- Use Security Lists alone
+- Use Network Security Groups alone
+- Use both Security Lists and Network Security Groups
+
+**Multiple Security Lists and NSGs?**
+
+In the example, a subnet inside a VCN is associated with two Security Lists (Security List 1 and Security List 2), and the virtual NIC is also associated with NSG-A and NSG-B.
+
+What happens if you apply multiple Security Lists or multiple NSGs to the same VNIC? Ultimately, the result is the union.
+
+When both Security Lists and NSGs are applied, it is the union of all the security rules defined in the Security Lists associated with the subnet, plus all the ingress and egress rules configured in the NSGs associated with the VNIC.
 
