@@ -393,9 +393,9 @@ Every new VCN also comes with a default route table and a default security list.
 
 ---
 
-**Complementary ways to control security**
+**Security strategies**
 
-Strategies for Securing a VCN
+OCI offers several complementary ways to control security for a VCN:
 
 1. Public and private subnets: A subnet can be designated as private so its resources are not directly reachable from the internet.
 2. Security rules: Two constructs control traffic in a VCN: security lists and network security groups (NSGs).
@@ -404,22 +404,15 @@ Strategies for Securing a VCN
 5. Route tables and gateways: Route tables and different gateway types shape how traffic flows in and out of the network.
 6. Security zones: These ensure networking resources comply with Oracle's security principles and best practices.
 
+**Security rules**
+
 **Security Zones**
 
 - A security zone is always associated with a compartment.
 - It does not permit public IP addresses.
 - As a result, it allows only private subnets.
 
-**The Housing Society Analogy**
-
-The two security constructs are easiest to understand through an analogy.
-
-Imagine a housing society with several row houses (House A, B, C, D). The society has a main gate with a main guard, and each house has its own dedicated guard.
-
-For a visitor to reach House A:
-
-1. The visitor must first be allowed through the main gate by the main guard.
-2. The visitor must then be allowed in by House A's own guard.
+**Instance-level firewall rules**
 
 ## Network Security Groups
 
