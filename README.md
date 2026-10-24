@@ -346,7 +346,7 @@ This is why the architecture places database servers in the private subnet: they
 
 ---
 
-## NAT Is Unidirectional
+### NAT Is Unidirectional
 
 There are two or three important things to know:
 
