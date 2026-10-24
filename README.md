@@ -417,6 +417,8 @@ Note: when you create a VCN, a default security list is created automatically, b
 
 **Security Zones**
 
+This is an association between a compartment and a "recipe." Once a compartment is added to a Security Zone, OCI will verify all resource creation and modification operations within it against the policies in the recipe. A compartment can only belong to one Security Zone, and its subcompartments are included by default (though subcompartments can be individually excluded or assigned a different zone).
+
 - A security zone is always associated with a compartment.
 - It does not permit public IP addresses.
 - As a result, it allows only private subnets.
