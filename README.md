@@ -66,6 +66,30 @@ For example, a larger network can be split into multiple smaller subnets to orga
 
 We will explore subnetting in more detail in upcoming sections.
 
+### Reserved IP Addresses
+
+Within any CIDR block, some IP addresses are reserved and cannot be assigned to hosts. The reserved addresses are:
+
+1. The **first IP address** — network address
+2. The **second IP address** — subnet default gateway address
+3. The **last IP address** — broadcast address
+
+#### Example: 192.168.0.0/24
+
+Consider the CIDR block:
+
+**192.168.0.0/24**
+
+The reserved IP addresses are:
+
+| Address | Purpose |
+|---|---|
+| 192.168.0.0 | Network address |
+| 192.168.0.1 | Subnet default gateway |
+| 192.168.0.255 | Broadcast address |
+
+These three IPs cannot be allocated to hosts.
+
 # 2. Virtual Cloud Network
 
 A Virtual Cloud Network,  is a software-defined private network that you create inside an Oracle Cloud Infrastructure region. 
@@ -81,4 +105,7 @@ Inside any CIDR, the first IP is the network address, the second IP is the subne
 A VCN is regional, meaning it resides in one region, but it can span multiple availability domains within that region—it cannot span multiple regions. 
 
 For IPv6, you can use an Oracle-allocated `/56` prefix or bring your own IPv6 prefix. Understanding VCNs is essential for designing secure and scalable OCI network architectures.
+
+## Availability Domains
+
 
