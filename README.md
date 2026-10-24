@@ -201,6 +201,24 @@ A **regional subnet** can span **all three Availability Domains** in a region. T
 
 ---
 
+## Subnet-Level Configuration
+
+When you create a subnet, you typically specify information such as:
+
+- Which **route table** should be associated with the subnet
+- What **security list** should be associated with the subnet
+- What **DHCP options** are associated with the subnet
+
+---
+
+## Public Subnet
+
+<p align="justify"> A **Public Subnet** is a subnet within a VCN that allows instances deployed inside it to be assigned **public IP addresses**  and **private IP addresses** on their Virtual Network Interface Cards (VNICs). When combined with a route table entry pointing to an Internet Gateway and appropriate security rules, a public subnet enables instances to communicate directly with the internet.</p>
+
+## Private Subnet
+
+---
+
 # 4. Route Tables
 
 # 5. Gateway
