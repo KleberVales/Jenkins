@@ -21,6 +21,11 @@
 
 # 4. Route Tables
 
+## What Does a Route Table Do?
+## Two Types of Route Tables
+## Anatomy of a Route Table
+## Key Rule: One-to-Many Association
+
 # 5. Gateway
 
 # 6. Security
