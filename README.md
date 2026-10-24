@@ -66,3 +66,19 @@ For example, a larger network can be split into multiple smaller subnets to orga
 
 We will explore subnetting in more detail in upcoming sections.
 
+# 2. Virtual Cloud Network
+
+A Virtual Cloud Network,  is a software-defined private network that you create inside an Oracle Cloud Infrastructure region. 
+
+VCN acts like a private, isolated network for your cloud resources. 
+
+When you create a VCN, you must attach at least one CIDR block, and you can have up to five IPv4 CIDR blocks and up to five IPv6 CIDR blocks, as long as they do not overlap. 
+
+VCN CIDR sizes can range from `/16` to `/30`, and CIDR blocks can be resized after creation. 
+
+Inside any CIDR, the first IP is the network address, the second IP is the subnet default gateway, and the last IP is the broadcast address; these are reserved and cannot be assigned to hosts. 
+
+A VCN is regional, meaning it resides in one region, but it can span multiple availability domains within that region—it cannot span multiple regions. 
+
+For IPv6, you can use an Oracle-allocated `/56` prefix or bring your own IPv6 prefix. Understanding VCNs is essential for designing secure and scalable OCI network architectures.
+
