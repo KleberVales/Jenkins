@@ -425,6 +425,17 @@ This is an association between a compartment and a "recipe." Once a compartment 
 
 **Instance-level firewall rules**
 
+Instance-level firewall rules refer to firewall rules configured directly on the operating system of a compute instance (such as Linux's iptables/firewalld or Windows Firewall). They are host-level and are completely separate from OCI's cloud network-level security mechanisms (Security Lists, NSGs).
+
+Core Positioning: The "Last Line of Defense"
+
+Traffic from the external network to reach your application must pass through multiple checkpoints. Instance-level firewalls are the final checkpoint on the instance itself, operating after cloud network security rules (Security Lists/NSGs).
+
+- Security Lists / NSGs: Operate at the cloud network level, controlling whether traffic can enter the instance's VNIC.
+- Instance firewall: Operates at the operating system level, controlling whether traffic that has already entered the instance can be received by applications within the system.
+
+Even if you have allowed port 80 in the cloud console, if the instance's internal firewall does not allow it, the external request will still be rejected.
+
 ## Network Security Groups
 
 An NSG is a virtual firewall in which you define ingress and egress security rules, and it is associated with the VNIC of a compute instance—though NSGs also support other resources such as load balancers, mount targets, and API gateways. 
