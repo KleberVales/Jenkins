@@ -359,17 +359,17 @@ So: they can initiate connections to the internet and receive responses, but inb
 
 ## Service Gateway
 
-The Oracle Services Network is reserved for Oracle services that have public IP addresses, which are typically reached over the internet—but that is not the best practice, because it exposes data. 
+The Oracle Services Network is reserved for Oracle services. Typically, we reach those services over the internet because these services have public IP addresses. But is this the best practice? No. The best practice is to access those services privately without exposing the data—and that is where the service gateway comes into action.
 
-The service gateway enables cloud resources with only private IPs to privately access Oracle services, with traffic traveling over the Oracle network fabric and never traversing the internet—providing a secure and private path. 
+### Key Characteristics
 
-Hosts in the VCN need no public IPs, and neither an internet gateway nor a NAT gateway is required—the service gateway alone suffices. 
+Using the service gateway, you can access Oracle services privately, wherein:
 
-A key concept is the services CIDR label, a string representing all regional public IP address ranges; using it instead of manually entered ranges means you don't have to adjust routing, security rules, or route tables if the service's public IPs change (for example, `OCI PHX Object Storage`). 
+- The traffic travels over the Oracle network fabric
+- It never traverses the internet
+- It provides a secure and private path for your network traffic
 
-In the architecture example, a private subnet's route table sends internet-bound traffic to the NAT gateway and object-storage-bound traffic to the service gateway, with the services CIDR label used as the destination. 
-
-The service gateway is a regional service, enabling access to supported Oracle services in the same region.
+The best part: hosts in the VCN don't need public IP addresses. They can have only private IP addresses and still access Oracle services in the Oracle Services Network. What this means is: you don't need an internet gateway, and you don't need a NAT gateway. Just by using a service gateway, you can access those services privately.
 
 ---
 
