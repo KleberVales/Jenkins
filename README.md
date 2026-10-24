@@ -479,10 +479,19 @@ Because traffic is leaving the instance, you must specify where it is going:
 | Source Port Range | Optional |
 | Destination Port Range | Optional |
 
-
-**NSG**
-
 **Stateful vs. Stateless Rules**
+
+While creating ingress or egress rules, you have an option to specify the rule type: stateful or stateless.
+
+- Stateful Rules
+Responses are automatically tracked and allowed—fundamentally, you are using connection tracking.
+
+Example: Consider an instance and the internet. You define an ingress rule for destination port 80, with source `0.0.0.0/0`. The response traffic is automatically allowed if the rule is stateful—responses are automatically tracked and allowed.
+
+- Stateless Rules
+You need to define egress rules if you want the response to be allowed.
+
+That is the fundamental difference between stateful and stateless rules.
 
 **Security by Tier**
 
