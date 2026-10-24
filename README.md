@@ -108,4 +108,9 @@ For IPv6, you can use an Oracle-allocated `/56` prefix or bring your own IPv6 pr
 
 ## Availability Domains
 
+# 4. Subnets
+# 5. Route Tables
+# 6. Gateway
+# 11. Security
+
 
