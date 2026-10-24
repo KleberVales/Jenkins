@@ -28,6 +28,10 @@
 
 # 5. Gateway
 
+## Internet Gateway
+## NAT Gateway
+## Service Gateway
+
 # 6. Security
 
 ---
