@@ -89,13 +89,6 @@ Another example: a `/24` block has:
 
 **2^(32 − 24) = 2^8 = 256 addresses**
 
-## Subnetting
-
-Subnetting is the process of breaking a larger network into smaller networks. Using subnetting, a larger CIDR prefix can be divided into smaller CIDR prefixes.
-
-For example, a larger network can be split into multiple smaller subnets to organize devices, improve routing, or separate departments.
-
-We will explore subnetting in more detail in upcoming sections.
 
 ### Reserved IP Addresses
 
