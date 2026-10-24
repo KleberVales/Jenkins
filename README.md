@@ -377,6 +377,20 @@ The best part: hosts in the VCN don't need public IP addresses. They can have on
 
 ---
 
-
 # 6. Security
+
+## VCN Security
+
+VCN security in OCI relies on layering several strategies: private subnets, IAM policies, instance firewalls, route tables and gateways, security zones, and two virtual firewall constructs, security lists and network security groups. 
+
+Security zones are tied to a compartment and prohibit public IP addresses, permitting only private subnets. 
+
+The housing society analogy clarifies the two firewall constructs: a security list works like the main gate guard, protecting an entire subnet, while an NSG works like the guard at each house, protecting individual instances through their VNICs.
+
+ You can use either construct alone or both together, with limits of up to five security lists per subnet and five NSGs per VNIC. 
+
+Every new VCN also comes with a default route table and a default security list. 
+
+Later lessons will cover security lists and NSGs in more depth.
+
 
