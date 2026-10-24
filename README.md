@@ -11,6 +11,13 @@
 ## What is a VCN?
 ## Availability Domains
 
+# 3. Subnets
+
+# 4. Route Tables
+
+# 5. Gateway
+
+# 6. Security
 
 ---
 
