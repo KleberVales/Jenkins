@@ -213,9 +213,11 @@ When you create a subnet, you typically specify information such as:
 
 ## Public Subnet
 
-<p align="justify"> A **Public Subnet** is a subnet within a VCN that allows instances deployed inside it to be assigned **public IP addresses**  and **private IP addresses** on their Virtual Network Interface Cards (VNICs). When combined with a route table entry pointing to an Internet Gateway and appropriate security rules, a public subnet enables instances to communicate directly with the internet.</p>
+<p align="justify"> A Public Subnet is a subnet within a VCN that allows instances deployed inside it to be assigned public IP addresses  and private IP addresses on their Virtual Network Interface Cards (VNICs). When combined with a route table entry pointing to an Internet Gateway and appropriate security rules, a public subnet enables instances to communicate directly with the internet.</p>
 
 ## Private Subnet
+
+<p align="justify">A Private Subnet is a subnet within a VCN that prohibits public IP addresses for instances deployed inside it. Instances in a private subnet can only have private IP addresses. To enable outbound internet access, a NAT Gateway is used. To communicate with an on-premises environment, a Dynamic Routing Gateway (DRG) is used.</p>
 
 ---
 
