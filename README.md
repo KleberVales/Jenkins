@@ -34,6 +34,10 @@
 
 # 6. Security
 
+## Internet Gateway
+## NAT Gateway
+## Service Gateway
+
 ---
 
 .\
