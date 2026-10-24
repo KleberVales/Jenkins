@@ -406,6 +406,15 @@ OCI offers several complementary ways to control security for a VCN:
 
 **Security rules**
 
+A Network Security Group (NSG) is a virtual firewall consisting of two components:
+
+- A set of VNICs — the resources (compute instances, load balancers, mount targets, API Gateways, etc.) to which the NSG is associated.
+- A set of security rules — the ingress and egress rules that control traffic.
+
+You define the rules first, then associate the NSG with the VNICs you want those rules applied to. 
+
+Note: when you create a VCN, a default security list is created automatically, but no default NSG is created — you must create the NSG and define its rules yourself.
+
 **Security Zones**
 
 - A security zone is always associated with a compartment.
