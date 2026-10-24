@@ -493,10 +493,6 @@ You need to define egress rules if you want the response to be allowed.
 
 That is the fundamental difference between stateful and stateless rules.
 
-**Security by Tier**
-
-**Architecture**
-
 ## Security Lists
 
 
