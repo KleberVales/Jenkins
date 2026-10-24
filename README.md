@@ -398,11 +398,11 @@ Every new VCN also comes with a default route table and a default security list.
 OCI offers several complementary ways to control security for a VCN:
 
 1. Public and private subnets: A subnet can be designated as private so its resources are not directly reachable from the internet.
-2. Security rules: Two constructs control traffic in a VCN: security lists and network security groups (NSGs).
-3. Instance-level firewall rules: Firewall rules can be configured directly on the instance.
-4. IAM policies: Identity and Access Management policies control who can create or configure the VCN, subnets, security lists, and NSGs.
-5. Route tables and gateways: Route tables and different gateway types shape how traffic flows in and out of the network.
-6. Security zones: These ensure networking resources comply with Oracle's security principles and best practices.
+2. IAM policies: Identity and Access Management policies control who can create or configure the VCN, subnets, security lists, and NSGs.
+3. Route tables and gateways: Route tables and different gateway types shape how traffic flows in and out of the network.
+4. Security zones: These ensure networking resources comply with Oracle's security principles and best practices.
+5. Security rules: Two constructs control traffic in a VCN: security lists and network security groups (NSGs).
+6. Instance-level firewall rules: Firewall rules can be configured directly on the instance.
 
 **Security rules**
 
