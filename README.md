@@ -418,10 +418,6 @@ OCI offers several complementary ways to control security for a VCN:
 
 An NSG is a virtual firewall in which you define ingress and egress security rules, and it is associated with the VNIC of a compute instance—though NSGs also support other resources such as load balancers, mount targets, and API gateways. 
 
-**Ingress rules** control traffic flowing into the instance and require a source type (CIDR block, service, or NSG), the corresponding source value, an IP protocol (such as RDP, SSH, or ICMP), and optional source and destination port ranges—the destination port range being automatically populated based on the chosen protocol. 
-
-**Egress rules** mirror this structure with a destination type (again CIDR, service, or NSG) and the corresponding destination, plus the optional port ranges. 
-
 After configuring rules, you associate the NSG with the desired VNICs. 
 
 Rules can be stateful—where responses are automatically tracked and allowed via connection tracking, so a response to an allowed port-80 request needs no separate rule—or stateless, where you must explicitly define egress rules for responses to be allowed. 
@@ -432,7 +428,11 @@ A key use case is organizing security by tier: give all instances in a tier the 
 
 **Ingress Rules**
 
+Ingress rules control traffic flowing into the instance and require a source type (CIDR block, service, or NSG), the corresponding source value, an IP protocol (such as RDP, SSH, or ICMP), and optional source and destination port ranges—the destination port range being automatically populated based on the chosen protocol. 
+
 **Egress Rules**
+
+Egress rules mirror this structure with a destination type (again CIDR, service, or NSG) and the corresponding destination, plus the optional port ranges. 
 
 **NSG**
 
