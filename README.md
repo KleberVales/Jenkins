@@ -437,6 +437,18 @@ A key use case is organizing security by tier: give all instances in a tier the 
 
 ---
 
+**Ingress Rules**
+
+**Egress Rules**
+
+**NSG**
+
+**Stateful vs. Stateless Rules**
+
+**Security by Tier**
+
+**Architecture**
+
 
 
 
