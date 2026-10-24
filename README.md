@@ -155,6 +155,52 @@ Remember:
 
 # 3. Subnets
 
+A VCN can be divided into subnets, each represented in CIDR notation, and that a larger CIDR number means a smaller network. 
+
+Subnet IP address ranges within a VCN must not overlap—if one CIDR is part of another, they overlap and cannot both be used. 
+
+Subnet CIDRs can be changed even after creation. 
+
+Subnets come in two types: AD-specific subnets, which reside in a single Availability Domain, and regional subnets, which can span all Availability Domains in a multi-AD region and are the recommended best practice. 
+
+When creating a subnet, you specify its route table, security list, and DHCP options, and all instances in that subnet inherit this configuration. 
+
+Subnets can be public (VMs get both public and private IPs) or private (VMs get only private IPs), and this choice must be made at creation time since it cannot be changed later—databases typically belong in private subnets, while web servers typically belong in public subnets.
+
+## Dividing a VCN into Subnets
+
+The first thing to understand is that a VCN can be divided into subnets. For example, if you have a VCN with the CIDR block `10.0.0.0/16`, you can divide it into multiple subnets. In our example, we create two subnets:
+
+- **Subnet A:** `10.0.1.0/24`
+- **Subnet B:** `10.0.2.0/24`
+
+Like the VCN itself, each subnet is represented in CIDR notation.
+
+**Key Rule: Larger Number = Smaller Network**
+
+Out of `/16` and `/24`, the `/16` is the bigger network, and the `/24` is the smaller network compared to `/16`. Keep this relationship in mind: **the larger the number after the slash, the smaller the network.**
+
+---
+
+## Types of Subnets: AD-Specific vs. Regional
+
+A VCN always resides in a region. Some OCI regions have multiple Availability Domains (ADs)—for example, AD 1, AD 2, and AD 3—and a VCN can span multiple Availability Domains.
+
+Subnets come in two types:
+
+### AD-Specific Subnet
+A subnet created in a **specific Availability Domain**. For example:
+- Subnet A created inside Availability Domain 1
+- Subnet B created inside Availability Domain 2
+- Subnet C created inside Availability Domain 3
+
+### Regional Subnet (Recommended)
+A **regional subnet** can span **all three Availability Domains** in a region. This is typically the choice when creating a subnet and is considered the **best practice / recommended option**.
+
+**Important caveat:** This multi-AD spanning only applies in a **multi-AD region**. If your region has a single Availability Domain, AD-specific and regional subnets are one and the same.
+
+---
+
 # 4. Route Tables
 
 # 5. Gateway
