@@ -13,6 +13,12 @@
 
 # 3. Subnets
 
+## Dividing a VCN into Subnets
+## Types of Subnets: AD-Specific vs. Regional
+## Subnet-Level Configuration
+## Public Subnet
+## Private Subnet
+
 # 4. Route Tables
 
 # 5. Gateway
