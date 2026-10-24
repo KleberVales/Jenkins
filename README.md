@@ -320,13 +320,59 @@ Remember that routing alone isn't enough: you must also ensure the appropriate *
 
 To use the gateway, some conditions must be met. Who can send traffic to the internet? For that to occur:
 
-1. **The instance must be in a public subnet.**
-2. **The instance must have a public IP.**
-3. **The subnet in which the instance resides must have a valid route table entry pointing to the internet gateway.**
+1. The instance must be in a public subnet.
+2. The instance must have a public IP.
+3. The subnet in which the instance resides must have a valid route table entry pointing to the internet gateway.
 
 ### One Gateway per VCN
 
-For a VCN, **you just need one internet gateway**—only one internet gateway is needed for each VCN. It's a **managed service**: you don't need to worry about scaling, high availability, or fault tolerance. Oracle Cloud Infrastructure takes care of these things.
+For a VCN, you just need one internet gateway—only one internet gateway is needed for each VCN. It's a managed service: you don't need to worry about scaling, high availability, or fault tolerance. Oracle Cloud Infrastructure takes care of these things.
+
+## NAT Gateway
+
+NAT Gateway is designed to provide access to a private subnet that contains only private IP addresses.
+
+The NAT gateway is unidirectional: private instances can initiate outbound connections and receive responses, but inbound connections initiated from the internet are denied—unlike the bidirectional internet gateway. 
+
+Outbound traffic carries the NAT gateway's public IP as its source IP, and when you create a NAT gateway you can choose either an ephemeral or reserved public IP. 
+
+It supports TCP, UDP, and ICMP ping traffic, supports 20,000 concurrent connections, and as a managed, highly available solution it replaces the older NAT instance approach. 
+
+A notable feature is the ability to block all traffic through the gateway regardless of route or security rules. 
+
+For routing, the private subnet must be associated with a route table containing a route to the internet via the NAT gateway—and critically, a NAT gateway can only be used by resources in its own VCN, not by peered VCNs or connected on-premises networks. 
+
+This is why the architecture places database servers in the private subnet: they can reach out to the internet when needed, but nothing on the internet can initiate a connection back to them.
+
+---
+
+## NAT Is Unidirectional
+
+There are two or three important things to know:
+
+- Instances in the private subnet can initiate connections to the internet. Along with that, they can also receive responses—responses to the connections they have initiated. That is allowed.
+- Inbound connection requests are not allowed. If these instances receive inbound connections initiated from the internet, that is denied.
+
+So: they can initiate connections to the internet and receive responses, but inbound connections initiated from the internet are denied. Unlike the internet gateway, the NAT gateway is unidirectional in nature.
+
+---
+
+## Service Gateway
+
+The Oracle Services Network is reserved for Oracle services that have public IP addresses, which are typically reached over the internet—but that is not the best practice, because it exposes data. 
+
+The service gateway enables cloud resources with only private IPs to privately access Oracle services, with traffic traveling over the Oracle network fabric and never traversing the internet—providing a secure and private path. 
+
+Hosts in the VCN need no public IPs, and neither an internet gateway nor a NAT gateway is required—the service gateway alone suffices. 
+
+A key concept is the services CIDR label, a string representing all regional public IP address ranges; using it instead of manually entered ranges means you don't have to adjust routing, security rules, or route tables if the service's public IPs change (for example, `OCI PHX Object Storage`). 
+
+In the architecture example, a private subnet's route table sends internet-bound traffic to the NAT gateway and object-storage-bound traffic to the service gateway, with the services CIDR label used as the destination. 
+
+The service gateway is a regional service, enabling access to supported Oracle services in the same region.
+
+---
+
 
 # 6. Security
 
