@@ -306,5 +306,27 @@ Now consider two route tables—a default route table and a custom route table�
 
 # 5. Gateway
 
+## Internet Gateway
+
+An internet gateway is the gateway you add to a VCN to enable direct connectivity to the internet, and it supports both **ingress** traffic (internet → VCN) and **egress** traffic (VCN → internet)—making it a **bidirectional** communication path where even internet instances can reach instances within the VCN. 
+
+To use it, three conditions must be met: the instance must be in a **public subnet**, the instance must have a **public IP**, and the subnet's **route table must contain a valid entry pointing to the internet gateway** (destination `0.0.0.0/0`, target: internet gateway). 
+
+Only **one internet gateway is needed per VCN**—in fact, you cannot create multiple—and as a managed service, OCI handles its scaling, high availability, and fault tolerance. 
+
+Remember that routing alone isn't enough: you must also ensure the appropriate **ports are opened** via security lists or network security groups, which are covered in dedicated upcoming lessons.
+
+### Conditions for Using the Internet Gateway
+
+To use the gateway, some conditions must be met. Who can send traffic to the internet? For that to occur:
+
+1. **The instance must be in a public subnet.**
+2. **The instance must have a public IP.**
+3. **The subnet in which the instance resides must have a valid route table entry pointing to the internet gateway.**
+
+### One Gateway per VCN
+
+For a VCN, **you just need one internet gateway**—only one internet gateway is needed for each VCN. It's a **managed service**: you don't need to worry about scaling, high availability, or fault tolerance. Oracle Cloud Infrastructure takes care of these things.
+
 # 6. Security
 
