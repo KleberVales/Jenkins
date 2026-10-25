@@ -53,14 +53,14 @@ When creating a custom image from a running instance, the instance shuts down te
 
 For Windows custom images, you can choose between generalized images (cleaned of instance-specific data) and specialized images (point-in-time snapshots useful for backups).
 
-## What is an Instance Image?
+### What is an Instance Image?
 
 An Instance Image is a template for a virtual hard drive. It contains the operating system and any pre-installed software or custom configurations needed to launch a compute instance (virtual server) in the cloud .
 
-### 💡 How It Works
+- How It Works
 When you create a new instance in a service like Oracle Cloud Infrastructure (OCI), you must choose an image. This image acts as the "blueprint" for the instance's boot disk, determining what OS (like Oracle Linux or Windows) and software stack the new server will start with.
 
-### 🗂️ Types of Images
+### Types of Images
 
 OCI provides several sources for images. Let's look at each one:
 
