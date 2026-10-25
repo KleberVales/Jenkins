@@ -64,23 +64,46 @@ When you create a new instance in a service like Oracle Cloud Infrastructure (OC
 
 OCI provides several sources for images. Let's look at each one:
 
-1. Platform Images
-- Pre-built operating systems for Oracle Cloud Infrastructure
-- Provided directly by Oracle
+**1. Platform Images**
 
-2. Oracle Images
+Provided directly by Oracle
+
+Oracle provides several pre-built operating systems for OCI, including:
+
+- **Oracle Linux**
+- **Ubuntu**
+- **CentOS**
+- **Microsoft Windows**
+- **Oracle Autonomous Linux**
+  
+
+**2. Oracle Images**
 - Oracle Enterprise images and solutions enabled for OCI
 
-3. Custom Images
+**3. Custom Images**
 - Created from existing instances running in OCI
 - Capture your own configurations and software
 
-4. Partner Images
+**4. Partner Images**
 - Trusted third-party images published in the Marketplace by Oracle partners
 
-5. Bring Your Own Image (BYOI)
+**5. Bring Your Own Image (BYOI)**
 - Using the custom image feature, you can import custom images into the OCI environment
 - Allows you to bring your own versions of operating systems to the cloud
+
+- Requirement: The underlying hardware must support it
+- Limitation: The maximum image size that can be imported is 400 GB
+
+**Windows Custom Images**
+
+When creating a Windows custom image, there is support for two kinds of images:
+
+| Image Type | Description | Use Case |
+|------------|-------------|----------|
+| Generalized | Images that have been cleaned of instance-specific information | Standard deployments |
+| Specialized | Point-in-time snapshots of the boot disk of a running instance | Creating backups of an instance |
+
+---
 
 ---
 
