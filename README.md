@@ -90,7 +90,36 @@ This forms a load balancer pair, with the same behavior:
 
 # 3. Private Load Balancer
 
-Has a private IP address taken from the hosting subnet where it resides. It is only visible from within the Virtual Cloud Network (VCN).
+Because a private load balancer is created in a private subnet, it is assigned a private IP address that acts as the entry point for incoming traffic. 
+
+Unlike a public load balancer, which requires either a regional subnet or two AD-specific subnets, a private load balancer requires only one subnet to host both the primary and standby load balancers. 
+
+Being isolated from the internet, it is accessible only from within the VCN that contains the host subnet. 
+
+In terms of IP addressing, a private load balancer consumes three private IP addresses from its host subnet: one for the primary, one for the standby, and one for the floating private IP address — the private equivalent of the floating public IP used by public load balancers. 
+
+## Subnet Requirement
+
+Unlike a public load balancer — which requires either a regional subnet or two AD-specific subnets — a private load balancer requires only one subnet to host both the primary and standby load balancers.
+
+## Accessibility
+
+Since a private load balancer is isolated from the internet, it is accessible only from within the Virtual Cloud Network (VCN) that contains the host subnet.
+
+## Floating Private IP Address
+
+Recall that in the public load balancer lesson, we discussed the concept of a floating public IP address. In the case of a private load balancer, the equivalent concept is a floating private IP address.
+
+### IP Address Requirements
+
+A private load balancer created in a single subnet consumes three private IP addresses from the host subnet:
+
+1. One for the primary load balancer
+2. One for the standby load balancer
+3. One for the floating private IP address
+
+The primary and standby load balancers require an extra private IP address that acts as the floating private IP address — bringing the total to three private IP addresses.
+
 
 # 4. fundamental concepts
 
