@@ -49,10 +49,47 @@ If you are handling multiple traffic types, you need to configure at least one l
 
 ### 5. load balancing policy
 
+The load balancing policy tells the load balancer how to distribute incoming traffic among the backend servers. There are three policies:
+
+- Round Robin – Incoming traffic is sent sequentially to each server. This is the default policy.
+- Least Connection – Traffic is sent to the backend server with the fewest active connections. For example, if Backend 1 has the fewest active connections, the load balancer sends traffic there.
+- IP Hash – The incoming source IP address is used as a hashing key. Using this policy, the load balancer routes non-sticky traffic from a particular IP address to the same backend server.
+
+Important note: The load balancing policy applies differently depending on the traffic type:
+
+- TCP load balancers
+- Sticky sessions
+- Sticky HTTP
+- Non-sticky HTTP
+
 ### 6. Shape of the Load Balancer
+
+In OCI, load balancers use a flexible shape. This means you must specify two values:
+
+- Minimum value – Specifies instant readiness for the load.
+- Maximum value – Gives you control over cost.
+  
+The "value" here refers to the load balancer's bandwidth. In OCI, you can specify a range from 10 Mbps to 8,000 Mbps. For example, you could set a minimum of 10 Mbps and a maximum of 3,000 Mbps.
 
 ### 7. SSL
 
+SSL provides an encrypted link between parties. OCI supports three SSL configurations:
+
+- SSL Termination – The client-to-load-balancer connection is encrypted, but the load balancer decrypts the traffic and sends it unencrypted to the backend instances.
+- Point-to-Point SSL – SSL is terminated at the load balancer, but the load balancer then re-initiates SSL to the backend. Both segments (client-to-LB and LB-to-backend) are encrypted.
+- SSL Tunneling – The load balancer tunnels incoming SSL traffic directly to the backend/application server without terminating it.
+
 ### 8. Session Persistence
 
+Session persistence means that all requests originating from a client are sent to a single backend server. This is useful for scenarios like shopping carts and login sessions, where consistent server handling matters.
+
+There are two ways to enable session persistence:
+
+- Application cookie stickiness
+- Load balancer cookie stickiness
+
 ### 9. Certificates
+
+When creating a listener that uses HTTPS, you must associate an SSL server certificate with the load balancer. Using this certificate, the load balancer terminates the connection and decrypts the request.
+
+
