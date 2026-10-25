@@ -105,6 +105,48 @@ When creating a Windows custom image, there is support for two kinds of images:
 
 ---
 
+## Import Export and BYOI
+
+Image import/export allows you to share custom images across tenancies and regions, using OCI Object Storage as the mechanism for replication. 
+
+When importing images, you can choose from three launch modes: emulation mode (for VMs without paravirtualized drivers created outside OCI), paravirtualized mode (for VMs with paravirtualized drivers created outside OCI), and native mode (for images exported from OCI itself). 
+
+To replicate an image across regions, you export it to a bucket in the source region, copy it to a bucket in the destination region, and then import it using the object's URL path. 
+
+The Bring Your Own Image feature lets you export VMs from your existing virtualization environment and import them directly into OCI as custom images in either qcow2 or VMDK format, after which you can launch instances from them. 
+
+BYOI supports cloud migration projects, works with both old and new operating systems, encourages experimentation, and increases infrastructure flexibility—though you must always comply with licensing requirements.
+
+### Image Import/Export
+
+You can **share custom images across tenancies and regions** using image import/export. This is a powerful capability that allows you to distribute your customized images wherever you need them.
+
+### Region Replication and Object Storage
+
+When you **replicate an image across a region**, you leverage **OCI Object Storage** as the transport mechanism. The image is exported to object storage, copied to the destination region's bucket, and then imported there.
+
+---
+
+### Launch Modes for Importing Images
+
+Importing an image supports three different launch modes. Choosing the right mode depends on where the image came from and what drivers it supports.
+
+| Launch Mode | When to Use It |
+|-------------|----------------|
+| Emulation Mode | For virtual machines that don't support paravirtualized drivers and were created outside of OCI — such as older on-premises physical or virtual machines |
+| Paravirtualized Mode | For virtual machines that support paravirtualized drivers but were created outside of the OCI environment |
+| Native Mode | For images that were exported from Oracle Cloud Infrastructure |
+
+---
+
+### Steps to Replicate an Image Across Regions
+
+If you want to replicate an image from one region to another, follow these three steps:
+
+1. Export the image to an object storage bucket in the same region as the image
+2. Copy the image to an object storage bucket in the destination region
+3. Import the image in the destination region using the URL path to the image object
+
 ---
 
 
