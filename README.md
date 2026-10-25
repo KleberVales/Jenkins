@@ -1,5 +1,7 @@
 # Networking ‐ Load Balancer
 
+# 1. Load Balancer
+
 A load balancer acts as a single entry point between clients and multiple backend servers, distributing incoming traffic to ensure no single server is overwhelmed.
 
 Its three key benefits are scaling, resource utilization, and high availability.
