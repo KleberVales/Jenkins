@@ -1,5 +1,22 @@
-# Networking ‐ IP Management
+# 1. IP Management 
 
+## VNIC
+## Public IP Address
+## Private IP address
+
+# 2. BYOIP
+## Public IP Pools
+
+
+---
+
+.\
+.\
+.\
+.\
+.
+
+---
 
 # 1. IP Management 
 
