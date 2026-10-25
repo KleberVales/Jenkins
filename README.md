@@ -174,6 +174,77 @@ A private IP (e.g., a secondary private IP) can be moved from one VNIC to anothe
 
 # 2. BYOIP
 
+Bring Your Own IP (BYOIP) allows customers to migrate their own public IPv4 CIDR blocks or IPv6 prefixes from their on-premises environment to Oracle Cloud Infrastructure. 
+
+This is particularly valuable when applications have hard-coded IP addresses or architectural dependencies on specific IPs, enabling smooth migration and solution continuity. 
+
+The process involves requesting an import, receiving a verification token from Oracle, adding that token to your Regional Internet Registry (RIR) records, creating a Route Origin Authorization (ROA) with Oracle's BGP ASN, and waiting for Oracle to validate ownership. 
+
+Once validated, the IP addresses are provisioned to your compartment, where you can manage them through IP pools and advertise them to the internet.
+
+---
+
+**1. What Is Bring Your Own IP (BYOIP)?**
+
+When you use a public IP address in OCI, it is typically owned by Oracle. However, some organizations have their own public IP addresses that they want to use in the cloud.
+
+- BYOIP allows you to:
+   - Bring your own IPv4 CIDR block or IPv6 prefix to OCI.
+   - Use those IP addresses with your OCI resources.
+   - Maintain IP address continuity during migration.
+
+- Why Use BYOIP?
+   - Hard-coded IP addresses: Applications may have IP addresses hard-coded in devices or configurations.
+   - Smooth migration: Enables seamless migration to OCI without changing IP addresses.
+   - Solution continuity: Ensures that existing architectures and dependencies remain intact.
+
+---
+
+**2. Prerequisites and Limits**
+
+- Ownership Validation
+   - You must be the owner of the IPv4 CIDR block or IPv6 prefix.
+   - Ownership must be registered with a supported Regional Internet Registry (RIR).
+   - Oracle validates your ownership before importing the addresses.
+
+- Limits
+
+| Address Type | Minimum | Maximum |
+|---|---|---|
+| IPv4 CIDR Block | /24 | /8 |
+| IPv6 Prefix | /48 or larger | — |
+
+---
+
+**3. BYOIP Process Overview**
+
+The BYOIP import process involves several steps:
+
+- Step 1: Request to Import
+   - You request to import a public IPv4 CIDR block or IPv6 prefix that you own into OCI.
+
+- Step 2: Receive Verification Token
+   - Oracle issues a verification token.
+   - You must add this token to the information about your IP addresses kept by your Regional Internet Registry (RIR).
+   - This step can take up to one day.
+
+- Step 3: Create Route Origin Authorization (ROA)
+   - Create a ROA with your RIR.
+   - Provide Oracle's BGP ASN for the commercial cloud.
+   - The ROA allows Oracle to advertise the BYOIP CIDR block.
+
+- Step 4: Request Oracle to Finish Import
+   - Request that Oracle complete the import process.
+   - This workflow can take up to 10 business days.
+   - Oracle communicates with the RIR to verify ownership.
+
+- Step 5: Provisioning
+   - Oracle provisions the BYOIP addresses to your compartment within your tenancy.
+   - The IPv4 CIDR block or IPv6 prefix is now yours to manage.
+
+- Step 6: Advertise to Internet
+   - You can advertise the CIDR block or prefix to the internet.
+
 ## Public IP Pools
 
 **1. What Is a Public IP Pool?**
@@ -185,6 +256,7 @@ These pools are exclusively available for your tenancy and provide a centralized
 Once you import your addresses and create a public IP pool, you have two options: create reserved public IPs from the pool and attach them to resources like NAT gateways, load balancers, or compute instances, or enable direct launch from the pool where resources are launched with an IP directly allocated from the pool. 
 
 Public IP pools currently support IPv4 CIDR blocks, with a minimum size of /28 and a maximum size of /24.
+
 
 ---
 
