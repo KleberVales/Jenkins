@@ -199,4 +199,86 @@ There are two ways to enable session persistence:
 
 When creating a listener that uses HTTPS, you must associate an SSL server certificate with the load balancer. Using this certificate, the load balancer terminates the connection and decrypts the request.
 
+# 5. Network Load Balancer
+
+OCI network load balancer, a load balancing solution that operates at the connection level (Layer 3 and Layer 4). 
+
+Its key characteristics include preserving the source and destination IP addresses and port, providing high throughput with ultra-low latency, and handling volatile traffic patterns — making it ideal for latency-sensitive workloads. 
+
+A major advantage is that it requires no bandwidth configuration because it is elastically scalable by design, automatically adjusting to client traffic demands. 
+
+The network load balancer supports three load balancing policies: the default 5-tuple hash (based on source IP, source port, destination IP, destination port, and protocol), the 3-tuple hash (source IP, destination IP, and protocol), and the 2-tuple hash (source IP and destination IP). 
+
+**Load Balancing Policies**
+
+A network load balancer supports three load balancing policies:
+
+1. 5-Tuple Hash (Default) – Routes incoming traffic based on a 5-tuple, which consists of:
+   - Source IP
+   - Source port
+   - Destination IP
+   - Destination port
+   - Protocol
+
+2. 3-Tuple Hash – Uses a hash of:
+   - Source IP
+   - Destination IP
+   - Protocol
+
+3. 2-Tuple Hash – Uses a hash of:
+   - Source IP
+   - Destination IP
+
+# 6. Web Application Acceleration 
+
+Web application acceleration, an OCI service that speeds up traffic on a Layer 7 load balancer using caching and compression. 
+
+### What Is Web Application Acceleration?
+
+Web application acceleration is a service that speeds up traffic on a Layer 7 load balancer. It achieves this through two mechanisms:
+
+1. Caching
+2. Compression
+
+By applying caching and compression, web application acceleration improves the performance of traffic flowing through a Layer 7 (HTTP) load balancer.
+
+### How to Work with Web Application Acceleration
+
+**Step 1: Create a Web Application Acceleration Policy**
+
+While creating the policy, you define what it should include. You have two choices:
+
+- Caching only
+- Caching and compression
+
+**Step 2: Create an Acceleration Resource**
+
+Creating the policy alone is not enough. To associate (bind) the policy to a specific load balancer, you must create a separate acceleration resource. This resource is what binds the policy to a particular load balancer.
+
+### Caching and Compression Explained
+
+**Caching**
+
+Imagine a Layer 7 load balancer sitting in front of three backend servers. An application user sends a request to the load balancer, which distributes it to the backend pool, and the response is served back to the user.
+
+When web application acceleration is enabled, the load balancer caches some data from the backend responses.
+
+Why cache? Two main reasons:
+
+1. Reduced load on backend servers – Future requests can be served directly from the load balancer.
+2. Reduced latency – The request is served from the load balancer rather than traveling to the backend servers.
+
+**Compression**
+
+Compression means that backend server responses are compressed before being returned to the web application user.
+
+Two advantages:
+
+1. Reduced bandwidth required.
+2. Increased speed of the server's response over the network.
+
+> Note: Currently, only the gzip compression algorithm is supported by web application acceleration.
+
+---
+
 
