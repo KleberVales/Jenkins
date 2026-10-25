@@ -8,15 +8,35 @@ Load balancers come in two types: public (reachable from the internet via a publ
 
 ## Public Load Balancer
 
+Has a public IP address and is reachable from the internet.
+
 ## Private Load Balancer
+
+Has a private IP address taken from the hosting subnet where it resides. It is only visible from within the Virtual Cloud Network (VCN).
 
 ## fundamental concepts
 
 ### 1. backend servers 
 
+Backend servers are the servers placed behind the load balancer that actually generate the content. The load balancer receives incoming traffic (which can be TCP or HTTP) and forwards or distributes it to these backend servers.
+
 ### 2. backend sets
 
+A backend set is a logical entity — essentially a list of backend servers (e.g., Backend Server 1, Backend Server 2). It also includes:
+
+- The health check policy
+- The load balancing policy
+
+So a backend set = list of backend servers + health check policy + load balancing policy.
+
 ### 3. health check policies 
+
+A health check policy is a test that confirms whether a backend server is available and healthy. If a backend server fails the test, the load balancer takes it out of rotation. There are two ways to perform a health check:
+
+- TCP level – a connection attempt
+- HTTP level – a request sent to a specific URI, with the response validated
+  
+The primary purpose is to determine whether backend servers are available and healthy.
 
 ### 4. listeners
 
