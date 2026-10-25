@@ -43,7 +43,49 @@ Important Notes
 - Technically, there is no difference between the primary and standby load balancers — from a service standpoint, they are equivalent.
 - You cannot specify which load balancer is primary and which is standby. The terms "primary" and "standby" are used only for explanation purposes.
 
+## IP Address Requirements
 
+Whenever you provision a load balancer, it requires:
+
+- One private IP address from its host subnet (for each load balancer — primary and standby).
+- One public IP address.
+
+So because there are two load balancers (primary and standby), each requires one private IP from the host subnet, in addition to the public IP.
+
+Floating Public IP and Failover
+
+- The load balancer service attaches a floating public IP to the primary load balancer.
+- In case of failover, the IP switches to the standby load balancer.
+
+## Architecture: Regional Subnet
+
+In a regional subnet deployment:
+
+- The VCN spans all availability domains.
+- The public load balancer is deployed in the public regional subnet.
+- OCI places the primary load balancer in one AD and the standby load balancer in another AD.
+- A public IP address is associated with the load balancer.
+
+**Normal operation (no outage):**
+- All traffic is distributed to backend servers from the primary (active) load balancer.
+
+**Outage scenario (e.g., AD1 goes down):**
+- Traffic is distributed to backend servers from the standby (failover) load balancer.
+
+---
+
+## Architecture: AD-Specific Subnets
+
+In an AD-specific subnet deployment:
+
+- The service provisions the active/primary load balancer in one AD.
+- The secondary/standby load balancer is provisioned in another AD.
+
+This forms a load balancer pair, with the same behavior:
+- No outage: All traffic flows through the primary load balancer to backend servers.
+- Failover: Traffic flows through the standby load balancer.
+
+---
 
 
 # 3. Private Load Balancer
