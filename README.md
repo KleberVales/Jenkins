@@ -8,7 +8,7 @@ OCI offers both bare metal instances, which give you dedicated physical server a
 
 A key operational detail to remember is that any changes made to an instance's local drives are lost upon termination, while changes saved to attached volumes are retained. Understanding these fundamentals is essential for effectively using OCI Compute Service in your cloud environment.
 
-## Understanding Shapes
+# 2. Shapes
 
 OCI offers a variety of shapes designed to meet a wide range of compute and application requirements. But what exactly is a shape?
 
@@ -21,7 +21,7 @@ In other words, when you choose a shape, you're deciding how much compute power 
 
 ---
 
-## Types of Compute Instances
+# 3. Compute Instances
 
 OCI Compute Service offers two main types of instances:
 
@@ -34,3 +34,6 @@ OCI Compute Service offers two main types of instances:
 - Multiple VMs can share the same underlying hardware
 
 ---
+
+# 4. Data Persistence
+
