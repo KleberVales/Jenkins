@@ -108,6 +108,70 @@ So public IP capacity scales with VNICs and their private IPs.
    
 ## Private IP address
 
+**1. What a Private IP Address Is**
+
+A private IP address is the IP assigned to a VNIC of a resource (e.g., a virtual machine) inside a VCN. Every instance has at least one primary private IP address, and this private IP is the object that can optionally have a public IP assigned to it.
+
+Key point: even in a public subnet, an instance has both a private IP address and a public IP address — the public IP is always attached to a private IP object.
+
+---
+
+**2. Use Cases of Private IP Addresses**
+
+The lesson lists three main scenarios where private IPs are used for communication:
+
+- Use Case 1 — Communication within the same VCN
+An instance can talk to other instances in the same VCN, even if they are in different subnets — the only condition is they must be in the same VCN. This communication happens through private IP addresses.
+
+-  Use Case 2 — Peering
+When two different VCNs are connected via peering, instances talk to each other using private IP addresses. Peered VCNs can be in the same region or in different regions.
+
+- Use Case 3 — On-premises connectivity
+An instance can talk to hosts in an on-premises network using private IP addresses. This typically happens via a site-to-site VPN connection or FastConnect.
+
+---
+
+**3. Primary vs. Secondary Private IPs**
+
+Each VNIC has a defined allocation of private IPv4 addresses:
+
+| Type | Count per VNIC |
+|---|---|
+| Primary private IP | Exactly 1 (always) |
+| Secondary private IP | Up to 32 |
+
+This applies to both the primary VNIC and any secondary VNIC:
+
+- Primary VNIC: 1 primary private IP + up to 32 secondary private IPs
+- Secondary VNIC: 1 primary private IP + up to 32 secondary private IPs
+
+Total per VNIC: 33 private IPv4 addresses (1 primary + 32 secondary).
+
+> Note: A secondary VNIC also receives its own primary private IP address — it is not an exception to the rule.
+
+---
+
+**4. Private IPs and Public IP Assignment**
+
+Every private IP address can have a public IP address assigned to it at your discretion. This is what allows a resource to have multiple public IPs — because it can have many private IPs across its VNICs.
+
+However, the two public IP types differ in what they can attach to:
+
+| Public IP Type | Can Be Assigned To |
+|---|---|
+| Ephemeral | Only a VNIC's primary private IP |
+| Reserved | Either a primary or a secondary private IP |
+
+So secondary private IPs are what enable attaching multiple reserved public IPs to a single VNIC.
+
+---
+
+**5. Private IP Mobility and Reserved IPs**
+
+A private IP (e.g., a secondary private IP) can be moved from one VNIC to another. When this happens, any reserved public IP attached to it moves along with it. This portability is one of the advantages of reserved public IPs.
+
+---
+
 ## Reserved Public IP
 
 ## Public IP Pools
