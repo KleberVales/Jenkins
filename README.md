@@ -220,6 +220,73 @@ The purpose is that the zones that are part of a view should be resolvable in th
 
 ---
 
+# 4. HTTP redirects
+
+This lesson introduced HTTP redirects, a supporting service in DNS management that lets you redirect HTTP traffic to another URL. 
+
+Four scenarios were covered: redirecting all HTTP traffic for an entire zone to another zone (e.g., `test.net` → `test.com`), 
+
+redirecting a specific subdomain to an HTTP URL, 
+
+redirecting a subdomain to a URL with a port number (e.g., `http://sample.test.net:8080`), 
+
+and permanently redirecting a domain name using a 301 response code — which is especially useful when a domain has been deprecated, as it informs search engines and browsers how to handle the change. 
+
+For any redirect to work, you must also create the relevant CNAME record in the DNS zone. 
+
+When configuring a redirect in the console, you select a zone and specify the domain/subdomain plus target details including protocol, host, port, and optionally path and query — along with the response code (301 for permanent, 302 for temporary). 
+
+The console also offers an option to automatically create the required DNS record, simplifying the setup of HTTP redirects within OCI DNS.
+
+### What Are HTTP Redirects?
+
+The DNS service lets you redirect HTTP traffic to another URL. This is useful when you want traffic hitting one domain or subdomain to be sent somewhere else.
+
+Example: A company owns both `test.net` and `test.com`. Using HTTP redirect, you can redirect all HTTP traffic for `test.net` and send it to `test.com`.
+
+> Note: This is a one-to-one mapping.
+
+---
+
+### Four HTTP Redirect Scenarios
+
+Scenario 1: Redirect All HTTP Traffic for a Zone  
+Redirect all HTTP traffic for an entire zone (e.g., `test.net`) to another zone (e.g., `test.com`).
+
+Scenario 2: Redirect a Specific Subdomain to an HTTP URL  
+Redirect a specific subdomain to an HTTP URL.
+
+Scenario 3: Redirect a Subdomain to a URL with a Port Number  
+Redirect a subdomain — for example, `example.test.net` — to a URL with a port number, such as `http://sample.test.net:8080`.
+
+Scenario 4: Permanently Redirect a Domain Name  
+Use this when a domain name has been deprecated. You typically want to display a 301 response code.
+
+Benefit: Permanently redirecting a domain name informs search engines and browsers what to do with the information.
+
+---
+
+### Required DNS Record
+
+After creating the redirects, you must also create the relevant DNS record — specifically a CNAME record.
+
+> Important: You must add the CNAME record to the DNS zone for the redirect to work successfully.
+
+---
+
+### Configuring HTTP Redirects (Console View)
+
+When configuring an HTTP redirect, you provide:
+
+- Zone – Select the zone.
+- Domain and Subdomain – Specify the source.
+- Target details:
+  - Protocol
+  - Host
+  - Port
+  - Path (optional)
+  - Query (optional)
+
 
 
 
