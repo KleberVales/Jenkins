@@ -10,7 +10,24 @@ Load balancers come in two types: public (reachable from the internet via a publ
 
 # 2. Public Load Balancer
 
-Has a public IP address and is reachable from the internet.
+A public load balancer must be deployed in a public subnet, has a public IP address, is reachable from the internet, and has a regional scope.
+
+It requires either a regional subnet or two AD-specific subnets. To ensure high availability, OCI provisions a primary and standby load balancer in different availability domains — though technically both are equivalent, and you cannot choose which is which.
+
+## Placement Requirements
+
+Key rules for public load balancers:
+
+- A public load balancer must be created in a public subnet — it cannot be created in a private subnet.
+- Because it resides in a public subnet, it has a public IP address and can directly receive traffic from the internet.
+- The scope is regional.
+
+**Subnet Requirements**
+
+A public load balancer requires either:
+
+- A regional subnet (e.g., Subnet 4), OR
+- Two AD-specific subnets (e.g., Subnet 1 and Subnet 2) if a regional subnet is not available.
 
 # 3. Private Load Balancer
 
