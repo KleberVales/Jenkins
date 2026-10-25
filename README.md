@@ -326,7 +326,7 @@ In the earlier example, the endpoints (Endpoint 1, Endpoint 2, Endpoint 3) are a
 
 # 6. Traffic Management-Policy Types
 
-### The Five Traffic Management Steering Policies
+## The Five Traffic Management Steering Policies
 
 OCI offers five steering policy types:
 
