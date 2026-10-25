@@ -19,3 +19,13 @@ Load balancers come in two types: public (reachable from the internet via a publ
 ### 3. health check policies 
 
 ### 4. listeners
+
+### 5. load balancing policy
+
+### 6. Shape of the Load Balancer
+
+### 7. SSL
+
+### 8. Session Persistence
+
+### 9. Certificates
