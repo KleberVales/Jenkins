@@ -23,13 +23,7 @@ In other words, when you choose a shape, you're deciding how much compute power 
 
 ## Compute Shapes
 
-When creating a compute instance, you must specify both a shape and an image—the image acts as a template for the virtual hard drive, determining the operating system and software. 
-
-OCI offers multiple image sources: platform images (pre-built operating systems like Oracle Linux, Ubuntu, CentOS, Windows, and Oracle Autonomous Linux), Oracle images (enterprise solutions), custom images (created from existing OCI instances), partner images (third-party images from the Marketplace), and bring-your-own-image (importing your own OS versions, with a 400 GB maximum size limit). 
-
-When creating a custom image from a running instance, the instance shuts down temporarily and restarts once complete, and any instances launched from that image will inherit the captured customizations. 
-
-For Windows custom images, you can choose between generalized images (cleaned of instance-specific data) and specialized images (point-in-time snapshots useful for backups). 
+ 
 
 # 3. Compute Instances
 
@@ -48,6 +42,31 @@ OCI Compute Service offers two main types of instances:
 # 4. Data Persistence
 
 # 5. Images
+
+## Platform and Custom Images
+
+When creating a compute instance, you must specify both a shape and an image—the image acts as a template for the virtual hard drive, determining the operating system and software. 
+
+OCI offers multiple image sources: platform images (pre-built operating systems like Oracle Linux, Ubuntu, CentOS, Windows, and Oracle Autonomous Linux), Oracle images (enterprise solutions), custom images (created from existing OCI instances), partner images (third-party images from the Marketplace), and bring-your-own-image (importing your own OS versions, with a 400 GB maximum size limit). 
+
+When creating a custom image from a running instance, the instance shuts down temporarily and restarts once complete, and any instances launched from that image will inherit the captured customizations. 
+
+For Windows custom images, you can choose between generalized images (cleaned of instance-specific data) and specialized images (point-in-time snapshots useful for backups).
+
+## What is an Instance Image?
+
+An Instance Image is a template for a virtual hard drive. It contains the operating system and any pre-installed software or custom configurations needed to launch a compute instance (virtual server) in the cloud .
+
+### 💡 How It Works
+When you create a new instance in a service like Oracle Cloud Infrastructure (OCI), you must choose an image. This image acts as the "blueprint" for the instance's boot disk, determining what OS (like Oracle Linux or Windows) and software stack the new server will start with.
+
+### 🗂️ Types of Images
+You generally encounter three main types in OCI:
+*   Platform Images: Pre-built, standard images provided by the cloud provider (e.g., Oracle Linux, Ubuntu). These are ready to use immediately .
+*   Custom Images: You can create an image from an existing instance you have already configured. This captures your specific software, settings, and customizations, allowing you to launch identical clones for scaling or backup .
+*   Bring Your Own Image (BYOI): You can import your own virtual disk files (like VMDK or QCOW2) to launch instances if you have specific requirements .
+
+
 
 
 
