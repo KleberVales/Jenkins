@@ -101,6 +101,95 @@ Once the zone is delegated, you can add records to the zone.
 
 ---
 
+## Private DNS Zones
+
+Private DNS zones in OCI, starting with the three DNS name resolution options available in a VCN: the default Internet and VCN Resolver (which resolves public hostnames and hostnames of instances within the same VCN), a custom resolver (allowing you to choose a DNS server over the internet, in your VCN, or on-prem), and the newer Private DNS service. 
+
+Private DNS extends hostname resolution within VCNs, across VCNs, and between VCNs and on-premises or other private networks — a capability that previously required custom solutions. 
+
+resources associated with private DNS zones: the zone (which holds DNS data), the view (a collection of zones, each belonging to a single view), the resolver (which holds the configuration serving DNS responses within the VCN), private DNS records (supporting A, AAAA, and PTR records, among others), and the resolver endpoint (which sets up ingress and egress, consumes private IPs, and comes in two types — listening for queries from outside the VCN/OCI, and forwarding to redirect queries to other DNS servers). 
+
+The most important takeaway is the hierarchy: Resolver → Views → Zones → Records, which determines how DNS queries are answered within a VCN. 
+
+A practical on-prem-to-OCI example illustrated how the listener handles inbound queries from outside OCI, while the forwarder redirects outbound queries to external DNS servers.
+
+**DNS Options in a Virtual Cloud Network (VCN)**
+
+Before diving into private DNS zones, it's important to understand the DNS name resolution choices available for instances provisioned in a VCN.
+
+- Option 1: Internet and VCN Resolver (Default)
+
+This is the default choice, and it provides two capabilities:
+
+Internet Resolver – Lets instances resolve hostnames that are publicly published on the internet.  
+VCN Resolver – Lets instances resolve hostnames of other instances in the same VCN.
+
+Example: If you have a VCN with two subnets, and an instance in each (Instance A and Instance B), Instance A can reach Instance B using its fully qualified domain name — because the VCN resolver handles this by default.
+
+- Option 2: Custom Resolver
+
+With a custom resolver, you can select a DNS server of your choice. Multiple options exist:
+
+1. A DNS server available over the internet.
+2. A custom DNS server in your VCN.
+3. A custom DNS server in your on-premises network.
+
+- Option 3: Private DNS (New)
+
+Oracle launched a service called Private DNS, which is now the third option. It provides hostname resolution:
+
+- Within the VCN (just like the VCN resolver).
+- Across VCNs — previously, this required a custom solution.
+- Between a VCN and your on-premises network (or any other private network).
+
+---
+
+**Private DNS Zones**
+
+Private DNS provides hostname resolution within VCNs, between VCNs, and between VCN and on-prem networks.
+
+- Resources Associated with Private DNS Zones
+
+Private DNS Zone  
+The zone itself contains the DNS data.
+
+Private DNS View  
+A private DNS view is a collection of private DNS zones. Each private DNS zone can belong to a single view.
+
+Private DNS Resolver  
+The private DNS resolver contains the configuration that serves responses to DNS queries within the VCN.
+
+- Hierarchy within the resolver:
+   - The resolver contains views.
+   - Each view contains zones.
+   - Each zone contains record data.
+
+> Key insight: The resolver holds the configuration that serves responses to DNS queries within the VCN. The views on the resolver decide the zone and record data applicable for the response.
+
+Private DNS Records  
+Private DNS zones support a number of DNS record types:
+
+| Record Type | Mapping |
+|-------------|---------|
+| A | Hostname to IPv4 |
+| AAAA (Quad A) | Hostname to IPv6 |
+| PTR (Pointer) | Reverse DNS mapping |
+
+Private DNS Resolver Endpoint  
+The private DNS resolver endpoint sets up ingress and egress in the VCN.
+
+- It consumes private IP addresses.
+- A corresponding VNIC is created for each resolver endpoint.
+
+Two types of resolver endpoints:
+
+| Endpoint Type | Purpose |
+|---------------|---------|
+| Listening (Listener) | Responds to queries from outside the VCN or OCI |
+| Forwarding (Forwarder) | Uses rules to redirect queries to different DNS servers |
+
+
+
 
 
 
