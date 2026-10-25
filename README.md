@@ -61,12 +61,28 @@ An Instance Image is a template for a virtual hard drive. It contains the operat
 When you create a new instance in a service like Oracle Cloud Infrastructure (OCI), you must choose an image. This image acts as the "blueprint" for the instance's boot disk, determining what OS (like Oracle Linux or Windows) and software stack the new server will start with.
 
 ### 🗂️ Types of Images
-You generally encounter three main types in OCI:
-*   Platform Images: Pre-built, standard images provided by the cloud provider (e.g., Oracle Linux, Ubuntu). These are ready to use immediately .
-*   Custom Images: You can create an image from an existing instance you have already configured. This captures your specific software, settings, and customizations, allowing you to launch identical clones for scaling or backup .
-*   Bring Your Own Image (BYOI): You can import your own virtual disk files (like VMDK or QCOW2) to launch instances if you have specific requirements .
 
+OCI provides several sources for images. Let's look at each one:
 
+1. Platform Images
+- Pre-built operating systems for Oracle Cloud Infrastructure
+- Provided directly by Oracle
+
+2. Oracle Images
+- Oracle Enterprise images and solutions enabled for OCI
+
+3. Custom Images
+- Created from existing instances running in OCI
+- Capture your own configurations and software
+
+4. Partner Images
+- Trusted third-party images published in the Marketplace by Oracle partners
+
+5. Bring Your Own Image (BYOI)
+- Using the custom image feature, you can import custom images into the OCI environment
+- Allows you to bring your own versions of operating systems to the cloud
+
+---
 
 
 
