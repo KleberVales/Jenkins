@@ -172,10 +172,58 @@ A private IP (e.g., a secondary private IP) can be moved from one VNIC to anothe
 
 ---
 
-## Reserved Public IP
+# 2. BYOIP
 
 ## Public IP Pools
 
-# 2. BYOIP
+**1. What Is a Public IP Pool?**
 
+Public IP Pools are sets of IPv4 CIDR blocks allocated to a tenancy, created from Bring Your Own IP (BYOIP) address space. 
 
+These pools are exclusively available for your tenancy and provide a centralized way to manage your public IP addresses. 
+
+Once you import your addresses and create a public IP pool, you have two options: create reserved public IPs from the pool and attach them to resources like NAT gateways, load balancers, or compute instances, or enable direct launch from the pool where resources are launched with an IP directly allocated from the pool. 
+
+Public IP pools currently support IPv4 CIDR blocks, with a minimum size of /28 and a maximum size of /24.
+
+---
+
+**2. Using Public IP Pools**
+
+Once you have a Public IP Pool, you have two options for using the IP addresses:
+
+- Option 1: Create Reserved Public IPs
+    - Create a reserved public IP from the pool.
+    - Attach the reserved IP to resources such as:
+         - NAT Gateway
+         - Load Balancer
+         - Compute Instances
+    - This provides flexibility to reassign the IP as needed.
+
+- Option 2: Direct Launch from Pool
+    - Launch resources directly with an IP allocated from the pool.
+    - No need to create a reserved IP first.
+    - The IP is directly allocated from the Public IP Pool during resource creation.
+
+Comparison
+
+| Method | Description | Use Case |
+|---|---|---|
+| Create Reserved IP | Reserve an IP from the pool, then attach to a resource | When you need flexibility to reassign IPs |
+| Direct Launch from Pool | Launch a resource with an IP directly from the pool | When you want immediate allocation without reservation |
+
+---
+
+**3. Limits and Quotas**
+
+When creating a Public IP Pool:
+
+| Parameter | Value |
+|---|---|
+| Number of CIDR Ranges | Zero or more |
+| Minimum Size Range | /28 |
+| Maximum Size Range | /24 |
+
+> Note: The pool can have zero CIDR ranges initially, and you can add ranges later.
+
+---
