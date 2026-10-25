@@ -289,6 +289,105 @@ When configuring an HTTP redirect, you provide:
 
 # 5. Traffic Management
 
+Traffic management, a key component of the OCI DNS service that sits between users making DNS queries and the endpoints that serve them, providing intelligent responses based on conditions rather than simply returning static records. 
+
+Unlike a regular public DNS zone (which holds records like A, AAAA, and MX), traffic management defines conditions — such as the user's geographical location or the health of endpoints — and routes traffic accordingly to different answer pools. 
+
+### Traffic Management Components
+
+**1. Steering Policies**
+
+Steering policies contain rules that help intelligently serve DNS answers. Think of them as the logic behind traffic management.
+
+**2. Attachment**
+
+Attachment means linking a steering policy to a public DNS zone.
+
+> Important: When you link a steering policy to a public DNS zone, the DNS response is constructed from the steering policy — not from the records you created in the public DNS zone.
+
+Even though the public DNS zone has its own records, the DNS response always comes from the steering policy.
+
+**3. Rule**
+
+A rule is a guideline that steering policies use to filter answers based on the DNS request and its properties.
+
+Examples of rule properties:
+
+- Geolocation
+- Health of the endpoint
+
+**4. Answers**
+
+When you create a traffic management steering policy, there is a concept of an answer pool. These answer pools contain the records that will be provided as answers.
+
+In the earlier example, the endpoints (Endpoint 1, Endpoint 2, Endpoint 3) are actually answer pools.
+
+---
+
+# 6. Traffic Management-Policy Types
+
+### The Five Traffic Management Steering Policies
+
+OCI offers five steering policy types:
+
+1. Failover
+2. Load Balancer
+3. Geolocation
+4. ASN Steering
+5. IP Prefix
+
+---
+
+### Failover Policy
+
+Use this when you have multiple endpoints (e.g., two) and want to prioritize the order in which answers are served.
+
+**How it works:**
+- You designate one endpoint as primary and the other as secondary.
+- OCI health checks monitor both endpoints.
+- If both are healthy, DNS traffic is steered to the primary.
+- If the primary goes down (or its answer is unhealthy), traffic is automatically sent to the secondary.
+
+---
+
+### Load Balancer Policy
+
+Use this to distribute DNS traffic across multiple endpoints.
+
+**How it works:**
+- You can configure weights for each endpoint.
+  - 50/50 → traffic distributed evenly.
+  - Custom (e.g., 10/90) → 10% to Endpoint 1, 90% to Endpoint 2.
+- If one endpoint becomes unhealthy, traffic is sent to the healthy endpoint.
+
+> Note: This is about DNS traffic distribution.
+
+---
+
+### Geolocation Steering
+
+These policies distribute DNS traffic based on where the end user is located.
+
+**Example:**
+- A user in a particular country → routed to a specific endpoint.
+- A user in Australia → routed to a separate endpoint.
+
+---
+
+### Steering
+
+Steers traffic based on ASN (Autonomous System Numbers).
+
+- A DNS query originating from a specific ASN can be steered to a specific endpoint.
+
+---
+
+### IP Prefix Steering
+
+Enables customers to steer DNS traffic based on the IP prefix of the originating query.
+
+---
+
 
 
 
