@@ -188,6 +188,37 @@ Two types of resolver endpoints:
 | Listening (Listener) | Responds to queries from outside the VCN or OCI |
 | Forwarding (Forwarder) | Uses rules to redirect queries to different DNS servers |
 
+# 3. Private Views
+
+### What Is a Private View?
+
+A private view is a collection of private DNS zones. You can think of it as a way to logically group a set of private DNS zones together.
+
+Example: A private view could contain zones such as `samvit.com` and others.
+
+---
+
+### Key Rules
+
+Rule 1: A Zone Belongs to Only One View
+
+A zone — for example, `samvit.com` — can belong to only a single view.
+
+- If `samvit.com` belongs to Private View A, it cannot belong to Private View B.
+- This is not possible.
+
+Rule 2: Every VCN Resolver Has a Default View
+
+When you create a VCN, the VCN has a resolver, and this resolver has a default view. This default view is always there.
+
+- You can add zones to the default view.
+- You can also create and attach another view to the resolver, in addition to the default view.
+
+### Why Attach Additional Views?
+
+The purpose is that the zones that are part of a view should be resolvable in the VCN — because ultimately, zones contain records that need to be resolved.
+
+---
 
 
 
