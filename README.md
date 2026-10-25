@@ -40,6 +40,13 @@ The primary purpose is to determine whether backend servers are available and he
 
 ### 4. listeners
 
+A listener checks for incoming traffic on the load balancer's IP address. To configure a listener, you provide:
+
+- Protocol – HTTP, HTTP/2, HTTPS, or TCP
+- Port number
+  
+If you are handling multiple traffic types, you need to configure at least one listener per traffic type.
+
 ### 5. load balancing policy
 
 ### 6. Shape of the Load Balancer
