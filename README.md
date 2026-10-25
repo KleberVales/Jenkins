@@ -29,6 +29,23 @@ A public load balancer requires either:
 - A regional subnet (e.g., Subnet 4), OR
 - Two AD-specific subnets (e.g., Subnet 1 and Subnet 2) if a regional subnet is not available.
 
+## Primary and Standby
+
+To ensure high availability, the load balancer service provisions two load balancers — a primary and a standby — each in a different availability domain.
+
+**How Placement Works**
+
+- With a regional subnet: The service places the primary and standby load balancers in different availability domains automatically.
+- With two AD-specific subnets: One subnet hosts the primary, and the other hosts the standby.
+
+Important Notes
+
+- Technically, there is no difference between the primary and standby load balancers — from a service standpoint, they are equivalent.
+- You cannot specify which load balancer is primary and which is standby. The terms "primary" and "standby" are used only for explanation purposes.
+
+
+
+
 # 3. Private Load Balancer
 
 Has a private IP address taken from the hosting subnet where it resides. It is only visible from within the Virtual Cloud Network (VCN).
