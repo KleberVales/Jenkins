@@ -37,3 +37,8 @@ OCI Compute Service offers two main types of instances:
 
 # 4. Data Persistence
 
+# 5. Images
+
+
+
+
