@@ -21,6 +21,16 @@ In other words, when you choose a shape, you're deciding how much compute power 
 
 ---
 
+## Compute Shapes
+
+When creating a compute instance, you must specify both a shape and an image—the image acts as a template for the virtual hard drive, determining the operating system and software. 
+
+OCI offers multiple image sources: platform images (pre-built operating systems like Oracle Linux, Ubuntu, CentOS, Windows, and Oracle Autonomous Linux), Oracle images (enterprise solutions), custom images (created from existing OCI instances), partner images (third-party images from the Marketplace), and bring-your-own-image (importing your own OS versions, with a 400 GB maximum size limit). 
+
+When creating a custom image from a running instance, the instance shuts down temporarily and restarts once complete, and any instances launched from that image will inherit the captured customizations. 
+
+For Windows custom images, you can choose between generalized images (cleaned of instance-specific data) and specialized images (point-in-time snapshots useful for backups). 
+
 # 3. Compute Instances
 
 OCI Compute Service offers two main types of instances:
