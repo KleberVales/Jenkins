@@ -41,6 +41,33 @@ Pricing for burstable instances is based on the **baseline OCPU**. Even if your 
 
 ---
 
+# 2. Scalling
+
+## Compute Vertical Scaling
+
+Compute vertical scaling—also known as scaling up or scaling down—allows you to change the shape of a virtual machine instance to add or remove resources without rebuilding instances or redeploying applications. 
+
+Scaling up increases performance, while scaling down saves costs. 
+
+When performing vertical scaling, the instance's public and private IP addresses, volume attachments, and VNIC attachments remain unchanged. However, the number of OCPUs, memory, network bandwidth, and maximum number of VNICs are all affected. 
+
+The target shape you can select depends on the current shape series and image, and if the instance is running during the change, it will be rebooted. 
+
+You can automate vertical scaling by using the monitoring service to trigger alarms that call functions to adjust the shape as needed. Just remember: scaling a virtual machine will always cause a reboot.
+
+### What Is Vertical Scaling?
+
+Vertical scaling means you add additional resources to an instance so that it meets demand. It allows you to change the shape of a virtual machine instance without having to rebuild your instances or redeploy your applications.
+
+There are two directions you can scale:
+
+- Scale Up: Increases performance by adding more resources.
+- Scale Down: Helps you save costs by reducing resources.
+
+As shown in the screenshot, there is an option to edit the shape of your instance.
+
+---
+
 
 
 
