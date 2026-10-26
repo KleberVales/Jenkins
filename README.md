@@ -183,7 +183,7 @@ Plugins are installed as part of the agent and are responsible for tasks such as
 
 To use plugins, the Oracle Cloud Agent software must be installed, and the plugins must be enabled and running. 
 
-Common plugin examples include the **Bastion plugin** (required for OCI Bastion service to provide secure, time-limited access to resources without public endpoints), the **OSMS plugin** (required for the Operating System Management Service to manage patches and updates), and the **Compute Instance Run Command plugin** (which enables running scripts within the instance). 
+Common plugin examples include the Bastion plugin (required for OCI Bastion service to provide secure, time-limited access to resources without public endpoints), the OSMS plugin (required for the Operating System Management Service to manage patches and updates), and the Compute Instance Run Command plugin (which enables running scripts within the instance). 
 
 Plugins can be enabled or disabled as needed. While Oracle Cloud Agent is installed by default on current platform images, it can also be manually installed on instances using other supported images.
 
