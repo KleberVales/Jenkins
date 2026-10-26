@@ -99,6 +99,53 @@ Some of the NVIDIA GPU models offered include:
 ---
 
 ## Bare Metal vs Virtual Machine vs Dedicated Hosts
+
+Three compute options in OCI: bare metal instances, virtual machines, and dedicated hosts. 
+
+### Bare Metal Instances
+
+**Key Characteristics**
+
+- You get direct access to the underlying hardware
+- Provides a dedicated physical server for highest performance and strong isolation
+
+**When to Use Bare Metal Instances**
+
+Bare metal instances are ideal for scenarios such as:
+
+- Workloads that are not virtualized
+- Performance-intensive workloads
+- Workloads that require Bring Your Own License (BYOL)
+- Workloads that require a specific hypervisor
+
+---
+
+### Virtual Machine Instances
+
+**Key Characteristics**
+
+- Virtual machine instances run on top of bare metal hardware
+- A hypervisor sits on top of the bare metal server to virtualize it into smaller VMs
+
+**When to Use Virtual Machines**
+
+Virtual machines are ideal for running applications that do not require the performance and resources of an entire physical machine.
+
+---
+
+### Dedicated Hosts
+
+**Key Characteristics**
+
+- A combination of bare metal and virtual machines
+- Multiple VMs run on bare metal, with the whole server dedicated to a single host
+
+**Why Use Dedicated Hosts?**
+
+This feature lets you meet compliance and regulatory requirements for isolation that would otherwise prevent you from using shared infrastructure.
+
+---
+
  
 # 4. Data Persistence
 
