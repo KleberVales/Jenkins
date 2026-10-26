@@ -68,6 +68,38 @@ As shown in the screenshot, there is an option to edit the shape of your instanc
 
 ---
 
+### What Stays the Same?
+
+When you perform vertical scaling, the following remain unchanged:
+
+- IP address of the instance (both public and private)
+- Volume attachments
+- VNIC attachments
+
+---
+
+### What Changes?
+
+When a vertical scaling operation is performed, the following are affected:
+
+- Number of OCPUs
+- Memory
+- Network bandwidth
+- Maximum number of VNICs
+
+> Note: If the instance is running when you change the shape, it is rebooted as part of the change shape operation.
+
+---
+
+### Automation Possibility
+
+You can use the monitoring service to monitor metrics and raise an alarm when a particular metric is met. The alarm notification can then call a function to adjust the shape of the virtual machine as needed—allowing you to automate the vertical scaling process.
+
+1. Automation: Monitoring + alarms + functions can automate shape adjustments.
+2. Reboot Required: Scaling a virtual machine will cause a reboot.
+
+---
+
 
 
 
