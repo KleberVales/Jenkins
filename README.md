@@ -227,6 +227,13 @@ To use plugins on an instance, the following conditions must be met:
 
 ---
 
+## Installation
+
+- If you create an instance using a current platform image, Oracle Cloud Agent is installed by default.
+- It is also possible to manually install the Oracle Cloud Agent software on an instance that uses another supported image.
+
+---
+
 
 
 
