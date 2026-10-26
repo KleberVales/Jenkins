@@ -140,22 +140,22 @@ The instance configuration typically contains:
 
 ### Instance Pool
 
-**Instance pools** allow you to create and manage **multiple compute instances within the same region as a group**.
+Instance pools allow you to create and manage multiple compute instances within the same region as a group.
 
 Key points:
-- You can use the **same instance configuration** for multiple instance pools.
-- However, an instance pool can have **only one instance configuration** associated with it.
+- You can use the same instance configuration for multiple instance pools.
+- However, an instance pool can have only one instance configuration associated with it.
 - After creating an instance pool, you can:
-  - Update the **size** of the pool
-  - **Add or remove** existing instances from the pool
-  - **Attach or detach** load balancers
-- You can adjust the number of instances running in the pool using either **metrics** or a **schedule**.
+  - Update the size of the pool
+  - Add or remove existing instances from the pool
+  - Attach or detach load balancers
+- You can adjust the number of instances running in the pool using either metrics or a schedule.
 
 Instances in a pool can be:
-- Deployed in **different availability domains**
-- Placed **behind a load balancer**
+- Deployed in different availability domains
+- Placed behind a load balancer
 
-> The whole point of grouping multiple instances together is to **manage them as a group**.
+> The whole point of grouping multiple instances together is to manage them as a group.
 
 ---
 
