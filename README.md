@@ -548,4 +548,69 @@ The run command feature is supported on compute instances that use platform imag
 
 ---
 
+# 5. Instance Console Connection
+
+Instance console connection provides a display of what is happening during the boot process, allowing you to remotely troubleshoot malfunctioning instances—it is a special case intended for troubleshooting, not normal operations. 
+
+There are two connection options: Cloud Shell connection (which automatically creates the console connection and a temporary SSH key) and local connection (which requires generating an SSH key pair or uploading your own public key). 
+
+There are two types of console connections: serial console connection, used mainly for Linux servers and CLI-based operating systems and accessed via SSH, and VNC console connection, used for servers with a graphical user interface and accessed by setting up a secure tunnel to the VNC server and connecting with a VNC client. 
+
+Note that Cloud Shell can only be used for serial console connections, not VNC. Use cases include editing system configuration files, adding or resetting SSH keys for the OPC user, troubleshooting imported or customized images that fail to boot, and recovering instances that suddenly stop responding.
+
+## What Is a Console Connection?
+
+The idea of a console connection is to give you a display of what is happening during the boot process. This allows you to remotely troubleshoot malfunctioning instances.
+
+> Important: This is a special case—you do not use it for normal operations, but for troubleshooting.
+
+---
+
+## Connection Options
+
+There are two options for creating a console connection:
+
+### 1. Cloud Shell Connection
+
+- The Cloud Shell integration automatically creates the instance console connection and the temporary SSH key.
+
+### 2. Local Connection
+
+- When you create a local connection, you need to generate an SSH key pair, or you can upload your own public key.
+
+---
+
+## Types of Instance Console Connections
+
+### 1. Serial Console Connection
+
+- Mainly used for Linux servers and other CLI-based operating systems.
+- After you create the console connection for the instance, you can connect to the serial console using a Secure Shell (SSH) connection.
+
+### 2. VNC Console Connection
+
+- Commonly used for connecting to servers that have a graphical user interface (GUI).
+- You need to set up a secure tunnel to the VNC server on the instance, and then you can connect with a VNC client.
+
+> Note: You cannot use Cloud Shell for VNC console connections. You can only use it for serial console connections.
+
+---
+
+## Use Cases
+
+Once you are connected with an instance console connection, you can perform tasks such as:
+
+- Editing system configuration files
+- Adding or resetting the SSH keys for the OPC user
+
+### Troubleshooting Scenarios
+
+- An imported or customized image that is not booting successfully
+- An instance that was working fine but suddenly stops responding
+
+In these scenarios, you can make use of instance console connections for troubleshooting.
+
+---
+
+
 
