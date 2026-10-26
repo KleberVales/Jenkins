@@ -28,18 +28,80 @@ Not all shapes support burstable instances. Supported shapes include:
 
 The process is similar to creating an on-demand instance, with a few key differences:
 
-1. **Change the shape** to one of the supported burstable shapes.
-2. **Specify the number of OCPUs** (maximum CPU count).
-3. **Select the burstable option**.
-4. **Set the baseline** (e.g., 12.5% or 50%).
+1. Change the shape to one of the supported burstable shapes.
+2. Specify the number of OCPUs (maximum CPU count).
+3. Select the burstable option.
+4. Set the baseline (e.g., 12.5% or 50%).
 
 ---
 
 ### Pricing
 
-Pricing for burstable instances is based on the **baseline OCPU**. Even if your instance bursts above the baseline, you still pay only for the baseline OCPU.
+Pricing for burstable instances is based on the baseline OCPU. Even if your instance bursts above the baseline, you still pay only for the baseline OCPU.
 
 ---
+
+## Oracle OS Management Hub
+
+## 5.1 Introduction
+
+Oracle OS Management Hub is a centralized cloud solution from Oracle for managing, updating, and monitoring operating systems (such as Oracle Linux) in a unified way.
+
+It solves a major problem for IT administrators: managing security patches, update cycles, and compliance not only on servers running within the OCI itself, but also in hybrid and multi-cloud environments—that is, servers spread across on-premises data centers and even other clouds, such as AWS and Microsoft Azure.
+
+---
+
+## 5.2 Common Challenges in OS and Patch Management
+
+### 1. Managing a Small Number of Instances
+
+Even with just a few compute instances, administrators must handle:
+
+- Software management and patching — Applications and updates follow different cycles:
+  - Oracle, as an OS vendor, releases critical patch updates quarterly.
+  - Linux security patches are released frequently and unpredictably as vulnerabilities are discovered.
+  - Staying on top of these updates requires constant attention.
+- Reporting security and compliance — Ensuring SLAs are met, generating reports, and maintaining security to meet regulatory standards.
+- Monitoring and assessment — Choosing tools to monitor performance, quickly identify issues, and resolve them.
+
+### 2. Scaling to Hundreds of Instances
+
+As the number of instances grows:
+
+- Manually managing patches and compliance becomes time-consuming, error-prone, and a major drain on team resources.
+- Teams end up spending time on repetitive tasks instead of important projects.
+- Risk increases: Missing a single patch or vulnerability can expose the entire system to attack.
+
+### 3. Expanding Across Environments
+
+When infrastructure spans on-premises and multiple cloud environments, complexity grows due to:
+
+- A growing number of systems
+- Diverse environments (on-premises, multiple cloud providers, different operating systems)
+- Maintaining security compliance across all systems
+- Lifecycle management — ensuring every system is up to date and running smoothly
+
+> As infrastructure grows, a centralized management solution becomes essential—providing a unified view, automating tasks, and simplifying management across all environments.
+
+---
+
+## 5.3 Introducing OCI OS Management Hub
+
+OCI OS Management Hub is a management-as-a-service solution designed to simplify and centralize management across your organization.
+
+### Key Benefits
+
+| Benefit | Description |
+|---------|-------------|
+| Centralized Management | Gain complete control over updates throughout your entire environment, reducing administrative overhead and improving efficiency. |
+| Security and Compliance | A clear, consolidated dashboard allows you to monitor compliance, track patch statuses, and review reports to stay proactive and aligned with security standards. |
+| Zero Downtime Updates | With Ksplice integration, apply critical Oracle Linux updates without rebooting systems, minimizing downtime and disruption. |
+| Multi-Environment Support | Manage systems across OCI, third-party clouds, and on-premises environments from a single unified view. |
+
+### Supported Environments
+
+No matter where your infrastructure resides—on-premises data centers, OCI, or third-party clouds like Microsoft Azure and AWS—the OS Management Hub supports easy management. It offers tools and resources for Oracle Linux, enhancing your experience and streamlining management.
+
 
 # 2. Scalling
 
