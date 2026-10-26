@@ -200,13 +200,101 @@ From the OS Management Hub console, you as an administrator can easily:
 
 ## 3. Components
 
-The OS Management Hub service relies on several core components: the **management station** (which mirrors and distributes software and bridges managed instances to the service), **profiles** (blueprints for consistent system management), **software sources** (repositories for standardized software), **agents** (enabling communication between instances and the hub), **network configuration** (ensuring connectivity and firewall settings), **Ksplice** (for reboot-free kernel patching), and **reports** (covering software updates, security vulnerabilities, and system health). 
+The OS Management Hub service relies on several core components: the management station (which mirrors and distributes software and bridges managed instances to the service), profiles (blueprints for consistent system management), software sources (repositories for standardized software), agents (enabling communication between instances and the hub), network configuration (ensuring connectivity and firewall settings), Ksplice (for reboot-free kernel patching), and reports (covering software updates, security vulnerabilities, and system health). 
 
-To set up OSMH, you must configure IAM policies, starting with **user groups** (defining who can manage the service), **dynamic groups** (automatically grouping instances based on compartment rules, including non-OCI instances via management agent resources), and **policy statements** (granting specific permissions). The required policies include one for dynamic groups (allowing agents to interact with OSMH) and several for the user group (managing all OSMH resources, plus management station permissions for agents and the agent key). 
+To set up OSMH, you must configure IAM policies, starting with user groups (defining who can manage the service), dynamic groups (automatically grouping instances based on compartment rules, including non-OCI instances via management agent resources), and policy statements (granting specific permissions). The required policies include one for dynamic groups (allowing agents to interact with OSMH) and several for the user group (managing all OSMH resources, plus management station permissions for agents and the agent key). 
 
 Permissions can be scoped at the compartment level, but read access to profiles and software sources must be granted at the tenancy level. Finally, OSMH supports Oracle Linux and specific Windows Server versions in OCI, and Oracle Linux 7, 8, and 9 for on-premises and third-party cloud environments.
 
+## 4. OS Management Hub for OCI Instances
 
+First, network configuration must be verified—private subnets require a service gateway (with the All region label) or NAT gateway, public subnets require an internet gateway, and Windows instances need security rules allowing access to Windows update servers. Second, software sources must be set up, with at least one vendor software source required before registration. 
+
+There are three types: vendor (basic vendor repository), custom (vendor base with package filters), and versioned custom (immutable, version-specific for lifecycle consistency). 
+
+Third, profiles are configured as templates defining software sources, lifecycle stage membership, and group membership—applied only during registration and location-specific. 
+
+Finally, registration involves three steps: creating the instance with proper network gateways, enabling the OS Management Hub agent plugin from Oracle Cloud Agent (selecting a profile during activation), and verifying the Oracle Cloud Agent version to ensure compatibility. Once complete, the instance appears as a managed instance in the OS Management Hub service within minutes.
+
+### Key Steps Before Registration
+
+Before you create and register compute instances with the OSMH service, there are a few key steps to follow:
+
+1. Verify the network configuration to ensure connectivity and access.
+2. Set up software sources and profiles to standardize how your instances receive updates and patches.
+3. Create and register your compute instances with the service.
+
+---
+
+**Step 1: Network Configuration**
+
+First, we need to make sure the network is set up correctly to support OS Management Hub resources for OCI instances.
+
+| Instance Location | Required Configuration |
+|-------------------|------------------------|
+| Private Subnet | Connect to a VCN that has a service gateway with the All region label in the Oracle Services network. Alternatively, configure a NAT gateway for that VCN to enable outbound internet access. |
+| Public Subnet | Configure an internet gateway to ensure your instances can communicate with the required external services. |
+| Windows Instances | Set up security lists or network rules that allow access to Windows update servers. Open the necessary ports and IP addresses in your security list or network security groups for Windows updates to function properly. |
+
+---
+
+**Step 2: Software Sources**
+
+Software sources are the first level of control over the content available to instances managed by the OS Management Hub service.
+
+- You must add at least one vendor software source before registering any instances with the service.
+- A software source is a collection of packages and modules similar to repositories used for updates.
+- Once added to OS Management Hub, it is available across all compartments, regions, and management stations.
+- This helps administrators control which packages can be installed on instances without having to set up repositories manually.
+
+Three Main Types of Software Sources
+
+| Type | Description |
+|------|-------------|
+| Vendor | The most basic type—a repository of all software provided by the OS vendor. It serves as the foundation for all other software sources. You need at least one vendor software source added to your compartment before registering instances. |
+| Custom | Offers more flexibility. Start with a vendor software source as your base, then apply filters to include or exclude specific packages. Useful when you want to control exactly what is available to your instances. |
+| Versioned Custom | Works similarly to a custom software source, but is assigned a specific version number. Once created, you cannot modify its contents. Perfect for managing software across different lifecycle environments (development, testing, production). |
+
+---
+
+**Step 3: Configuring Profiles**
+
+Profiles help simplify and standardize the process of registering your instances. Instead of manually configuring each instance, you can use a profile to automatically apply the same settings to multiple instances at once.
+
+Think of profiles as templates that define settings such as:
+
+- Software sources — the locations from which software updates and packages are retrieved and made available to managed instances.
+- Lifecycle stage membership — defines where an instance fits within a lifecycle environment (development, testing, or production).
+- Group membership — allows you to assign instances to specific groups, making it easier to manage and update them together.
+
+> Important Notes:
+> - Profiles only impact instances during the registration process. Once an instance is registered, the profile no longer affects it.
+> - Profiles are location-specific, meaning you cannot use a profile created for Oracle Cloud OCI on an instance in your own data center.
+
+---
+
+**Step 4: Registering Your Instance**
+
+The registration process has three main steps:
+
+1. Create the Instance
+- Create the instance based on your required configuration.
+- Ensure network setup is configured with the required gateways (service gateways for private subnets or internet gateways for public subnets).
+
+2. Enable the OS Management Hub Agent
+- From Oracle Cloud Agent, activate the OS Management Hub agent plugin.
+- This plugin allows communication between your instance and the OS Management Hub service.
+- During activation, you will select a profile for your instance.
+  - This profile automatically applies all necessary configurations, including software sources, lifecycle stage membership, and group membership.
+- Once completed, your instance becomes ready for centralized management and will appear as a managed instance in the OS Management Hub service.
+
+3. Verify the Oracle Cloud Agent Version
+- Running a specific command to install or update to the latest version ensures compatibility.
+- This is useful for registering existing OCI instances with the OS Management Hub service.
+- Once you've confirmed the agent version, you can enable the OS Management Hub agent plugin.
+- Within a few minutes, your instance will appear in the list of Managed Instances, ready to be managed through the OS Management Hub service.
+
+---
 
 # 2. Scalling
 
@@ -400,10 +488,5 @@ To use plugins on an instance, the following conditions must be met:
 - It is also possible to manually install the Oracle Cloud Agent software on an instance that uses another supported image.
 
 ---
-
-
-
-
-
 
 
