@@ -175,6 +175,58 @@ An autoscaling event that takes place at specific times that you schedule.
 
 ---
 
+# 3. Oracle Cloud Agent
+
+Oracle Cloud Agent is a lightweight process that manages plugins on compute instances and is installed by default on current platform images. 
+
+Plugins are installed as part of the agent and are responsible for tasks such as collecting performance metrics, installing OS updates, and performing other instance management functions. 
+
+To use plugins, the Oracle Cloud Agent software must be installed, and the plugins must be enabled and running. 
+
+Common plugin examples include the **Bastion plugin** (required for OCI Bastion service to provide secure, time-limited access to resources without public endpoints), the **OSMS plugin** (required for the Operating System Management Service to manage patches and updates), and the **Compute Instance Run Command plugin** (which enables running scripts within the instance). 
+
+Plugins can be enabled or disabled as needed. While Oracle Cloud Agent is installed by default on current platform images, it can also be manually installed on instances using other supported images.
+
+## What Do Plugins Do?
+
+Plugins perform a variety of instance management tasks, including:
+
+- Collecting performance metrics
+- Installing operating system updates
+- Performing other instance management tasks
+
+---
+
+## Requirements for Using Plugins
+
+To use plugins on an instance, the following conditions must be met:
+
+1. The Oracle Cloud Agent software must be installed on the instance.
+2. The plugins must be enabled.
+3. The plugins must be running.
+
+---
+
+## Plugin Examples
+
+### 1. Bastion
+
+- OCI provides a service known as OCI Bastion, which offers restricted and time-limited secure access to resources that don't have a public endpoint.
+- To use the Bastion service, you require the Bastion plugin to be enabled and running on the instance.
+
+### 2. OSMS Agent
+
+- The Operating System Management Service (OSMS) manages patches and updates for the operating system environment in an instance.
+- To use OSMS, you require the OSMS plugin to be enabled and running.
+
+### 3. Compute Instance Run Command
+
+- This plugin facilitates running scripts within the instance using the run command feature.
+
+> You can enable or disable a plugin as needed.
+
+---
+
 
 
 
