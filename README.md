@@ -489,4 +489,55 @@ To use plugins on an instance, the following conditions must be met:
 
 ---
 
+# 4. Run Command
+
+Run command is a feature that allows you to remotely configure, manage, and troubleshoot compute instances by running scripts within the instance—even when the instance does not have SSH access or open inbound ports. It is supported on platform images including Oracle Autonomous Linux, Oracle Linux, CentOS, and Windows Server, but not Ubuntu. On Linux instances, scripts run in a bash shell by default, while on Windows instances they run as a batch file. There are size limits to be aware of: script files uploaded directly in plain text are limited to 4 KB (use object storage for larger files), and plain text script output is limited to the last 1 KB (again, use object storage for larger responses). Common use cases include automating tasks like configuring secondary VNICs and troubleshooting SSH connectivity.
+
+## What Is a Run Command?
+
+Using run command, you can remotely configure, manage, and troubleshoot compute instances by running scripts within the instance.
+
+Key capability:
+- You can run commands on an instance even when the instance does not have SSH access or open inbound ports.
+
+---
+
+## Supported Platforms
+
+The run command feature is supported on compute instances that use platform images.
+
+| Supported | Not Supported |
+|-----------|---------------|
+| Oracle Autonomous Linux | Ubuntu |
+| Oracle Linux | |
+| CentOS | |
+| Windows Server | |
+
+---
+
+## Script Execution Details
+
+| Instance Type | Script Runs As |
+|---------------|----------------|
+| Linux | Bash shell (by default) |
+| Windows | Batch file |
+
+---
+
+## Size Limits
+
+| Item | Limit | Workaround |
+|------|-------|------------|
+| Script file uploaded directly in plain text | 4 KB maximum | Save the file in an object storage location to provide a larger file. |
+| Script output written as plain text | Last 1 KB | Save the output to an object storage location to save a larger response. |
+
+---
+
+## Examples of Use Cases
+
+- Automate tasks, such as configuring secondary virtual network interface cards (VNICs).
+- Troubleshoot SSH connectivity.
+
+---
+
 
