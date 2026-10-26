@@ -43,7 +43,7 @@ Pricing for burstable instances is based on the baseline OCPU. Even if your inst
 
 ## Oracle OS Management Hub
 
-### Introduction
+### 1. Introduction
 
 Oracle OS Management Hub is a centralized cloud solution from Oracle for managing, updating, and monitoring operating systems (such as Oracle Linux) in a unified way.
 
@@ -102,7 +102,7 @@ Supported Environments
 
 No matter where your infrastructure resides—on-premises data centers, OCI, or third-party clouds like Microsoft Azure and AWS—the OS Management Hub supports easy management. It offers tools and resources for Oracle Linux, enhancing your experience and streamlining management.
 
-### Workflow
+### 2. Workflow
 
 The OS Management Hub workflow begins by grouping instances that share the same OS type, release, and architecture, enabling centralized and unified management. 
 
@@ -198,7 +198,7 @@ From the OS Management Hub console, you as an administrator can easily:
 
 ---
 
-## Components
+## 3. Components
 
 The OS Management Hub service relies on several core components: the **management station** (which mirrors and distributes software and bridges managed instances to the service), **profiles** (blueprints for consistent system management), **software sources** (repositories for standardized software), **agents** (enabling communication between instances and the hub), **network configuration** (ensuring connectivity and firewall settings), **Ksplice** (for reboot-free kernel patching), and **reports** (covering software updates, security vulnerabilities, and system health). 
 
