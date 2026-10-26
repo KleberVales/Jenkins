@@ -23,3 +23,26 @@ Not all shapes support burstable instances. Supported shapes include:
 - `VM.Standard.F4.Flex`
 
 ---
+
+### Creating a Burstable Instance
+
+The process is similar to creating an on-demand instance, with a few key differences:
+
+1. **Change the shape** to one of the supported burstable shapes.
+2. **Specify the number of OCPUs** (maximum CPU count).
+3. **Select the burstable option**.
+4. **Set the baseline** (e.g., 12.5% or 50%).
+
+---
+
+### Pricing
+
+Pricing for burstable instances is based on the **baseline OCPU**. Even if your instance bursts above the baseline, you still pay only for the baseline OCPU.
+
+---
+
+
+
+
+
+
