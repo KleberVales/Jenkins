@@ -110,6 +110,71 @@ Autoscaling can be metric-based (triggered by performance thresholds) or schedul
 
 For example, a pool with an initial size of 2, a minimum of 1, and a maximum of 4 can scale out by adding 2 instances when CPU or memory utilization exceeds 70%, and scale in by removing 2 instances when utilization drops below 70%. This ensures consistent performance during high demand while reducing costs during low demand.
 
+### Instance Configuration
+
+An instance configuration is a template that defines the settings to use when creating compute instances.
+
+- You can use an instance configuration to create one or more instances in an instance pool.
+- You can also use it to create individual instances.
+- Important: It does not include the contents of any block volumes attached to the instance.
+
+You have the option to:
+- Launch an instance from the instance configuration.
+- Create an instance pool from the instance configuration.
+
+> Note: To modify an existing instance configuration, you must create a new instance configuration with the desired settings.
+
+When creating an instance configuration, you can either:
+- Use an existing compute instance as a template, or
+- Provide a list of configuration settings.
+
+The instance configuration typically contains:
+- Operating system image
+- Metadata
+- Shape
+- VNICs
+- Storage
+- Subnet information
+
+---
+
+### Instance Pool
+
+**Instance pools** allow you to create and manage **multiple compute instances within the same region as a group**.
+
+Key points:
+- You can use the **same instance configuration** for multiple instance pools.
+- However, an instance pool can have **only one instance configuration** associated with it.
+- After creating an instance pool, you can:
+  - Update the **size** of the pool
+  - **Add or remove** existing instances from the pool
+  - **Attach or detach** load balancers
+- You can adjust the number of instances running in the pool using either **metrics** or a **schedule**.
+
+Instances in a pool can be:
+- Deployed in **different availability domains**
+- Placed **behind a load balancer**
+
+> The whole point of grouping multiple instances together is to **manage them as a group**.
+
+---
+
+### Types of Autoscaling Policies
+
+**Metric-Based Autoscaling**
+
+An autoscaling action triggered when a performance metric meets or exceeds a threshold.
+
+Benefits:
+- Provides consistent performance for end users during periods of high demand.
+- Helps reduce costs during periods of low demand.
+
+**Schedule-Based Autoscaling**
+
+An autoscaling event that takes place at specific times that you schedule.
+
+---
+
 
 
 
