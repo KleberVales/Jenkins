@@ -98,13 +98,11 @@ Some of the NVIDIA GPU models offered include:
 
 ---
 
-# Compute Instance
-
-## Bare Metal vs Virtual Machine vs Dedicated Hosts
+# 3. Compute Instance
 
 Three compute options in OCI: bare metal instances, virtual machines, and dedicated hosts. 
 
-### Bare Metal Instances
+## Bare Metal Instances
 
 **Key Characteristics**
 
@@ -122,7 +120,7 @@ Bare metal instances are ideal for scenarios such as:
 
 ---
 
-### Virtual Machine Instances
+## Virtual Machine Instances
 
 **Key Characteristics**
 
@@ -135,7 +133,7 @@ Virtual machines are ideal for running applications that do not require the perf
 
 ---
 
-### Dedicated Hosts
+## Dedicated Hosts
 
 **Key Characteristics**
 
