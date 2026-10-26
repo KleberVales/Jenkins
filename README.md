@@ -146,6 +146,158 @@ This feature lets you meet compliance and regulatory requirements for isolation 
 
 ---
 
+## Capacity Types Preemptible Instances
+
+Preemptible instances are identical to on-demand instances except that OCI can terminate them when compute capacity is needed elsewhere. 
+
+They run on unused on-demand capacity, which allows OCI to offer them at a 50% discount, but this also means they can be terminated at any time—making them unsuitable for long-running workloads and best suited for short-term usage such as batch jobs like video encoding. 
+
+There are several restrictions: you can only change the instance name after launch (not the shape), you cannot convert a preemptible instance to on-demand, preemptible capacity does not support bare metal instances, and preemptible instances cannot be used to create instance configurations or added to instance pools. 
+
+OCI sends a termination notice through the Event Service, with the preemption action event limited to 30 seconds before termination begins. 
+
+Creating a preemptible instance follows the same workflow as on-demand instances—you simply select **Preemptible Capacity** instead of **On-Demand Capacity** in the Placement section of the console. Understanding preemptible instances allows you to take advantage of significant cost savings for workloads that can tolerate interruption.
+
+### What are Preemptible Instances?
+
+Preemptible instances are the same as on-demand instances with one important exception:
+
+> If compute capacity is needed elsewhere, OCI can terminate those instances.
+
+**Key Characteristics**
+
+- Run on unused on-demand capacity
+- OCI offers them at a 50% discount compared to on-demand instances
+- Can be terminated at any time
+- Not suitable for long-running workloads — designed for short-term usage
+
+---
+
+### Restrictions and Limitations
+
+There are several important restrictions to keep in mind when working with preemptible instances:
+
+**Instance Editing**
+- When you edit an instance that uses preemptible capacity, only the name of the instance can be changed
+- You cannot change the shape of the instance after it is launched
+
+**Conversion**
+- You cannot convert a preemptible instance to an on-demand instance
+
+**Pricing**
+- Pricing is simple: it is always 50% cheaper than your on-demand rates
+
+**Capacity Reclamation**
+- OCI can terminate preemptible instances if requests for on-demand instances increase, allowing the capacity to be reclaimed
+
+**Feature Limitations**
+- Preemptible capacity does not support bare metal instances
+- You cannot use preemptible instances to create instance configurations
+- Preemptible instances cannot be used in instance pools
+
+---
+
+## Capacity Types Capacity Reservations
+
+### What Is a Capacity Reservation?
+
+A capacity reservation lets you **reserve compute capacity in advance** so you're guaranteed to have resources available when you need them. When you create instances that use the reservation, they draw from that reserved pool. When those instances are terminated, the capacity **returns to the reservation** rather than being lost.
+
+### Key Characteristics
+
+- Flexible sizing and timing — You can reserve as little or as much capacity as you need, with no size or time constraints.
+- You can delete anytime — Deleting the reservation stops the charges.
+- Charges apply even when unused — Reserved capacity costs money whether or not you use it, because it consumes resources.
+- Billing rates:
+  - Unused reserved capacity is billed at 85%
+  - Instances created against the reservation are billed at 100%
+
+ ## Capacity Types Dedicated VM Host
+
+ A dedicated virtual machine host lets you run compute VM instances on a dedicated, single-tenant server that is not shared with other customers. 
+
+You are billed for the host itself as soon as you create it, but not for the individual VM instances placed on it. 
+
+When creating a host, you select a shape that determines the available capacity and which instance types can be launched—keeping in mind that some OCPUs are reserved for VM management, so billed OCPUs differ from available OCPUs. 
+
+Dedicated VM hosts are valuable for meeting compliance and regulatory isolation requirements and host-based licensing requirements that mandate licensing an entire server. 
+
+Usable OCPUs and memory vary by shape—for example, DVH.Standard3.64 provides 60 usable OCPUs and 960 GB usable memory—and each host shape supports specific VM shapes, such as DVH.Standard2.52 supporting the VM.Standard2 series. 
+
+While most compute features are supported, several are not, including autoscaling, capacity reservations, instance configurations, instance pools, burstable instances, and remote migration. 
+
+Understanding these characteristics helps you determine when a dedicated VM host is the right choice for your workload's isolation and licensing needs.
+
+### What is a Dedicated Virtual Machine Host?
+
+A dedicated virtual machine host gives you the ability to run compute virtual machine instances on a dedicated server that is a single tenant and not shared with other customers.
+
+**Key Characteristics**
+
+- Runs VM instances on a server dedicated to you alone
+- Provides single-tenant isolation — no sharing with other customers
+
+---
+
+### Billing Model
+
+Understanding the billing model is important when using dedicated virtual machine hosts:
+
+- You are billed for the dedicated virtual machine host as soon as you create it
+- You are not billed for the individual virtual machine instances that you place on it
+
+In other words, you pay for the host itself, regardless of how many (or how few) VMs you run on it.
+
+---
+
+### Choosing a Shape
+
+When you create a dedicated virtual machine host, you select a shape for the host. This shape determines:
+
+- How much capacity is available
+- What type of instances can be launched on the host
+
+**Reserved OCPUs**
+
+> Some OCPUs are reserved for virtual machine management.
+
+Because of this, there will be a difference between the number listed for billed OCPUs compared to available OCPUs. The billed number reflects the total, while the available number is what remains after management overhead is reserved.
+
+---
+
+### Dedicated Virtual Machine Host Shapes
+
+The usable OCPUs and usable memory depend on the shape you select. Let's look at some examples:
+
+| Dedicated VM Host Shape | Usable OCPUs | Usable Memory |
+|-------------------------|--------------|---------------|
+| DVH.Standard3.64 | 60 | 960 GB |
+
+**Supported Shapes for Hosted VMs**
+
+Each dedicated VM host shape supports specific VM shapes for the instances you place on it.
+
+**Example:**
+- DVH.Standard2.52 supports the VM.Standard2 series
+
+---
+
+### Limitations
+
+Most compute features for virtual machine instances are supported for instances running on dedicated virtual machine hosts. However, the following features are not supported:
+
+- Autoscaling
+- Capacity reservations
+- Instance configurations
+- Instance pools
+- Burstable instances
+- Remote migration
+
+Keep these limitations in mind when planning to use dedicated virtual machine hosts.
+
+---
+
+
  
 # 4. Data Persistence
 
