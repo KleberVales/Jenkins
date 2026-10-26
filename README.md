@@ -43,7 +43,7 @@ Pricing for burstable instances is based on the **baseline OCPU**. Even if your 
 
 # 2. Scalling
 
-## Compute Vertical Scaling
+## 2.1 Compute Vertical Scaling
 
 Compute vertical scaling—also known as scaling up or scaling down—allows you to change the shape of a virtual machine instance to add or remove resources without rebuilding instances or redeploying applications. 
 
@@ -99,6 +99,16 @@ You can use the monitoring service to monitor metrics and raise an alarm when a 
 2. Reboot Required: Scaling a virtual machine will cause a reboot.
 
 ---
+
+## 2.2 Compute AutoScaling
+
+Compute autoscaling relies on two key constructs: instance configurations (templates defining instance settings) and instance pools (groups of instances managed together within a region). 
+
+An instance configuration can be created from an existing instance or defined manually, and it excludes block volume contents. An instance pool can have only one instance configuration but can be used across multiple pools, and its size can be adjusted manually or automatically. 
+
+Autoscaling can be metric-based (triggered by performance thresholds) or schedule-based (triggered at specific times). To configure autoscaling, you create an instance configuration, create an instance pool from it, configure the pool (size, instances, load balancers), and define an autoscaling policy. 
+
+For example, a pool with an initial size of 2, a minimum of 1, and a maximum of 4 can scale out by adding 2 instances when CPU or memory utilization exceeds 70%, and scale in by removing 2 instances when utilization drops below 70%. This ensures consistent performance during high demand while reducing costs during low demand.
 
 
 
