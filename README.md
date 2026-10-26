@@ -98,6 +98,8 @@ Some of the NVIDIA GPU models offered include:
 
 ---
 
+# Compute Instance
+
 ## Bare Metal vs Virtual Machine vs Dedicated Hosts
 
 Three compute options in OCI: bare metal instances, virtual machines, and dedicated hosts. 
@@ -297,6 +299,54 @@ Keep these limitations in mind when planning to use dedicated virtual machine ho
 
 ---
 
+## Dedicated VM Host
+
+### Why Use Dedicated Virtual Machine Hosts?
+
+There will be times when you want your VMs to have isolation but don't want the hassle of managing a bare metal server. Dedicated virtual machine hosts let you:
+
+- Run VM instances on dedicated servers that are single tenant and not shared with other customers
+- Meet compliance and regulatory requirements for isolation
+
+---
+
+### Creating a Dedicated Virtual Machine Host
+
+**Step 1: Navigate to the Service**
+
+1. Go to the navigation menu
+2. Select Compute
+3. Select Dedicated Virtual Machine Hosts
+4. Click Create Virtual Machine Host to start the workflow
+
+**Step 2: Configure the Host**
+
+| Setting | Value Used in Demo |
+|---------|-------------------|
+| Name | DVH-demo |
+| Compartment | (Pre-selected — no change needed) |
+| Availability Domain | Selected as required |
+| Shape | DVH.Standard3.64 |
+
+**Step 3: Select the Shape**
+
+Click Edit shape to choose the host shape.
+
+> Important: If you get a server based on a fixed shape (like DVH.Standard2.52), you will only be able to provision shapes that are derivative from that family.
+
+In this demo:
+- Host shape: DVH.Standard3.64
+- Compatible shapes: VM.Standard3.Flex
+
+**Step 4: Complete Placement and Create**
+
+- Select a fault domain (e.g., FAULT-DOMAIN-1)
+- Add tags if needed (none in this demo)
+- Click Create to trigger provisioning
+
+You can follow progress in Work requests until the host finishes provisioning.
+
+---
 
  
 # 4. Data Persistence
