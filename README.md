@@ -19,10 +19,86 @@ OCI offers a variety of shapes designed to meet a wide range of compute and appl
 
 In other words, when you choose a shape, you're deciding how much compute power and memory your instance will have.
 
+Compute shapes are available with three processor types:
+
+- AMD processors
+- Intel processors
+- ARM-based processors
+
 ---
 
 ## Compute Shapes
 
+A shape is a template that defines the number of OCPUs, amount of memory, and other resources allocated to an instance, and shapes are available with AMD, Intel, and ARM-based processors. 
+
+There are two categories of shapes: fixed shapes, where you cannot customize OCPUs or memory and can create either bare metal or virtual machine instances; and flexible shapes, where you can customize OCPUs and memory but can only create virtual machine instances. 
+
+Flexible shapes allow you to adjust resources at launch or when resizing, with network bandwidth and vNIC count scaling proportionately with OCPUs. 
+
+## Two Options for Shapes
+
+OCI offers two categories of shapes, each with different capabilities.
+
+### 1. Fixed Shapes
+
+- You cannot customize the number of OCPUs or the amount of memory
+- You can create either a bare metal instance or a virtual machine instance using fixed shapes
+
+### 2. Flexible Shapes
+
+- You can customize the number of OCPUs and the amount of memory
+- You can only create a virtual machine instance using flexible shapes
+- The maximum number of OCPUs and maximum amount of memory depend on the processor type
+
+Flexible shapes give you control over the resources allocated to your VM at launch or when resizing.
+
+**Key Characteristics**
+
+- Lets you customize the number of OCPUs and amount of memory when launching or resizing your VM
+- Network bandwidth and the number of vNICs scale proportionately with the number of OCPUs
+
+**Naming Convention**
+
+Flexible shapes follow a naming pattern, for example:
+
+- `VM.Standard.E3.Flex`
+- `VM.Standard3.Flex`
+---
+
+## GPU Shapes
+
+GPU shapes are designed for hardware-accelerated workloads—where applications offload certain tasks to specialized hardware to accelerate performance. 
+
+### What are GPU Shapes?
+
+Oracle Cloud Infrastructure offers a variety of shapes designed to meet a range of compute and application requirements. One such shape is the GPU shape.
+
+> GPU shapes are designed for hardware-accelerated workloads.
+
+**What is Hardware Acceleration?**
+
+Hardware acceleration is a process where applications offload certain tasks to hardware in your system.
+
+Purpose: To accelerate that task, achieving better performance than software alone could provide.
+
+---
+
+### NVIDIA GPU Support
+
+OCI offers the highest value and performance for bare metal and virtual machine compute instances that are powered by NVIDIA GPUs.
+
+**GPU Models Available**
+
+Some of the NVIDIA GPU models offered include:
+
+- A100
+- A10
+- V100
+- P100
+
+---
+
+## Bare Metal vs Virtual Machine vs Dedicated Hosts
  
 
 # 3. Compute Instances
