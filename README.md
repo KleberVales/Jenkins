@@ -12,7 +12,7 @@ Creating a burstable instance involves selecting a supported shape, specifying t
 
 ### What Are Burstable Instances?
 
-A **burstable instance** is a virtual machine instance that offers a **baseline level of CPU performance** with the ability to **burst to a higher level** when needed to support occasional spikes in usage. These instances are ideal for scenarios where the instance is typically idle or has low CPU utilization, with only occasional increases in demand.
+A burstable instance is a virtual machine instance that offers a baseline level of CPU performance with the ability to burst to a higher level when needed to support occasional spikes in usage. These instances are ideal for scenarios where the instance is typically idle or has low CPU utilization, with only occasional increases in demand.
 
 ### Supported Shapes
 
