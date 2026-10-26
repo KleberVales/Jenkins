@@ -613,4 +613,79 @@ In these scenarios, you can make use of instance console connections for trouble
 ---
 
 
+# 6. Infrastructure Maintenance
+
+Infrastructure maintenance is a necessary part of any environment, and OCI performs routine maintenance on physical infrastructure for VM instances while offering three migration options to minimize inconvenience: live migration, reboot migration, and manual migration. 
+
+Live migration moves supported VM instances from a host needing maintenance to a healthy host with minimal disruption—it emits maintenance events at start and end, is only supported by Linux operating systems, and is restricted to specific shapes. 
+
+If live migration isn't supported, OCI schedules a reboot migration due date within 14 to 16 days and sends a notification; if you don't proactively reboot before the due date, the instance is stopped, migrated, and restarted, with a short downtime you can control by rebooting proactively. Note that rebooting the operating system does not trigger migration—only rebooting the instance from the Console, CLI, or API does. 
+
+Manual migration is sometimes required for instances without a reboot maintenance date, requiring termination and recreation (preserve the boot volume). 
+
+When infrastructure fails, standard VMs are recovered via reboot migration to a healthy host, while dense I/O VMs are recovered by rebooting on the same host; if that's not possible, OCI notifies you to delete the instance within 14 days, after which it disables and deletes it within seven more days—though boot volumes and remote-attached data volumes are preserved.
+
+## Introduction
+
+Maintenance is a necessary part of any environment. Oracle Cloud Infrastructure (OCI) also performs routine maintenance on the physical infrastructure for virtual machine instances. OCI strives to minimize this inconvenience by offering different options to relocate virtual machines:
+
+1. Live migration
+2. Reboot migration
+3. Manual migration
+
+---
+
+## Live Migration
+
+During an infrastructure maintenance event, OCI live migrates supported virtual machine instances from the physical VM host that needs maintenance to a healthy VM host.
+
+Key points:
+- There is minimal disruption to running instances.
+- When a live migration begins and ends, an infrastructure maintenance event is emitted.
+- Live migration is only supported by Linux operating systems and restricted to specific shapes.
+
+---
+
+## Reboot Migration
+
+If the virtual machine instance does not support live migration, OCI schedules a due date for reboot migration within 14 to 16 days and sends you a notification.
+
+Key points:
+- If you do not proactively reboot the instance before the due date, the instance is stopped and migrated to a healthy host and restarted.
+- There is a short downtime during the migration.
+- You can control when the downtime occurs by proactively reboot migrating the instance before the maintenance due date.
+
+> Important Callout: Rebooting the operating system is not the same as rebooting the instance from the Console, CLI, or API. The operating system reboot does not trigger the migration.
+
+---
+
+## Manual Migration
+
+Despite all efforts, sometimes a manual migration will be required.
+
+Key points:
+- For instances without a date in the reboot maintenance field, you must move the instance manually.
+- In this scenario, the instance will need to be terminated and recreated.
+- When it is time to terminate, don't forget to preserve the boot volume.
+
+---
+
+## Infrastructure Failure Recovery
+
+When the underlying infrastructure of a virtual machine instance fails, OCI automatically attempts to recover the instance.
+
+| Instance Type | Recovery Method |
+|---------------|-----------------|
+| Standard VM Instances | Recovered using reboot migration, which automatically restores the VM on a healthy host. |
+| Dense I/O VMs | Recovered by rebooting the instance on the same physical host. |
+
+### If Recovery on the Same Host Is Not Possible (Dense I/O VMs)
+
+- OCI notifies you to delete or terminate the instance within 14 days.
+- If you don't delete the instance before the deadline, OCI disables the instance on the deadline and deletes it within the next seven days.
+- However, the boot volume and remote-attached data volumes are preserved.
+
+---
+
+
 
