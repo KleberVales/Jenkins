@@ -100,21 +100,6 @@ Some of the NVIDIA GPU models offered include:
 
 ## Bare Metal vs Virtual Machine vs Dedicated Hosts
  
-
-# 3. Compute Instances
-
-OCI Compute Service offers two main types of instances:
-
-### Bare Metal Instances
-- Provide dedicated physical server access
-- You get the entire physical machine to yourself
-
-### Virtual Machine (VM) Instances
-- An independent computing environment that runs on top of physical bare metal hardware
-- Multiple VMs can share the same underlying hardware
-
----
-
 # 4. Data Persistence
 
 # 5. Images
@@ -146,11 +131,11 @@ Provided directly by Oracle
 
 Oracle provides several pre-built operating systems for OCI, including:
 
-- **Oracle Linux**
-- **Ubuntu**
-- **CentOS**
-- **Microsoft Windows**
-- **Oracle Autonomous Linux**
+- Oracle Linux
+- Ubuntu
+- CentOS
+- Microsoft Windows
+- Oracle Autonomous Linux
   
 
 **2. Oracle Images**
@@ -195,11 +180,11 @@ BYOI supports cloud migration projects, works with both old and new operating sy
 
 ### Image Import/Export
 
-You can **share custom images across tenancies and regions** using image import/export. This is a powerful capability that allows you to distribute your customized images wherever you need them.
+You can share custom images across tenancies and regions using image import/export. This is a powerful capability that allows you to distribute your customized images wherever you need them.
 
 ### Region Replication and Object Storage
 
-When you **replicate an image across a region**, you leverage **OCI Object Storage** as the transport mechanism. The image is exported to object storage, copied to the destination region's bucket, and then imported there.
+When you replicate an image across a region, you leverage OCI Object Storage as the transport mechanism. The image is exported to object storage, copied to the destination region's bucket, and then imported there.
 
 ---
 
