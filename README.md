@@ -232,4 +232,56 @@ Optional Parameters
 Overwrite Rule Selection  
 You can select any one of the four overwrite rules based on your requirement before performing the copy operation.
 
+## Object Storage Logging
+
+**Introduction**
+
+Object Storage Logging is a feature for capturing and monitoring access events to object storage buckets.
+
+Object Storage Logging allows you to record read (GET, LIST, HEAD) and write (PUT, POST, DELETE) events in buckets, with logs in Fluentd format, integration with Logging Analytics, and bucket-level enablement.
+
+What is Object Storage Logging?  
+You can configure object storage to send read access and write access events to the OCI Logging service.
+
+Key Characteristics
+- Service Logs: Logs emitted by OCI services, such as object storage.
+- Format: Based on open source Fluentd format.
+- Integration: The logging service integrates with OCI Logging Analytics Service, which can help you enrich and visualize the log data.
+- Configuration Level: Logging is enabled at the bucket level.
+
+---
+
+**Log Categories**
+
+There are two log categories available:
+
+| Log Category | Request Action Values |
+| :--- | :--- |
+| Read Access Events | GET, LIST, HEAD |
+| Write Access Events | PUT, POST, DELETE |
+
+> Note: The `request action` property will contain the corresponding values based on which log category is enabled.
+
+---
+
+**4. Enabling Object Storage Logging**
+
+There are two ways to enable service logs:
+
+Option 1: Via Bucket Resources
+- Go to the Logs section under Resources within the bucket.
+- Enable both read and write access events.
+
+Option 2: Via Observability and Management
+- Navigate to the Observability and Management section.
+- Enable the service log from there.
+
+Required Configuration  
+When enabling logs, you must specify:
+- Log Group
+- Log Name
+
+---
+
+
 
