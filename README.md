@@ -164,7 +164,9 @@ You can use object lifecycle policy rules to automatically delete any uncommitte
 
 ---
 
-## 2.4 Multipart Uploads Using the API
+## 2.4 Uploads
+
+### A. Multipart Uploads Using the API
 
 Let's look at how multipart uploads can be performed using the Multipart Upload API. There are four main steps:
 
@@ -195,6 +197,22 @@ Make a CommitMultipartUpload request.
 - Object storage reconstructs the object from its constituent parts
 
 These are the steps required to perform a multipart upload using the Multipart Upload API.
+
+---
+
+### B. Multipart Uploads Using the CLI
+
+Now let's look at how to perform multipart uploads using the CLI. There are some key differences compared to using the API:
+
+1. No need to split the object into parts – Just specify the part size and object storage will split the object into parts
+2. Set maximum parallel parts – You can choose to set the maximum number of parts to be uploaded in parallel
+3. No commit required – You don't have to perform any commit after the upload is complete
+
+**CLI Command Notes**
+
+- You must specify the mandatory part size flag, and the value must be an integer
+  - This denotes the size of each part in mebibytes (MiB)
+- Optionally, use parallel upload count to set the maximum number of parallel uploads allowed
 
 ---
 
