@@ -2,7 +2,7 @@
 
 # 1. Bucket
 
-## 1.1 Data protection
+## 1.1 Data Protection
 
 ### A. Object Storage Replication
 
