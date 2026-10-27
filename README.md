@@ -2,7 +2,9 @@
 
 # 1. Bucket
 
-## 1.1 Object Storage Replication
+## 1.1 Data protection
+
+### A. Object Storage Replication
 
 **Introduction**
 
@@ -71,7 +73,7 @@ Two ways to stop replication:
 
 ---
 
-## 1.2 Object Versioning
+### B. Object Versioning
 
 **Introduction**
 
@@ -119,7 +121,7 @@ C. Suspended
 
 ---
 
-## 1.3 Retention Rules
+### C. Retention Rules
 
 **Introduction**
 
@@ -185,7 +187,7 @@ Important Notes
 
 ---
 
-## 1.4 Object Copy
+### D. Object Copy
 
 **Introduction**
 
@@ -232,7 +234,7 @@ Optional Parameters
 Overwrite Rule Selection  
 You can select any one of the four overwrite rules based on your requirement before performing the copy operation.
 
-## Object Storage Logging
+## 1.2 Object Storage Logging
 
 **Introduction**
 
@@ -264,7 +266,7 @@ There are two log categories available:
 
 ---
 
-**4. Enabling Object Storage Logging**
+**Enabling Object Storage Logging**
 
 There are two ways to enable service logs:
 
