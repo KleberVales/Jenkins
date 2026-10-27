@@ -25,13 +25,23 @@ Object Storage is a cloud storage service designed to store large amounts of uns
 
 Unlike a traditional hard drive (which organizes files into folders and subfolders hierarchically), Object Storage treats each file as an autonomous "object".
 
-* **Flat Structure:** Files are not saved in actual physical folders, but rather loosely stored within a large container called a **Bucket**. 
+* **Flat Structure:** Files are not saved in actual physical folders, but rather loosely stored within a large container called a Bucket. 
 
 * **Virtually Infinite Scalability:** You can start by storing a few megabytes and grow to petabytes of data without needing to resize disks or worry about running out of physical space.
 
 * **High Durability:** Data is automatically replicated across multiple locations to ensure you never lose information.
 
 * **API/HTTP Access:** Files are accessed and managed primarily through web requests, APIs, command line interface (CLI), or SDKs, rather than being mapped as a traditional network drive (like a hard drive connected to the computer).
+
+We learned that object storage provides strong consistency by always serving the most recent copy of data on read requests. 
+
+It offers eleven 9s durability by storing objects redundantly across three availability domains (or three fault domains in single-AD regions). 
+
+Data integrity is actively monitored using checksums, with corrupt data automatically detected and repaired without customer intervention. 
+
+From a security perspective, all data is encrypted by default, tightly integrated with OCI IAM, and transferred over HTTPS via SSL endpoints. 
+
+Object storage is highly scalable, supporting unlimited data, thousands of buckets per account, unlimited objects per bucket, and object sizes ranging from 0 bytes to 10 TiB.
   
 
 **Data in Object Storage can be:**
