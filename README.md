@@ -2,7 +2,7 @@
 
 # 1. Bucket
 
-## Object Storage Replication
+## 1.1 Object Storage Replication
 
 **Introduction**
 
@@ -71,7 +71,7 @@ Two ways to stop replication:
 
 ---
 
-## Object Versioning
+## 1.2 Object Versioning
 
 **Introduction**
 
@@ -119,7 +119,7 @@ C. Suspended
 
 ---
 
-## Retention Rules
+## 1.3 Retention Rules
 
 **Introduction**
 
@@ -185,7 +185,7 @@ Important Notes
 
 ---
 
-## Object Copy
+## 1.4 Object Copy
 
 **Introduction**
 
