@@ -166,11 +166,97 @@ The endpoint is constructed as follows:
 
 ## 1.5 Object Storage Tiers
 
-Object Storage (Standard): Data is always available for immediate access. You make a request and the data is delivered in milliseconds.
+**Purpose of Storage Tiers**
 
-Infrequent Access:
+Storage tiers help you:
 
-Archive Storage: Designed for cold data that you almost never access. Because of this, the files are in a "frozen" state. To read a file from the Archive, you first need to request its restoration.
+- Maximize access performance where appropriate
+- Minimize storage costs
+
+---
+
+**Bucket Creation and Storage Tiers**
+
+There are two options at bucket creation level with respect to storage tiers:
+
+1. Standard storage tier bucket – Can contain a mix of objects with different storage tier assignments
+2. Archive storage tier bucket – Can only contain objects with an archive storage tier assignment
+
+Important notes:
+
+- When creating a bucket, you cannot change the default storage tier for the bucket
+- You specify the default storage tier during bucket creation (either Standard or Archive)
+
+---
+
+**Object-Level Storage Tier Assignment**
+
+If the object is being uploaded to a standard default storage tier bucket, you can explicitly assign any storage tier to the object:
+
+- Standard
+- Infrequent Access
+- Archive
+
+Note: You can also change the storage tier for an object, but this is only possible in the case of a standard storage tier bucket.
+
+---
+
+**How Storage Tiers Affect Cost**
+
+Every object uploaded to object storage is assigned to a storage tier, which determines:
+
+- Its storage cost
+- Associated retrieval fees
+
+There are three storage tiers: Standard, Infrequent Access, and Archive.
+
+---
+
+**Standard Tier**
+
+- Default storage tier
+- Used for data you need to access quickly, immediately, and frequently
+- Has higher storage cost compared to other tiers
+- When you choose a standard default storage tier during bucket creation, you can also enable auto-tiering
+
+Use cases:
+
+- Content repository for scalable data (images, logs, videos)
+- Data repository for Hadoop or big data workloads
+
+---
+
+**Infrequent Access Tier (Cool Tier)**
+
+- Used for data that you access infrequently, but that must be available immediately when needed
+- Storage costs are lower than standard
+- Has a minimum storage retention period of 31 days
+- You will be charged the prorated cost of storing the data for the full 31 days if you delete or overwrite objects in this tier
+- When you need to access objects, you are charged a per GB data retrieval fee
+
+Use cases:
+
+- Backup for on-premises data
+
+---
+
+**Archive Storage Tier**
+
+- Meant for data that is rarely accessed, but must be retained for long periods of time
+- Archive storage tier buckets can only contain objects with archive storage tier assignment
+- Provides the lowest storage cost
+- Objects must be restored before they are available for access
+- Minimum storage retention period is 90 days
+- When you restore objects, you are returning those objects to the standard tier for access
+- Restore time is close to an hour
+
+Use cases:
+
+- Compliance and audit mandates
+- Storing historical data
+
+---
+
 
 # 2. Multipart Uploads
 
