@@ -70,3 +70,51 @@ Two ways to stop replication:
 2. Make the destination bucket writable by stopping the replication in the destination
 
 ---
+
+## Object Versioning
+
+**Introduction**
+
+This feature allows object storage systems to automatically create a new version of an object every time a change occurs (upload, overwrite, or deletion).
+
+---
+
+What is Object Versioning?
+
+Versioning directs object storage to automatically create an object version whenever:
+- A new object is uploaded.
+- An existing object is overwritten.
+- An object is deleted.
+
+Key Rules
+- Bucket Level: Versioning is enabled at the bucket level.
+- Timing: You can enable it at bucket creation or later.
+- Cannot Disable: You cannot disable versioning once enabled; you can only suspend it.
+
+Data Protection & Costs
+- Purpose: Protects against accidental or malicious updates, overwrites, or deletions.
+- Version States: There is always one latest version and zero or more previous versions.
+- Billing: You are charged for all versions (latest and previous).
+- Retention: Previous versions are retained until you explicitly delete them.
+
+---
+
+**Object Versioning Statuses**
+
+There are three distinct states of versioning:
+
+A. Disabled
+- Overwrite Behavior: Uploading an object with the same name overwrites the existing object. The old object is not retained or recoverable.
+- Delete Behavior: Deletion is permanent. Objects cannot be recovered.
+
+B. Enabled
+- Overwrite Behavior: Uploading an object with the same name creates a new latest version. The existing object becomes a previous version.
+- Delete Behavior: When you delete an object, object storage retains a version of the deleted object.
+- Identifiers: Each uploaded object is assigned a unique version identifier.
+
+C. Suspended
+- Upload/Delete Behavior: Same as a bucket with versioning Disabled.
+- Retention: Object versions created *before* suspension are retained (unless explicitly deleted).
+- Re-enabling: You can re-enable object versioning at any time.
+
+---
