@@ -129,3 +129,40 @@ The endpoint is constructed as follows:
 
 ---
 
+# 2. Multipart Uploads
+
+## 2.1 Introdution
+
+Instead of sending a large file all at once (which can easily fail if the connection drops), Multipart Upload splits the file into smaller pieces and sends them in parallel.
+
+Main advantage id if sending a piece fails, you only need to resend the part that failed, not the entire file.
+
+Is Flexibility it's possible to pause the sending of specific parts and resume it later.
+
+Multipart uploads upload data in parallel, making them faster and more efficient than uploading a large object in a single upload.
+
+If a multipart upload fails for any reason, instead of restarting the entire object, you only need to retry uploading the part that failed
+
+## 2.2 Recommendations and Limits
+
+The recommendation is that if the object size is greater than 100 mebibytes (MiB), you should consider using multipart uploads.
+
+Key limits and specifications:
+
+- An object can be divided into a maximum of 10,000 parts
+- Each part must be at least 10 MiB in size
+- The upper limit of an object part is 50 gibibytes (GiB)
+- You have the flexibility to pause uploads of individual parts and resume when schedule and resources allow
+
+---
+
+## 2.3 Object Lifecycle Policy Rules
+
+You can use object lifecycle policy rules to automatically delete any uncommitted or failed multipart upload after a specific number of days.
+
+- This operation can be performed using the OCI Console
+
+---
+
+
+
