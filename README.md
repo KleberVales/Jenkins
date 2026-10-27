@@ -1,6 +1,6 @@
 # Object Storage ‐ Advanced
 
-# 1 Bucket
+# 1. Bucket
 
 ## Object Storage Replication
 
