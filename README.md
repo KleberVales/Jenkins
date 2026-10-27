@@ -8,6 +8,14 @@
 ## 1.4 Namespace
 ## 1.5 Object Storage Tiers
 
+# 2. Multipart Uploads
+
+## 2.1 Introdution
+## 2.2 Recommendations and Limits
+## 2.3 Object Lifecycle Policy Rules
+## 2.4 Uploads
+
+
 ---
 
 .\
