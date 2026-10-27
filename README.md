@@ -573,7 +573,9 @@ To use plugins on an instance, the following conditions must be met:
 
 ---
 
-# 4. Run Command
+# 4. Remote management and access
+
+## 4.1 Run Command
 
 Run command is a feature that allows you to remotely configure, manage, and troubleshoot compute instances by running scripts within the instance—even when the instance does not have SSH access or open inbound ports. 
 
@@ -585,7 +587,7 @@ There are size limits to be aware of: script files uploaded directly in plain te
 
 Common use cases include automating tasks like configuring secondary VNICs and troubleshooting SSH connectivity.
 
-## What Is a Run Command?
+### What Is a Run Command?
 
 Using run command, you can remotely configure, manage, and troubleshoot compute instances by running scripts within the instance.
 
@@ -594,7 +596,7 @@ Key capability:
 
 ---
 
-## Supported Platforms
+### Supported Platforms
 
 The run command feature is supported on compute instances that use platform images.
 
@@ -607,7 +609,7 @@ The run command feature is supported on compute instances that use platform imag
 
 ---
 
-## Script Execution Details
+### Script Execution Details
 
 | Instance Type | Script Runs As |
 |---------------|----------------|
@@ -616,7 +618,7 @@ The run command feature is supported on compute instances that use platform imag
 
 ---
 
-## Size Limits
+### Size Limits
 
 | Item | Limit | Workaround |
 |------|-------|------------|
@@ -625,14 +627,14 @@ The run command feature is supported on compute instances that use platform imag
 
 ---
 
-## Examples of Use Cases
+### Examples of Use Cases
 
 - Automate tasks, such as configuring secondary virtual network interface cards (VNICs).
 - Troubleshoot SSH connectivity.
 
 ---
 
-# 5. Instance Console Connection
+## 4.2 Instance Console Connection
 
 Instance console connection provides a display of what is happening during the boot process, allowing you to remotely troubleshoot malfunctioning instances—it is a special case intended for troubleshooting, not normal operations. 
 
@@ -642,7 +644,7 @@ There are two types of console connections: serial console connection, used main
 
 Note that Cloud Shell can only be used for serial console connections, not VNC. Use cases include editing system configuration files, adding or resetting SSH keys for the OPC user, troubleshooting imported or customized images that fail to boot, and recovering instances that suddenly stop responding.
 
-## What Is a Console Connection?
+### What Is a Console Connection?
 
 The idea of a console connection is to give you a display of what is happening during the boot process. This allows you to remotely troubleshoot malfunctioning instances.
 
@@ -650,28 +652,28 @@ The idea of a console connection is to give you a display of what is happening d
 
 ---
 
-## Connection Options
+### Connection Options
 
 There are two options for creating a console connection:
 
-### 1. Cloud Shell Connection
+**1. Cloud Shell Connection**
 
 - The Cloud Shell integration automatically creates the instance console connection and the temporary SSH key.
 
-### 2. Local Connection
+**2. Local Connection**
 
 - When you create a local connection, you need to generate an SSH key pair, or you can upload your own public key.
 
 ---
 
-## Types of Instance Console Connections
+### Types of Instance Console Connections
 
-### 1. Serial Console Connection
+**1. Serial Console Connection**
 
 - Mainly used for Linux servers and other CLI-based operating systems.
 - After you create the console connection for the instance, you can connect to the serial console using a Secure Shell (SSH) connection.
 
-### 2. VNC Console Connection
+**2. VNC Console Connection**
 
 - Commonly used for connecting to servers that have a graphical user interface (GUI).
 - You need to set up a secure tunnel to the VNC server on the instance, and then you can connect with a VNC client.
@@ -680,14 +682,14 @@ There are two options for creating a console connection:
 
 ---
 
-## Use Cases
+### Use Cases
 
 Once you are connected with an instance console connection, you can perform tasks such as:
 
 - Editing system configuration files
 - Adding or resetting the SSH keys for the OPC user
 
-### Troubleshooting Scenarios
+**Troubleshooting Scenarios**
 
 - An imported or customized image that is not booting successfully
 - An instance that was working fine but suddenly stops responding
@@ -697,7 +699,7 @@ In these scenarios, you can make use of instance console connections for trouble
 ---
 
 
-# 6. Infrastructure Maintenance
+# 5. Infrastructure Maintenance
 
 Infrastructure maintenance is a necessary part of any environment, and OCI performs routine maintenance on physical infrastructure for VM instances while offering three migration options to minimize inconvenience: live migration, reboot migration, and manual migration. 
 
