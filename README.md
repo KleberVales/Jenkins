@@ -69,3 +69,53 @@ Each stored object consists of three main elements:
 
 ## 1.4 Namespace
 
+The first construct is the namespace.
+
+- Think of it as a top-level container for all buckets and objects
+- At account creation time, each OCI tenant is assigned one unique object storage namespace
+
+---
+
+### Objects and Metadata
+
+The data you store in object storage is stored as an object along with its metadata.
+
+- Objects are the actual data items you upload and retrieve
+- Each object carries metadata that describes it
+
+---
+
+### Buckets
+
+Next, we have the bucket, which is a logical container for storing objects.
+
+Key rules about bucket naming:
+
+- The name for a bucket must be unique in a region within each tenancy
+- Example: You can create a bucket named `demo-bucket` in the India West (Mumbai) region
+  - You cannot create another bucket with the same name `demo-bucket` in the Mumbai region
+  - But you can create a bucket with the same name `demo-bucket` in the India South (Hyderabad) region
+
+Important note: Within an object storage namespace, buckets and objects exist in a flat structure (flat hierarchy).
+
+---
+
+### Object Storage Endpoint
+
+Now, let's see how the object storage endpoint looks.
+
+In the example:
+
+- Object name: `oci.jpg`
+- Bucket name: `training`
+- Namespace name: `ociarchassociate`
+
+The endpoint is constructed as follows:
+
+- The object name comes after `/o`
+- The bucket name comes after `/b`
+- The namespace name comes after `/n`
+- You can also see the service name (object storage) and the region name in the endpoint
+
+---
+
