@@ -296,7 +296,9 @@ The registration process has three main steps:
 
 ---
 
-## 1.3 Shielded Instances
+## 1.3 Security instance
+
+### 1.3.1 Shielded Instances
 
 Shielded instances protect virtual machines and bare metal instances against low-level threats like Rootkits and Bootkits, which have kernel-level privileges, can infect firmware and the operating system, and are very difficult to detect. 
 
@@ -306,7 +308,7 @@ Shielded instances combine three components: Secure Boot (a UEFI feature that pr
 
 Secure Boot and TPM are available on all supported bare metal and VM instances, while Measured Boot is only available on VM instances—and all these services are provided for the OCI platform at no charge.
 
-### The Threat: Rootkits and Bootkits
+**The Threat: Rootkits and Bootkits**
 
 Threats like Rootkits and Bootkits that have kernel-level privileges can:
 - Infect the firmware and operating system
@@ -316,7 +318,7 @@ Shielded instances protect virtual machines and bare metal instances against the
 
 ---
 
-### The Three Components of Shielded Instances
+**The Three Components of Shielded Instances**
 
 A shielded instance uses a combination of:
 
@@ -324,7 +326,7 @@ A shielded instance uses a combination of:
 2. Measured Boot
 3. Trusted Platform Module (TPM)
 
-**Availability**
+Availability
 
 | Feature | Availability |
 |---------|--------------|
@@ -333,6 +335,48 @@ A shielded instance uses a combination of:
 | Measured Boot | Only VM instances |
 
 > These services are provided for the OCI platform at no charge.
+
+---
+
+### 1.3.2 Confidential Computing
+
+Confidential computing takes encryption to the next level by securing data while it is loaded in memory, not just at rest or in transit—previously, all data running in memory was accessible as clear text. It protects data in use at the hardware level by encrypting and isolating both the data and the application processing it, preventing unauthorized access or modification. 
+
+It also minimizes the list of trusted parties (operating system, ecosystem partners, administrators), reducing the risk of data exposure. Powered by AMD EPYC processors, confidential computing enables confidential virtual machines via Secure Encrypted Virtualization (SEV) and confidential bare metal servers via Secure Memory Encryption (SME)—features of AMD Infinity Guard available in second and third generation AMD EPYC processors in all OCI E3 and E4 shapes. 
+
+Supported VM shapes include VM.Standard.E4.Flex and VM.Standard.E3.Flex (on Oracle Linux 7.x or 8.x platform images), while supported bare metal shapes include BM.DenseIO.E4.128, BM.Standard.E4.128, and BM.Standard.E3.128 (on any platform image). 
+
+The key benefits are: improved isolation using real-time encryption with a per-VM key generated at VM creation that resides solely in the AMD secure processor and is inaccessible to any application, hypervisor, or OCI; no application changes required; and little to no performance impact.
+
+### Supported Compute Shapes
+
+**Virtual Machine Compute Shapes**
+- `VM.Standard.E4.Flex`
+- `VM.Standard.E3.Flex`
+
+Supported on: Oracle Linux 7.x or 8.x platform images.
+
+**Bare Metal Instance Compute Shapes**
+- `BM.DenseIO.E4.128`
+- `BM.Standard.E4.128`
+- `BM.Standard.E3.128`
+
+Supported on: Any platform image.
+
+---
+
+### Benefits of Confidential Computing
+
+**1. Improved Isolation Using Real-Time Encryption**
+- Data and applications are encrypted using a per-VM encryption key generated during VM creation.
+- The key resides solely in the AMD secure processor, which is part of the CPU.
+- The key is not accessible from any application—whether the VM, the instance, the hypervisor, or Oracle Cloud Infrastructure.
+
+**2. No Application Changes Required**
+- If you want to enable confidential VMs, you don't require any change in the application.
+
+**3. Little to No Performance Impact**
+- Applications experience little to no performance impact with confidential computing enabled.
 
 ---
 
