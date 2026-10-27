@@ -234,7 +234,7 @@ Optional Parameters
 Overwrite Rule Selection  
 You can select any one of the four overwrite rules based on your requirement before performing the copy operation.
 
-## 1.2 Object Storage Logging
+# 2. Object Storage Logging
 
 **Introduction**
 
@@ -285,5 +285,115 @@ When enabling logs, you must specify:
 
 ---
 
+# 3. Security
 
+## A. Securing Object Storage
+
+**Introduction**
+
+Object Storage security is divided into initial tasks (performed during environment setup) and routine tasks (to maintain ongoing protection).
+
+---
+
+**Initial Security Tasks**
+
+When first setting up Object Storage, consider these essential security measures:
+
+| Task | Description |
+| :--- | :--- |
+| IAM Policies | Use IAM policies to grant access to users and resources. |
+| Network Source Restrictions | Restrict access to requests that originate from an allowed IP address using network source. |
+| Prevent Deletion | Ensure you are preventing the deletion of buckets and objects. |
+| Custom Encryption Keys | Although default encryption keys can be generated automatically, Oracle recommends creating and managing your own custom encryption keys in the Vault service. |
+| Secure Network Access | Ensure network access to resources is secured. Data in transit between clients and object storage public endpoints is encrypted with TLS 1.2 by default. |
+| Security Zones | Create a security zone to ensure your resources in object storage comply with security best practices. |
+
+---
+
+**Routine Security Tasks**
+
+Beyond initial setup, these ongoing tasks help maintain security:
+
+A. Rotation of Encryption Keys
+- Each master encryption key is automatically assigned a key version.
+- When you rotate a key, the Vault service generates a new key version.
+- Benefits:
+  - Limits the amount of data encrypted or signed by one key version.
+  - If a key is compromised, rotating it reduces the risk to your data.
+
+B. Security Audits
+- The Audit service automatically records all API calls to OCI resources.
+- Use this to monitor and review activity.
+
+C. Object Versioning
+- Consider strategies like object versioning to minimize data loss.
+- Protects against:
+  - Inadvertent deletes by an authorized user.
+  - Malicious deletes.
+
+D. Minimize Delete Permissions
+- Ensure BUCKET_DELETE and OBJECT_DELETE permissions are given to a minimum set of IAM users or groups.
+
+E. Data Integrity Verification
+- Ensure the integrity of data when it is moved or copied to a different location.
+- An MD5 Checksum is provided for all objects uploaded to OBJECT_STORAGE.
+- Recommendation: Verify the off-line MD5 Checksum of an object matches the Checksum value returned by the console or API after the upload operation.
+
+F. Configure Retention Rules
+- Configure retention rules to protect data from modification or deletion.
+- (Covered in a previous lesson.)
+
+---
+
+## B. Pre-Authenticated Requests
+
+
+
+**Introduction**
+
+Pre-Authenticated Requests is a feature of Object Storage that allows granting temporary access to resources without the user needing their own credentials.
+
+
+What is a Pre-Authenticated Request?
+
+A Pre-Authenticated Request lets users access a bucket or an object without having their own credentials.
+
+Why Use It?
+- It is not a best practice to make a bucket public.
+- PARs provide a secure alternative to share access.
+
+Example Use Case
+- Create a request that lets a business partner access quarterly financial reports in a bucket without owning API keys.
+
+---
+
+**How It Works**
+
+Unique URL Generation
+- When you create a pre-authenticated request, a unique URL is generated.
+- Anyone you provide the URL to can access the object storage resources identified in the PAR using standard tools.
+
+Expiration Date
+- Required, but has no limits.
+- You can set the expiration as far out in the future as you want.
+
+No Editing
+- You cannot edit a pre-authenticated request.
+- If you want to change user access options or enable object listing, you must create a new PAR.
+
+Creator Dependency
+- If the creator of a PAR is deleted or loses required permissions, the request will not work.
+- Users continue to have access as long as the creator has permissions to access those resources.
+
+---
+
+**Access Types**
+
+You can create a pre-authenticated request that grants:
+
+| Access Type | Description |
+| :--- | :--- |
+| Read | Allows reading of the specified resources. |
+| Write | Allows writing to the specified resources. |
+| Read and Write | Allows both reading and writing. |
 
