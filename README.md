@@ -2,7 +2,7 @@
 
 # 1. Computer Instances
 
-## Burstable Instances
+## 1.1 Burstable Instances
 
 Burstable instances are a cost-effective virtual machine option for workloads with low average CPU usage and occasional spikes. They provide a guaranteed baseline of CPU performance—either 12.5% or 50% of each core—and allow bursting above that baseline when the host has available resources. 
 
@@ -41,9 +41,9 @@ Pricing for burstable instances is based on the baseline OCPU. Even if your inst
 
 ---
 
-## Oracle OS Management Hub
+## 1.2 Oracle OS Management Hub
 
-### 1. Introduction
+### 1.2.1 Introduction
 
 Oracle OS Management Hub is a centralized cloud solution from Oracle for managing, updating, and monitoring operating systems (such as Oracle Linux) in a unified way.
 
@@ -102,7 +102,7 @@ Supported Environments
 
 No matter where your infrastructure resides—on-premises data centers, OCI, or third-party clouds like Microsoft Azure and AWS—the OS Management Hub supports easy management. It offers tools and resources for Oracle Linux, enhancing your experience and streamlining management.
 
-### 2. Workflow
+### 1.2.2 Workflow
 
 The OS Management Hub workflow begins by grouping instances that share the same OS type, release, and architecture, enabling centralized and unified management. 
 
@@ -198,7 +198,7 @@ From the OS Management Hub console, you as an administrator can easily:
 
 ---
 
-## 3. Components
+## 1.2.3 Components
 
 The OS Management Hub service relies on several core components: the management station (which mirrors and distributes software and bridges managed instances to the service), profiles (blueprints for consistent system management), software sources (repositories for standardized software), agents (enabling communication between instances and the hub), network configuration (ensuring connectivity and firewall settings), Ksplice (for reboot-free kernel patching), and reports (covering software updates, security vulnerabilities, and system health). 
 
@@ -206,7 +206,7 @@ To set up OSMH, you must configure IAM policies, starting with user groups (defi
 
 Permissions can be scoped at the compartment level, but read access to profiles and software sources must be granted at the tenancy level. Finally, OSMH supports Oracle Linux and specific Windows Server versions in OCI, and Oracle Linux 7, 8, and 9 for on-premises and third-party cloud environments.
 
-## 4. OS Management Hub for OCI Instances
+## 1.2.4 OS Management Hub for OCI Instances
 
 First, network configuration must be verified—private subnets require a service gateway (with the All region label) or NAT gateway, public subnets require an internet gateway, and Windows instances need security rules allowing access to Windows update servers. Second, software sources must be set up, with at least one vendor software source required before registration. 
 
@@ -293,6 +293,46 @@ The registration process has three main steps:
 - This is useful for registering existing OCI instances with the OS Management Hub service.
 - Once you've confirmed the agent version, you can enable the OS Management Hub agent plugin.
 - Within a few minutes, your instance will appear in the list of Managed Instances, ready to be managed through the OS Management Hub service.
+
+---
+
+## 1.3 Shielded Instances
+
+Shielded instances protect virtual machines and bare metal instances against low-level threats like Rootkits and Bootkits, which have kernel-level privileges, can infect firmware and the operating system, and are very difficult to detect. 
+
+Enabling shielded instances follows the standard instance deployment flow—simply choose an image and shape with a shield icon, then enable Secure Boot and Measured Boot in the advanced options (enabling Measured Boot for VMs automatically enables TPM). 
+
+Shielded instances combine three components: Secure Boot (a UEFI feature that prevents unauthorized, unsigned bootloaders and operating systems from booting), Measured Boot (which stores measurements of boot components like bootloaders, drivers, and operating systems, and verifies they don't change between boots), and Trusted Platform Module (a specialized security chip used by Measured Boot to securely store boot measurements in Platform Configuration Registers, or PCRs, which summarize all measurement results). 
+
+Secure Boot and TPM are available on all supported bare metal and VM instances, while Measured Boot is only available on VM instances—and all these services are provided for the OCI platform at no charge.
+
+### The Threat: Rootkits and Bootkits
+
+Threats like Rootkits and Bootkits that have kernel-level privileges can:
+- Infect the firmware and operating system
+- Be very difficult to detect
+
+Shielded instances protect virtual machines and bare metal instances against these low-level threats.
+
+---
+
+### The Three Components of Shielded Instances
+
+A shielded instance uses a combination of:
+
+1. Secure Boot
+2. Measured Boot
+3. Trusted Platform Module (TPM)
+
+**Availability**
+
+| Feature | Availability |
+|---------|--------------|
+| Secure Boot | All supported bare metal and virtual machine instances |
+| Trusted Platform Module | All supported bare metal and virtual machine instances |
+| Measured Boot | Only VM instances |
+
+> These services are provided for the OCI platform at no charge.
 
 ---
 
