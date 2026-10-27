@@ -153,6 +153,46 @@ The endpoint is constructed as follows:
 
 ## 1.5 Object Storage Tiers
 
+
+
+# 2. Object
+
+# 3. Bucket
+
+**Naming and Structural Rules**
+
+- Names are case sensitive
+- You cannot nest buckets – a bucket cannot contain other buckets
+- You can store objects up to 10 tebibytes (TiB)
+
+**Pre-Authenticated Requests**
+
+There is a concept of pre-authenticated requests (PARs) that provide a way to let you access a bucket or an object without having your own credentials.
+
+- Useful for granting temporary access to specific resources
+
+---
+
+**Retention Rules**
+
+You can apply retention rules at the bucket level to provide immutable object storage options for data that is written to object storage.
+
+Use cases for retention rules:
+
+- Governance
+- Regulatory compliance
+- Legal requirements
+
+---
+
+**Replication Policy**
+
+Using a replication policy for a bucket, you can automatically replicate the objects in one object storage bucket to another bucket in the same or different region.
+
+---
+
+# 4. Object Storage Tiers
+
 **Purpose of Storage Tiers**
 
 Storage tiers help you:
@@ -310,44 +350,6 @@ Auto-tiering is particularly useful in the following scenarios:
 2. Data storage with changing access patterns – When usage patterns shift over time
 
 ---
-
-# 2. Object
-
-# 3. Bucket
-
-**Naming and Structural Rules**
-
-- Names are case sensitive
-- You cannot nest buckets – a bucket cannot contain other buckets
-- You can store objects up to 10 tebibytes (TiB)
-
-**Pre-Authenticated Requests**
-
-There is a concept of pre-authenticated requests (PARs) that provide a way to let you access a bucket or an object without having your own credentials.
-
-- Useful for granting temporary access to specific resources
-
----
-
-**Retention Rules**
-
-You can apply retention rules at the bucket level to provide immutable object storage options for data that is written to object storage.
-
-Use cases for retention rules:
-
-- Governance
-- Regulatory compliance
-- Legal requirements
-
----
-
-**Replication Policy**
-
-Using a replication policy for a bucket, you can automatically replicate the objects in one object storage bucket to another bucket in the same or different region.
-
----
-
-# 4. Object Storage Tiers
 
 # 5. Multipart Uploads
 
