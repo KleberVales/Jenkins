@@ -76,7 +76,7 @@ The first construct is the namespace.
 
 ---
 
-### Objects and Metadata
+**Objects and Metadata**
 
 The data you store in object storage is stored as an object along with its metadata.
 
@@ -85,7 +85,7 @@ The data you store in object storage is stored as an object along with its metad
 
 ---
 
-### Buckets
+**Buckets**
 
 Next, we have the bucket, which is a logical container for storing objects.
 
@@ -100,7 +100,7 @@ Important note: Within an object storage namespace, buckets and objects exist in
 
 ---
 
-### Object Storage Endpoint
+**Object Storage Endpoint**
 
 Now, let's see how the object storage endpoint looks.
 
