@@ -164,5 +164,39 @@ You can use object lifecycle policy rules to automatically delete any uncommitte
 
 ---
 
+## 2.4 Multipart Uploads Using the API
+
+Let's look at how multipart uploads can be performed using the Multipart Upload API. There are four main steps:
+
+**Step 1: Create the Parts**
+
+Before you initiate an upload, you need to create the parts.
+
+- Example: Object size is around 200 MB, split into 10 parts of 20 MB each
+
+**Step 2: Initiate an Upload**
+
+Make a CreateMultipartUpload REST API call.
+
+- Object storage provides an Upload ID
+- The upload is marked as active and remains active until you commit or abort it
+
+**Step 3: Upload Object Parts**
+
+Make an UploadPart request.
+
+- Object storage returns an entity tag (ETag) value for each part uploaded
+- When committing the upload, you require both the part number and the corresponding ETag value for each part
+
+**Step 4: Commit the Upload**
+
+Make a CommitMultipartUpload request.
+
+- Object storage reconstructs the object from its constituent parts
+
+These are the steps required to perform a multipart upload using the Multipart Upload API.
+
+---
+
 
 
