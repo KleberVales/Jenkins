@@ -21,6 +21,10 @@
 
 It stores objects in an unstructured way. Within the bucket, the objects have no hierarchy.
 
+Object Storage is a cloud storage service designed to store large amounts of unstructured data (such as text files, images, videos, backups, system logs, and audio files).
+
+Unlike a traditional hard drive (which organizes files into folders and subfolders hierarchically), Object Storage treats each file as an autonomous "object".
+
 **Data in Object Storage can be:**
 
 Object Storage (Standard): Data is always available for immediate access. You make a request and the data is delivered in milliseconds.
