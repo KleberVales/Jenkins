@@ -5,7 +5,7 @@
 ## 1.1 What is Object Storage?
 ## 1.2 Object
 ## 1.3 Bucket
-
+## 1.4 Namespace
 
 ---
 
@@ -64,4 +64,8 @@ Each stored object consists of three main elements:
 2. Metadata: A set of information that describes the object (such as creation date, size, file type, and custom tags).
 
 3. A Unique Identifier (Key): A unique address or name that allows you to find and retrieve that file instantly.
+
+## 1.3 Bucket
+
+## 1.4 Namespace
 
