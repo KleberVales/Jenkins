@@ -6,6 +6,7 @@
 ## 1.2 Object
 ## 1.3 Bucket
 ## 1.4 Namespace
+## 1.5 Object Storage Tiers
 
 ---
 
@@ -43,13 +44,6 @@ From a security perspective, all data is encrypted by default, tightly integrate
 
 Object storage is highly scalable, supporting unlimited data, thousands of buckets per account, unlimited objects per bucket, and object sizes ranging from 0 bytes to 10 TiB.
   
-
-**Data in Object Storage can be:**
-
-Object Storage (Standard): Data is always available for immediate access. You make a request and the data is delivered in milliseconds.
-
-Archive Storage: Designed for cold data that you almost never access. Because of this, the files are in a "frozen" state. To read a file from the Archive, you first need to request its restoration.
-
 **Key features include:**
 
 - Unlimited data storage – You can store an unlimited amount of data
@@ -103,7 +97,7 @@ You can apply retention rules at the bucket level to provide immutable object st
 
 ---
 
-## 5.6 Replication Policy
+### Replication Policy
 
 Using a **replication policy** for a bucket, you can **automatically replicate** the objects in one object storage bucket to another bucket in the **same or different region**.
 
@@ -161,6 +155,14 @@ The endpoint is constructed as follows:
 - You can also see the service name (object storage) and the region name in the endpoint
 
 ---
+
+## 1.5 Object Storage Tiers
+
+Object Storage (Standard): Data is always available for immediate access. You make a request and the data is delivered in milliseconds.
+
+Infrequent Access:
+
+Archive Storage: Designed for cold data that you almost never access. Because of this, the files are in a "frozen" state. To read a file from the Archive, you first need to request its restoration.
 
 # 2. Multipart Uploads
 
