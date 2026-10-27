@@ -7,6 +7,7 @@
 ## 1.3 Bucket
 ## 1.4 Namespace
 ## 1.5 Object Storage Tiers
+## 1.6 Object Lifecycle Management
 
 # 2. Multipart Uploads
 
