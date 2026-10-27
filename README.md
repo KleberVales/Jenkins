@@ -258,6 +258,72 @@ Use cases:
 
 ---
 
+### Auto-Tiering
+
+**1. What is Auto-Tiering?**
+
+It's a bucket-level enabled feature that monitors data access patterns and automatically moves files between the Standard (frequent) and Infrequent Access tiers, saving you time you would spend writing complex lifecycle policies.
+
+---
+
+**Recap: Standard vs. Infrequent Access Tiers**
+
+Just to reinforce what we learned in the previous lesson:
+
+Standard Storage Tier:
+
+- Optimized for data you need to access quickly, immediately, and frequently
+- No retrieval charges
+- No retention period requirements
+
+Infrequent Access Storage Tier:
+
+- Ideal for data that is accessed infrequently
+- Lower storage costs compared to standard
+- Comes with a minimum storage retention period of 31 days
+- Data retrieval fees apply
+
+---
+
+**What Is Auto-Tiering?**
+
+Auto-tiering determines which storage tier your data should be in based on your usage patterns.
+
+Key benefit:
+
+- Saves time from writing complex lifecycle policy rules
+- Eliminates deliberating over which storage tier is best for your data
+
+---
+
+**How Auto-Tiering Works**
+
+As shown in the diagram:
+
+1. Data is initially in the frequent access (standard) tier
+2. Based on the access pattern, the service moves it to the infrequent access tier if it is infrequently accessed
+3. Later, if the objects are accessed more frequently, it is moved back to the standard tier
+
+Important notes:
+
+- This feature is enabled at a bucket level
+- If you enable auto-tiering, data access patterns are monitored
+- The feature does not cost anything
+- Instead, it helps you reduce costs by automatically moving objects larger than 1 MiB from standard to the more cost-effective infrequent access tier
+- It performs the transition of objects based on access patterns
+- No retrieval charges apply
+- Storage costs are pro-rated
+
+---
+
+**Use Cases for Auto-Tiering**
+
+Auto-tiering is particularly useful in the following scenarios:
+
+1. New application data storage – When there are no established access patterns
+2. Data storage with changing access patterns – When usage patterns shift over time
+
+---
 
 # 2. Multipart Uploads
 
