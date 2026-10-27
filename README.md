@@ -185,3 +185,51 @@ Important Notes
 
 ---
 
+## Object Copy
+
+**Introduction**
+
+This feature allows you to copy objects between buckets and regions, with flexible rules to control overwriting behavior.
+
+What is Object Copy?
+
+Object copy allows you to copy objects to other buckets in the same region or to buckets in other regions.
+
+Key Characteristics
+- Asynchronous Handling: The object storage service handles copy requests asynchronously.
+- Archive Storage Limitation: Objects cannot be copied directly from archive storage.
+- Bucket Creation: The copy operation does not automatically create buckets.
+- New ETag: When an object is copied, the destination object receives a new ETag value.
+
+---
+
+**Overwrite Rules**
+
+There are four different overwrite rules available for copy operations:
+
+| # | Overwrite Rule | Description | When to Use |
+| :--- | :--- | :--- | :--- |
+| 1 | Override Destination Object | Default option. Can be used for any copy operation. | When you do not want to limit the copy operation by ETag value. |
+| 2 | Do Not Overwrite Any Destination Object | Prevents overwriting of an existing copy of an object in the destination location, regardless of the destination object's ETag value. | To prevent overwriting of an existing object in the destination. |
+| 3 | Override Destination Object Only If It Matches the Specified ETag | Copy succeeds only if the ETag you supply matches the ETag of the destination object. | To prevent accidental overwriting of a destination object that does not have the specified ETag. |
+| 4 | Copy Object Only If the Source Matches the Specified ETag | Copy succeeds only if the ETag you supply matches the ETag of the source object. | To ensure that only the specified version of the object is copied. |
+
+---
+
+**Copy Operation Parameters**
+
+When performing a copy operation, you need to provide the following:
+
+Required Parameters
+- Destination Namespace
+- Destination Region
+- Destination Bucket
+
+Optional Parameters
+- Destination Object Name
+- Destination Storage Tier
+
+Overwrite Rule Selection  
+You can select any one of the four overwrite rules based on your requirement before performing the copy operation.
+
+
