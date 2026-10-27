@@ -1,4 +1,22 @@
-# Object Storage ‐ Advanced
+# 1. Bucket
+
+## 1.1 Data Protection
+
+# 2. Object Storage Logging
+
+# 3. Security
+
+## Securing Object Storage
+## Pre-Authenticated Requests
+
+---
+
+.\
+.\
+.\
+.
+
+---
 
 # 1. Bucket
 
