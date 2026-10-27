@@ -162,17 +162,21 @@ Since not every file in your company is accessed all the time, paying the same p
 **Main Tiers in OCI**
 
 1. Standard:
-2. 
-Purpose: Data you need to access all the time and with immediate speed (e.g., images from your website, files from production systems)
 
-Characteristics: Maximum performance, no additional recovery cost, but with the highest storage cost per gigabyte.
+* Purpose: Data you need to access all the time and with immediate speed (e.g., images from your website, files from production systems)
+
+* Characteristics: Maximum performance, no additional recovery cost, but with the highest storage cost per gigabyte.
 
 2. Infrequent Access:
+   
 * Purpose: Data you need to keep but rarely consult (e.g., old monthly reports).
+  
 * Features: The storage cost is lower than Standard, but OCI charges a small fee when you download or retrieve these files.
 
 3. Archive:
+   
 * Purpose: Historical data, deep backups, or files you need to retain for legal obligations but will probably never open again.
+
 * Features: The price to store the data is extremely low, but the files are "frozen." To open them, you need to request a restore, which takes a few hours (usually between 1 and 4 hours), and there is also a recovery fee.
   
 
