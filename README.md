@@ -1,6 +1,6 @@
 # 1. Bucket
 
-## 1.1 Data Protection
+## Data Protection
 
 # 2. Object Storage Logging
 
@@ -20,7 +20,7 @@
 
 # 1. Bucket
 
-## 1.1 Data Protection
+## Data Protection
 
 ### A. Object Storage Replication
 
