@@ -25,6 +25,15 @@ Object Storage is a cloud storage service designed to store large amounts of uns
 
 Unlike a traditional hard drive (which organizes files into folders and subfolders hierarchically), Object Storage treats each file as an autonomous "object".
 
+* **Flat Structure:** Files are not saved in actual physical folders, but rather loosely stored within a large container called a **Bucket**. 
+
+* **Virtually Infinite Scalability:** You can start by storing a few megabytes and grow to petabytes of data without needing to resize disks or worry about running out of physical space.
+
+* **High Durability:** Data is automatically replicated across multiple locations to ensure you never lose information.
+
+* **API/HTTP Access:** Files are accessed and managed primarily through web requests, APIs, command line interface (CLI), or SDKs, rather than being mapped as a traditional network drive (like a hard drive connected to the computer).
+  
+
 **Data in Object Storage can be:**
 
 Object Storage (Standard): Data is always available for immediate access. You make a request and the data is delivered in milliseconds.
@@ -45,3 +54,14 @@ Archive Storage: Designed for cold data that you almost never access. Because of
   - Archive
 
 ---
+
+## 1.2 Object
+
+Each stored object consists of three main elements:
+
+1. The Data: The file itself (e.g., a photo, a PDF document, or a compressed backup).
+
+2. Metadata: A set of information that describes the object (such as creation date, size, file type, and custom tags).
+
+3. A Unique Identifier (Key): A unique address or name that allows you to find and retrieve that file instantly.
+
