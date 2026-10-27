@@ -118,3 +118,70 @@ C. Suspended
 - Re-enabling: You can re-enable object versioning at any time.
 
 ---
+
+## Retention Rules
+
+**Introduction**
+
+These rules are designed to protect your data and provide immutable, WORM-compliant (Write Once, Read Many) storage options.
+
+What are Retention Rules?
+
+Retention rules protect data from accidental or malicious update, overwrite, or deletion. They provide immutable WORM-compliant storage options for data returned to object storage and archive storage.
+
+Key Rules
+- Locking: Retention rules can be locked to prevent rule modification and data deletion/modification, even by administrators.
+- Configuration Level: Retention rules are configured at the bucket level.
+
+Two Types of Retention Rules
+
+| Type | Description |
+| :--- | :--- |
+| Time-Bound | You specify a duration during rule creation. Object modification and deletion are prevented for that duration. |
+| Indefinite | Object modification and deletion are prevented until you delete the rule. No duration is specified. |
+
+---
+
+**Configuring Retention Rules**
+
+Time-Bound Configuration  
+When selecting Time-Bound, you must specify:
+- Retention Time Amount
+- Retention Time Unit
+
+You can optionally enable Retention Rule Lock.
+
+Indefinite Configuration  
+When selecting Indefinite, you do not specify a Retention Time Amount.
+
+Retention Rule Lock
+- Irreversible Operation: Not even a tenancy administrator can delete a locked rule.
+- 14-Day Delay: There is a mandatory 14-day delay before a rule is locked. This allows you to test, modify, or delete the rule or rule lock before permanent locking.
+- Deletion: Once locked, the rule can only be deleted by deleting the bucket.
+
+---
+
+**Retention Duration for Time-Bound Rules**
+
+Even though retention rules are created at the bucket level, the duration is applied to each object individually based on the object's last modified timestamp.
+
+Example Scenario
+
+Bucket: OCI  
+Objects:
+- `OCI test` — Last modified 14 months ago
+- `OCI demo` — Last modified 3 months ago
+
+Retention Rule: Time-bound, duration of 1 year
+
+| Object | Last Modified | Retention Duration | Outcome |
+| :--- | :--- | :--- | :--- |
+| `OCI test` | 14 months ago | 1 year (12 months) | Allowed for modification/deletion (14 months > 12 months) |
+| `OCI demo` | 3 months ago | 1 year (12 months) | Prevented for next 9 months (12 - 3 = 9 months remaining) |
+
+Important Notes  
+- You can create multiple retention rules for a bucket.
+- Indefinite retention rules are applied before any time-bound rule is considered.
+
+---
+
