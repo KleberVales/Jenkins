@@ -5,16 +5,23 @@
 ## 1.1 What is Object Storage?
 ## 1.2 Object
 ## 1.3 Bucket
-## 1.4 Namespace
-## 1.5 Object Storage Tiers
-## 1.6 Object Lifecycle Management
+## 1.4 Object Storage Tiers
+## 1.5 Endpoint
 
-# 2. Multipart Uploads
+# 2. Object
 
-## 2.1 Introdution
-## 2.2 Recommendations and Limits
-## 2.3 Object Lifecycle Policy Rules
-## 2.4 Uploads
+## 2.1 Object Lifecycle Management
+
+# 3. Bucket
+
+# 4. Object Storage Tiers
+
+# 5. Multipart Uploads
+
+## 5.1 Introdution
+## 5.2 Recommendations and Limits
+## 5.3 Object Lifecycle Policy Rules
+## 5.4 Uploads
 
 
 ---
@@ -80,40 +87,19 @@ Each stored object consists of three main elements:
 
 ## 1.3 Bucket
 
-**Naming and Structural Rules**
+A bucket is a logical container (a giant virtual folder) where you store all your files, known as objects.
 
-- Names are case sensitive
-- You cannot nest buckets – a bucket cannot contain other buckets
-- You can store objects up to 10 tebibytes (TiB)
+Think of it as the main drawer or root folder where you organize your data within Object Storage.
 
-**Pre-Authenticated Requests**
+Here are the main characteristics of a bucket:
 
-There is a concept of pre-authenticated requests (PARs) that provide a way to let you access a bucket or an object without having your own credentials.
+- Flat Organization: Within a bucket, files are in a flat structure. Even if you name files similar to folder paths (like images/profile/photo.jpg), OCI sees everything as a single level of files identified by unique keys.
+- Regional Scope: A bucket belongs to a specific region (for example, São Paulo, Vinhedo, or Ashburn), and its name must be unique only within that region in your tenancy.
+- Tier Definition: When creating the bucket, you choose whether it will be a Standard bucket—which accepts files from any tier—or an Archive bucket for long-term retention.
 
-- Useful for granting temporary access to specific resources
+## 1.4 Endpoint
 
----
-
-**Retention Rules**
-
-You can apply retention rules at the bucket level to provide immutable object storage options for data that is written to object storage.
-
-Use cases for retention rules:
-
-- Governance
-- Regulatory compliance
-- Legal requirements
-
----
-
-**Replication Policy**
-
-Using a replication policy for a bucket, you can automatically replicate the objects in one object storage bucket to another bucket in the same or different region.
-
-
----
-
-## 1.4 Namespace
+**Namespace**
 
 The first construct is the namespace.
 
@@ -325,9 +311,47 @@ Auto-tiering is particularly useful in the following scenarios:
 
 ---
 
-# 2. Multipart Uploads
+# 2. Object
 
-## 2.1 Introdution
+# 3. Bucket
+
+**Naming and Structural Rules**
+
+- Names are case sensitive
+- You cannot nest buckets – a bucket cannot contain other buckets
+- You can store objects up to 10 tebibytes (TiB)
+
+**Pre-Authenticated Requests**
+
+There is a concept of pre-authenticated requests (PARs) that provide a way to let you access a bucket or an object without having your own credentials.
+
+- Useful for granting temporary access to specific resources
+
+---
+
+**Retention Rules**
+
+You can apply retention rules at the bucket level to provide immutable object storage options for data that is written to object storage.
+
+Use cases for retention rules:
+
+- Governance
+- Regulatory compliance
+- Legal requirements
+
+---
+
+**Replication Policy**
+
+Using a replication policy for a bucket, you can automatically replicate the objects in one object storage bucket to another bucket in the same or different region.
+
+---
+
+# 4. Object Storage Tiers
+
+# 5. Multipart Uploads
+
+## 5.1 Introdution
 
 Instead of sending a large file all at once (which can easily fail if the connection drops), Multipart Upload splits the file into smaller pieces and sends them in parallel.
 
@@ -339,7 +363,7 @@ Multipart uploads upload data in parallel, making them faster and more efficient
 
 If a multipart upload fails for any reason, instead of restarting the entire object, you only need to retry uploading the part that failed
 
-## 2.2 Recommendations and Limits
+## 5.2 Recommendations and Limits
 
 The recommendation is that if the object size is greater than 100 mebibytes (MiB), you should consider using multipart uploads.
 
@@ -352,7 +376,7 @@ Key limits and specifications:
 
 ---
 
-## 2.3 Object Lifecycle Policy Rules
+## 5.3 Object Lifecycle Policy Rules
 
 You can use object lifecycle policy rules to automatically delete any uncommitted or failed multipart upload after a specific number of days.
 
@@ -360,7 +384,7 @@ You can use object lifecycle policy rules to automatically delete any uncommitte
 
 ---
 
-## 2.4 Uploads
+## 5.4 Uploads
 
 ### A. Multipart Uploads Using the API
 
