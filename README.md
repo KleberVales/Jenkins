@@ -39,6 +39,11 @@
 - Higher Performance
 - Ultra High Performance
 
+**Dynamic performance scaling**
+
+- Performance-Based Autotuning
+- Detached-Volume Autotuning
+
 ## Local NVMe
 
 # 2. Volume Attachment Types
