@@ -32,6 +32,15 @@
 
 A “virtual disk” that exists separately from the compute instance. You can create it, attach it, connect it, and move it between instances. Once attached and connected, it behaves like a regular hard drive.
 
+OCI provides two flavors of block storage:
+
+| Storage Type | Persistent? | Durability | Best For |
+|---|---|---|---|
+| Local NVMe | Non-persistent (survives reboots) | Customer-managed | Big data, OLTP, high-performance workloads |
+| Block Volume | Persistent | 99.99% (4 nines) annual durability | Sand-like features, persistent storage |
+
+---
+
 ## Block Volume
 
 Block Volume provides persistent, durable (99.99% annual durability), and high-performance storage with automatic replication and encryption.
