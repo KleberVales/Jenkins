@@ -4,3 +4,8 @@
 
 ## Block Volume
 ## Local NVMe
+
+# 2. Volume Attachment Types
+
+## iSCSI
+## Paravirtualized
