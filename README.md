@@ -34,6 +34,11 @@
 
 **Block Volume Performance**
 
+- Lower Cost
+- Balanced
+- Higher Performance
+- Ultra High Performance
+
 ## Local NVMe
 
 # 2. Volume Attachment Types
