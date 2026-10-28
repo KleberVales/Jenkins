@@ -185,7 +185,12 @@ When using Read/Write Shareable, you must configure a clustered file system, suc
 
 ---
 
+
 ## Read-Only Shareable
+
+- Read-Only Shareable Access Type
+   - Configures the volume attachment as read-only.
+   - Enables attachment to multiple instances.
 
 # 4. Boot Volumes
 
