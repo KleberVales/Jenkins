@@ -65,15 +65,156 @@ Block Volumes range from 50 GB to 32 TB, with up to 32 volumes per instance, and
 
 **Block Volume Performance**
 
+OCI Block Volume service offers four performance levels: Lower Cost, Balanced, Higher Performance, and Ultra High Performance.
+
 - Lower Cost
+
+Lower Cost is ideal for throughput-intensive workloads but is not available for boot volumes. 
+
+Lower Cost Performance Level
+
+| Characteristic | Value |
+|---|---|
+| Recommended For | Throughput-intensive workloads |
+| IOPS | 2 IOPS per GB up to a maximum of 3,000 IOPS per volume |
+| Throughput | 240 KBPS per GB up to a maximum of 480 MBPS per volume |
+| Cost | Pay only for storage cost; no additional VPU cost |
+| Availability | Block volumes only (not available for boot volumes) |
+| Recommended Workloads | Streaming, log processing, data warehouses |
+
+---
+
 - Balanced
+
+Balanced is the default and provides a good balance between performance and cost. 
+
+Default Performance Configuration
+
+When you create a volume:
+
+- By default, it is configured for Balanced performance level.
+- You can change this when you create the volume, or update it at any point after creation.
+- You can control the target volume performance using either:
+  - The slider, or
+  - The volume performance unit control
+
+---
+
+Balanced Performance Level
+
+| Characteristic | Value |
+|---|---|
+| Recommended For | Most workloads; default performance level |
+| IOPS | 60 IOPS per GB up to 25,000 IOPS per volume |
+| Throughput | 480 KBPS per GB up to a maximum of 480 MBPS per volume |
+| Cost | 10 volume performance units (VPUs) per GB per month |
+| Availability | Block and boot volumes |
+| Benefits | Good balance between performance and cost-saving |
+
+---
+
+
 - Higher Performance
+
+Higher Performance is for high I/O workloads, while Ultra High Performance is for the most demanding workloads and is only available for block volumes. 
+
+Higher Performance Level
+
+| Characteristic | Value |
+|---|---|
+| Recommended For | Workloads with high I/O requirements that don't require ultra high performance |
+| IOPS | 75 IOPS per GB up to a maximum of 50,000 IOPS per volume |
+| Throughput | 600 KBPS per GB up to a maximum of 680 MBPS per volume |
+| Cost | 20 VPUs per GB per month |
+| Availability | Block and boot volumes |
+
+---
+
+
 - Ultra High Performance
+
+Ultra High Performance Level
+
+| Characteristic | Value |
+|---|---|
+| Recommended For | Workloads with highest I/O requirements requiring best possible performance |
+| IOPS | 225 IOPS per GB (range: 90 to 225) |
+| Throughput | 1,800 KBPS per GB up to a maximum of 2,680 MBPS per volume |
+| Cost | 30 to 120 VPUs per GB per month |
+| Availability | Block volumes only |
+
+---
+
 
 **Dynamic performance scaling**
 
+Block Volume dynamic performance scaling with autotuning allows OCI to automatically adjust volume performance. 
+
+Block Volume provides **dynamic performance scaling with autotuning**. This feature enables you to configure your volumes so that the service can **adjust the performance level automatically** to optimize performance.
+
+There are two types of dynamic performance scaling with autotuning:
+
+1. Performance-Based Autotuning
+2. Detached-Volume Autotuning
+
 - Performance-Based Autotuning
+
+Adjusts performance between default and maximum VPU levels based on monitored metrics such as throttled operations, guaranteed VPUs, IOPS, and throughput. Default VPUs cannot be 0 or 120, and maximum must be at least 10 VPUs higher than default.
+
+If both are enabled, performance-based autotuning takes over when the volume is reattached. When performance-based autotuning is turned off, the volume reverts to the default VPUs per GB setting. This feature helps optimize performance and cost based on actual workload demands and volume attachment state.
+
+How It Works
+
+When this option is enabled, Block Volume adjusts the volume's performance between the levels you specify, based on the monitored performance for the volume.
+
+Configuration Settings
+
+When you enable performance-based autotune, you specify:
+
+| Setting | Description |
+|---|---|
+| Default VPUs per GB | The lowest performance level the volume will be adjusted to when attached to an instance. |
+| Maximum VPUs per GB | The maximum performance level the volume will be adjusted to. |
+
+Important Rules
+
+- The default VPUs per GB cannot be set to either zero or 120.
+- The maximum VPUs per GB must be at least 10 VPUs per GB higher than the default VPUs per GB.
+- When you turn off performance-based autotuning, the volume's performance changes back to the default VPUs per GB setting.
+
+Metrics Used for Monitoring
+
+Block Volume monitors the volume's performance using the following metrics:
+
+| Metric | Description |
+|---|---|
+| Volume Throttled Operations | Total sum of all I/O operations throttled during a given time interval. |
+| Volume Guaranteed VPUs per GB | The guaranteed VPUs per GB for the volume. |
+| Volume Guaranteed IOPS | The guaranteed IOPS for the volume. |
+| Volume Guaranteed Throughput | The guaranteed throughput for the volume. |
+
+These metrics help the service determine the load on the Block Volume and decide whether the performance level needs to be adjusted.
+
+---
+
 - Detached-Volume Autotuning
+
+Adjusts performance to Lower Cost (0 VPUs per GB) when the volume is detached and returns to the previous setting when reattached.
+
+How It Works
+
+When this option is enabled, Block Volume adjusts the volume's performance level based on whether the volume is attached or detached from an instance.
+
+Behavior
+
+| Volume State | Performance Adjustment |
+|---|---|
+| Detached | Performance level is automatically changed to Lower Cost, which means zero VPUs per GB for both block volumes and boot volumes. |
+| Reattached | Performance is automatically adjusted back to the previous setting (default VPUs per GB). |
+
+Interaction with Performance-Based Autotuning
+
+If performance-based dynamic scaling with autotuning is also enabled, it will take effect when the volume is reattached to further dynamically scale performance as needed by workloads using the volume.
 
 ## Local NVMe
 
