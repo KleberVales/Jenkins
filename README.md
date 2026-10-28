@@ -111,13 +111,83 @@ Example: For the BM.DenseIO2.52 shape, you will see eight drives: NVMe0 to NVMe7
 
 # 2. Volume Attachment Types
 
+When attaching a block volume to a VM instance, you can choose between iSCSI and paravirtualized attachment types. 
+
+Choose iSCSI when performance is critical, and paravirtualized when simpler configuration is more important.
+
 ## iSCSI
+
+iSCSI uses the guest OS storage stack and network hardware virtualization without hypervisor involvement, making it the better choice for high IOPS workloads. 
+
+**iSCSI Attachment**
+
+How It Works
+
+- iSCSI block storage attachment utilizes the internal storage stack in the guest operating system and network hardware virtualization to access block volumes.
+- The hypervisor is not involved in the iSCSI attachment process.
+
+**Key Characteristics**
+
+- Uses the guest OS storage stack.
+- Uses network hardware virtualization.
+- Hypervisor is not part of the data path.
+- Recommended when storage IOPS performance is of paramount importance.
+
+---
+
 ## Paravirtualized
+
+Paravirtualized attachment uses hypervisor APIs for direct access, simplifying configuration but reducing maximum IOPS for larger block volumes due to virtualization overhead. 
+
+How It Works
+
+- Paravirtualization is a light virtualization technique.
+- The VM or guest operating system utilizes hypervisor APIs to access remote storage directly as if it were a local device.
+- This is more efficient than full virtualization.
+
+Key Characteristics
+
+- Simplifies block storage configuration.
+- Removes the extra commands needed before accessing a volume.
+- Due to virtualization overhead, it reduces maximum IOPS performance for larger block volumes compared to iSCSI attachments.
+
+---
 
 # 3. Volume Access Types
 
+OCI Block Volume service offers three access types: Read/Write, Read/Write Shareable, and Read-Only Shareable. 
+
 ## Read/Write
+
+Read/Write is the default and attaches to a single instance. 
+
+Read/Write Access Type
+
+- Configures the volume attachment as read/write.
+- Not shareable with other instances.
+- Enables attachment to a single instance.
+- This is the default configuration.
+
+---
+
 ## Read/Write Shareable
+
+Read/Write Shareable and Read-Only Shareable can attach to up to eight instances. 
+
+When using Read/Write Shareable, you must configure a clustered file system, such as OCFS2, because OCI does not coordinate concurrent write operations to a shared volume. 
+
+- Read/Write Shareable Access Type
+
+   - Configures the volume attachment as read/write that is shareable with other instances.
+   - Enables read/write attachments to multiple instances.
+   - To prevent data corruption, you must configure a clustered file system on the volume.
+   - The Block Volume service does not provide coordination for concurrent write operations to a shared volume.
+
+---
+
 ## Read-Only Shareable
 
 # 4. Boot Volumes
+
+
+
