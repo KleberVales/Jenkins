@@ -49,6 +49,20 @@ It is ideal for persistent storage, expanding instance storage, and scaling.
 
 Block Volumes range from 50 GB to 32 TB, with up to 32 volumes per instance, and are always encrypted at rest with AES 256-bit encryption. 
 
+- Block Volume Specifications
+
+| Feature | Specification |
+|---|---|
+| Size Range | 50 GB to 32 TB in 1 GB increments |
+| Default Size | 1 TB |
+| Max Volumes per Instance | Up to 32 volumes |
+| Replication | Automatically replicated for data loss protection |
+| Data Redundancy | Multiple copies stored redundantly across multiple storage servers with built-in repair mechanisms |
+| Encryption at Rest | Always encrypted using AES with 256-bit encryption |
+| In-Transit Encryption | Optional for virtualized volume attachments on VM instances |
+
+---
+
 **Block Volume Performance**
 
 - Lower Cost
@@ -66,6 +80,34 @@ Block Volumes range from 50 GB to 32 TB, with up to 32 volumes per instance, and
 Local NVMe provides extremely low latency and high performance but is non-persistent and not protected by OCI—customers are responsible for data durability.
 
 Local NVMe devices are found on certain instance shapes like BM.DenseIO2.52 and are best for high-performance workloads such as big data and OLTP.
+
+**Local NVMe SSD Devices**
+
+What Are Local NVMe Devices?
+
+Some compute instance shapes, such as BM.DenseIO2.52, include locally attached NVMe devices.
+
+**Characteristics**
+
+| Feature | Description |
+|---|---|
+| Latency | Extremely low |
+| Performance | High-performance block storage |
+| Ideal For | Big data, OLTP, and any workload benefiting from high-performance block storage |
+| Persistence | Non-persistent but survive reboots |
+| Data Protection | OCI does not take images, backups, or use RAID or other methods to protect data on NVMe devices |
+
+**Customer Responsibility**
+
+It is the customer's responsibility to protect and manage the durability of data on Local NVMe devices.
+
+**Viewing Block Devices**
+
+You can use the command `lsblk` to display details about block devices. Depending on the compute instance shape, you will see different drives.
+
+Example: For the BM.DenseIO2.52 shape, you will see eight drives: NVMe0 to NVMe7.
+
+---
 
 # 2. Volume Attachment Types
 
