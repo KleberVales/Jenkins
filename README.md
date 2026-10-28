@@ -9,3 +9,9 @@
 
 ## iSCSI
 ## Paravirtualized
+
+# 3. Volume Access Types
+
+## Read/Write
+## Read/Write Shareable
+## Read-Only Shareable
