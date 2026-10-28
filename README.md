@@ -186,11 +186,27 @@ When using Read/Write Shareable, you must configure a clustered file system, suc
 ---
 
 
-## Read-Only Shareable
+**Read-Only Shareable**
 
 - Read-Only Shareable Access Type
    - Configures the volume attachment as read-only.
    - Enables attachment to multiple instances.
+ 
+**Maximum Attachments**
+
+- You can attach a block volume as read/write shareable or read-only shareable up to a maximum of eight instances.
+
+---
+
+**Comparison of Access Types**
+
+| Access Type | Read/Write? | Shareable? | Max Instances | Requires Clustered File System? |
+|---|---|---|---|---|
+| Read/Write | Yes | No | 1 | No |
+| Read/Write Shareable | Yes | Yes | 8 | Yes |
+| Read-Only Shareable | No (Read-only) | Yes | 8 | No |
+
+---
 
 # 4. Boot Volumes
 
