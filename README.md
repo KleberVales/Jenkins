@@ -210,5 +210,77 @@ When using Read/Write Shareable, you must configure a clustered file system, suc
 
 # 4. Boot Volumes
 
+Boot volumes in OCI provide remote boot disks for bare metal and virtual machine instances. 
+
+They are encrypted by default, offer faster performance and lower launch times, and provide higher durability. 
+
+Both backup and clone operations are supported. 
+
+After instance creation, you can change the boot volume performance to balanced or higher performance. 
+
+Default boot volume sizes are 46.6 GB for Linux and 47 GB for Windows, but you can specify any size from 50 GB to 32 TB. 
+
+When terminating an instance, you can preserve the boot volume and its data. 
+
+For troubleshooting, you can detach a boot volume and attach it as a block volume to another instance.
+
+**What Is a Boot Volume?**
+
+Boot volumes provide remote boot disks for your bare metal and virtual machine instances.
+
+Key features:
+
+- Encrypted by default
+- Faster performance and lower launch times
+- Higher durability for bare metal and virtual machine instances
+- Supports both backup and clone operations
+
+---
+
+**Boot Volume Performance**
+
+Once an instance has been created, you can change the volume performance of the boot volume to either:
+
+- Balanced
+- Higher performance level
+
+---
+
+**Boot Volume Size Options**
+
+When you launch an instance, you can choose:
+
+- The selected image's default boot volume size, or
+- Specify a size up to 32 terabytes
+
+**Default Boot Volume Sizes**
+
+| Operating System | Default Boot Volume Size |
+|---|---|
+| Linux | 46.6 GB |
+| Windows | 47 GB |
+
+**Customizable Size Range**
+
+You can specify any number between 50 GB and 32 TB.
+
+---
+
+**Boot Volume Preservation**
+
+When you terminate the instance, you can preserve the boot volume and its data. This allows you to keep the boot volume for future use or attach it to another instance.
+
+---
+
+**Troubleshooting with Boot Volumes**
+
+From a troubleshooting standpoint, you can:
+
+1. Detach a boot volume from its associated instance.
+2. Attach it to an instance as a block volume.
+
+This allows you to access and repair the boot volume without booting the original instance.
+
+---
 
 
