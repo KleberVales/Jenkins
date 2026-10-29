@@ -44,6 +44,25 @@ A Mount Target is an NFS endpoint that:
 
 File systems are exported through Mount Targets. You can reuse the same Mount Target for multiple file systems by specifying an export in the Mount Target for each file system.
 
+---
+
+A mount point path is a path within a client instance to a locally accessible directory to which the remote file system is mounted.
+
+Key points:
+- It exists on the client instance, not in the file system.
+- It is the local directory where the external file system is attached.
+- In a mount command, the mount point path appears as the local directory.
+
+Example from the transcript:
+
+```bash
+/mnt/mountpointA
+```
+
+In this example, `/mnt/mountpointA` is the path to the directory on the client instance where the external file system is mounted.
+
+---
+
 # 4. Exports
 
 ## Export
@@ -62,6 +81,7 @@ The export path is specified when an export is created. It:
 - Uniquely identifies the file system within the Mount Target.
 - Lets you associate many file systems to a single Mount Target.
 
+---
 
 An export path uniquely identifies the file system within the Mount Target.
 
