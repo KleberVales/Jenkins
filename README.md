@@ -94,6 +94,30 @@ Key points:
 
 > Note: The transcript mentions a “CIFS export” in the slide example. In the context of OCI File Storage, this refers to the export path that identifies the file system within the Mount Target.
 
+---
+
+A file system path is a path to directories within the file system. These directories contain the contents of the file system.
+
+Key points:
+- After the file system is mounted, you can create any directory structure within it.
+- File system paths are used to access files and directories inside the file system.
+- Snapshots of the file system can be accessed using the file system path under the file system’s root directory at:
+
+```text
+.snapshot/<snapshot_name>
+```
+
+Example:
+- If you create a snapshot named April 22, you can access it under the file system path at:
+
+```text
+.snapshot/April 22
+```
+
+This is known as a file system path.
+
+---
+
 
 ## Export Options
 
