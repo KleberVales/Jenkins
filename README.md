@@ -32,6 +32,8 @@ OCI File Storage includes several protection features:
 
 # 2. File System
 
+The file system is the actual storage location where files exist. It is exported or made available through Mount Targets.
+
 # 3. Mount Target
 
 # 4. Exports
