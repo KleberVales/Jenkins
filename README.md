@@ -353,7 +353,208 @@ This functionality is critical for customers who need disaster recovery solution
 # 2. Security
 
 ## In-transit Encryption
+
+In-transit encryption for OCI File Storage secures data between instances and mounted file systems using TLS. 
+
+It provides end-to-end security and requires TCP port 2051 to be open for encrypted access. 
+
+To enforce encrypted access only, you can disable the standard access ports.
+
+To enable it, install the `oci-fss-utils` package on your instance. This package creates a network namespace, a virtual network interface, and a local NFS endpoint, and it runs the OCI FSS forwarder in the background. The file system is mounted using a special command that initiates encryption. After mounting, the OCI FSS forwarder receives NFS client requests, encrypts them, and sends them to the Mount Target through a TLS tunnel.
+
+The broad setup steps are:
+1. Download `oci-fss-utils`.
+2. Install it.
+3. Use the in-transit encryption command to mount the file system.
+
+---
+
+**What Is In-Transit Encryption?**
+
+In-transit encryption provides a way to secure your data between instances and mounted file systems using Transport Layer Security (TLS) encryption.
+
+Key points:
+- It provides end-to-end security.
+- It protects data while it is moving between the instance and the mounted file system.
+- It uses a TLS tunnel to send encrypted requests to the Mount Target.
+
+---
+
+**Prerequisite: Open TCP Port 2051**
+
+Before using in-transit encryption, you must complete a prerequisite:
+
+- Open rules for TCP port 2051.
+- This port is required for encrypted access.
+
+Enforcing Encrypted Access Only  
+If you want to enforce encrypted access only, you can disable the standard access ports.
+
+---
+
+**Enabling In-Transit Encryption**
+
+To enable in-transit encryption, install the following package on your instance:
+
+```text
+oci-fss-utils
+```
+
+Full name:
+```text
+Oracle Cloud Infrastructure File Storage Service Client Utility
+```
+
+What the Package Does  
+Once downloaded and installed, the package:
+
+1. Creates a network namespace.
+2. Creates a virtual network interface.
+3. Provides a local NFS endpoint.
+4. Runs a background forwarder process called the OCI FSS forwarder.
+
+---
+
+**How the Encryption Process Works**
+
+The file system is mounted using a special command that initiates encryption.
+
+> Note: The exact mount command syntax is shown in the slide but is not included in the transcript. Refer to OCI documentation for the specific command.
+
+After the file system is mounted:
+
+1. The OCI FSS forwarder connects the local NFS client to the NFS endpoint.
+2. The forwarder receives requests from the NFS client.
+3. The forwarder encrypts those requests.
+4. The forwarder sends them to the Mount Target using a TLS tunnel.
+
+Process Flow
+
+```text
+Local NFS Client
+       ↓
+OCI FSS Forwarder
+       ↓ (encrypts requests)
+TLS Tunnel
+       ↓
+Mount Target
+       ↓
+File System
+```
+
+---
+
+**Steps to Set Up In-Transit Encryption**
+
+1. Download the `oci-fss-utils` package.
+2. Install the package on your instance.
+3. Use the in-transit encryption command to mount the file system.
+
+Before You Begin  
+- Open TCP port 2051 for encrypted access.
+- Optionally, disable standard access ports to enforce encrypted access only.
+
+---
+
 ## File System Security
+
+Oracle Cloud Infrastructure (OCI) File Storage use four layers of access control
+
+Each layer protects file storage at a different level, from OCI-wide permissions to network access, file system exports, and operating system permissions.
+
+OCI File Storage uses four layers of access control:
+
+1. IAM Service — uses policies to control what users can do in OCI.
+2. Network Security — controls which IP addresses or CIDR blocks can connect to a Mount Target using VCN security lists and NSGs. It is all-or-nothing.
+3. Export Options — applies access control per file system export based on source IP address and bridges network security with NFS/UNIX security.
+4. UNIX Security — controls what users can do on the instance, including mounting file systems and reading/writing files.
+
+Together, these layers provide defense in depth for OCI File Storage.
+
+---
+
+**Key Terms**
+
+| Term | Definition |
+|---|---|
+| IAM | Identity and Access Management. Uses policies to control what users can do in OCI. |
+| Network Security | Controls which instance IP addresses or CIDR blocks can connect to a file system. |
+| Security List Rules | VCN rules that allow or deny traffic to a Mount Target. |
+| Network Security Groups (NSGs) | VCN constructs used to block ports from specific IPs/CIDR blocks. |
+| Export Options | Access control applied per file system export based on source IP address. |
+| UNIX Security Layer | Controls what users can do on the instance, such as mounting file systems and reading/writing files. |
+| Mount Target | The NFS endpoint used by clients to connect to a file system. |
+
+---
+
+**Four Layers of File Storage Access Control**
+
+The OCI File Storage service uses four different layers of access control:
+
+1. IAM Service
+2. Network Security
+3. Export Options
+4. UNIX Security
+
+---
+
+Layer 1: IAM Service
+
+IAM stands for Identity and Access Management.
+
+- Uses policies to control what users can do within OCI.
+- Controls actions such as:
+  - Creating instances
+  - Creating a Virtual Cloud Network (VCN) and its security rules
+  - Creating Mount Targets
+  - Creating file systems
+
+Purpose: Controls OCI-level permissions and who can manage file storage resources.
+
+---
+
+Layer 2: Network Security
+
+Network Security controls which instance IP addresses or CIDR blocks can connect to a file system.
+
+- Uses VCN security list rules to allow or deny traffic to the Mount Target.
+- Since file systems are accessed through Mount Targets, controlling traffic to the Mount Target controls access to associated file systems.
+- You can use VCN Network Security Groups (NSGs) and security rules to:
+  - Block appropriate ports from specific IP addresses and CIDR blocks.
+  - Restrict host access.
+
+> Important: Network security is all-or-nothing.
+> - The client either can or cannot access the Mount Target.
+> - Therefore, the client either can or cannot access all file systems associated with that Mount Target.
+
+Purpose: Controls network-level access to the Mount Target.
+
+---
+
+Layer 3: Export Options
+
+Export Options apply access control or file system export based on source IP address.
+
+- This layer provides more granular control than network security.
+- It applies access rules at the file system export level.
+- It bridges the network security layer and the NFS/UNIX security layer.
+
+Purpose: Controls which clients can access which file systems and with what level of access.
+
+---
+
+Layer 4: UNIX Security Layer
+
+The UNIX security layer controls what users can do on the instance.
+
+It governs actions such as:
+
+- Installing applications
+- Mounting external file systems
+- Creating directories
+- Reading and writing files
+
+Purpose: Controls operating-system-level permissions for users on the client instance.
 
 # 3. File System Usage and Metering
 
