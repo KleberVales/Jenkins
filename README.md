@@ -58,6 +58,10 @@ A collection of one or more exports maintained by a Mount Target.
 
 A path specified when an export is created. It uniquely identifies the file system within the Mount Target.
 
+The export path is specified when an export is created. It:
+- Uniquely identifies the file system within the Mount Target.
+- Lets you associate many file systems to a single Mount Target.
+
 ## Export Options
 
 Parameters within an export that specify the level of access granted to NFS clients. Up to 100 options are allowed per export.
