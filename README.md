@@ -30,5 +30,7 @@ OCI File Storage includes several protection features:
 - Customers can optionally use customer-managed keys through OCI Vault.
 - In-transit encryption can be configured using TLS to secure data between instances and mounted file systems.
 
+# 2. File System
+
 
 
