@@ -10,8 +10,6 @@ You can connect to OCI File Storage from: Bare metal instances, Virtual machine 
 
 You can also access the file system from outside the VCN using: VCN peering, OCI FastConnect and IPsec VPN connection
 
-OCI File Storage includes several protection features: **Snapshots** for data protection of your file system, **Encryption at rest by default** for all stored data and snapshot data using **AES-256**, By default, file systems use **Oracle-managed encryption keys**, Customers can optionally use **customer-managed keys** through **OCI Vault**, **In-transit encryption** can be configured using **TLS** to secure data between instances and mounted file systems.
-
 Key features:
 - Supports Network File System version 3.0 (NFS v3.0).
 - Data is replicated for durability within each availability domain.
