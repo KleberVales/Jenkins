@@ -370,3 +370,82 @@ Steps to enable:
 4. Select the region and, if applicable, the availability domain.
 5. Provide a name for your volume replica.
 
+## 1.2 Volume Groups
+
+Volume groups in OCI allow you to group multiple volumes—both boot and block volumes—into a single logical unit. 
+
+You can create point-in-time, crash-consistent backups and clones of the entire group. 
+
+A volume group can contain up to 32 volumes with a maximum combined size of 128 TB. 
+
+Each volume can only belong to one volume group. 
+
+Deleting a volume group does not delete its volumes, and you must remove a volume from a group before deleting it. 
+
+Volume groups simplify backing up multi-tier enterprise applications and support scheduled, policy-based backups with full group restore capability. 
+
+Best of all, volume groups are available at no additional charge.
+
+
+**What Is a Volume Group?**
+
+OCI Block Volume service provides the capability to group together multiple volumes in a volume group.
+
+A volume group can include both types of volumes:
+
+- Boot volumes – the system disks for your compute instances.
+- Block volumes – for your data storage.
+
+You can use volume groups to create volume group backups and clones that are point-in-time and crash-consistent.
+
+---
+
+**Volume Group Limits**
+
+| Limit | Value |
+|---|---|
+| Maximum volumes per volume group | 32 |
+| Maximum combined size | 128 TB |
+| Volume size variation | Volumes can vary in size |
+| Combined size constraint | The overall combined size of all block and boot volumes must be 128 TB or less |
+
+---
+
+**Volume Group Membership Rules**
+
+Important rules to remember:
+
+- Each volume may only be in one volume group.
+- When you delete a volume group:
+  - The individual volumes in the group are not deleted.
+  - Only the volume group is deleted.
+- When you delete a volume that is part of a volume group:
+  - You must first remove it from the volume group before you can delete it.
+
+---
+
+**Use Case: Enterprise Application**
+
+Consider an enterprise application that spans multiple storage volumes across multiple instances:
+
+| Tier | Storage |
+|---|---|
+| Web Tier | Block Volume |
+| Application Tier | Block Volume |
+| Database Tier | Block Volume |
+
+Volume groups can simplify the process to create time-consistent backups of running enterprise applications.
+
+Additional Capabilities
+
+- Perform volume group backups automatically on a schedule.
+- Retain backups based on a particular backup policy.
+- Restore an entire group of volumes from a volume group backup.
+
+Cost
+
+Volume groups are available at no additional charge.
+
+---
+
+
