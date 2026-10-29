@@ -36,6 +36,14 @@ The file system is the actual storage location where files exist. It is exported
 
 # 3. Mount Target
 
+A Mount Target is an NFS endpoint that:
+- Lives in a subnet.
+- Is highly available.
+- Provides the IP address or DNS name used in the mount command.
+- Allows NFS clients to connect to a file system.
+
+File systems are exported through Mount Targets. You can reuse the same Mount Target for multiple file systems by specifying an export in the Mount Target for each file system.
+
 # 4. Exports
 
 ## Export
