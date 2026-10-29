@@ -87,8 +87,268 @@ If nothing has changed within the file system since the last snapshot was taken,
 
 ---
 
-## File System Cloning
-## File System Replication
+## 1.2 File System Cloning
+
+File system cloning in OCI File Storage creates a new file system from a snapshot of an existing file system. 
+
+At creation, the clone’s data is identical to the snapshot. 
+
+After creation, the clone and the original file system evolve independently: changes in one are not reflected in the other. 
+
+Cloning does not replicate or move data; instead, the clone references the parent file system for shared data.
+
+Key concepts include:
+- Source snapshot — the blueprint for the clone.
+- Parent file system — the original file system whose data is referenced by clones.
+- Hydration — indicates metadata is being copied from the source; the clone is usable during this process.
+- Clone tree — a group of clones descending from the same root file system.
+
+In the example, a snapshot named `22AprilSnapshot` was cloned to create `clonedfilesystem`, with hydration in progress and both Clone Root and Descendants set to false.
+
+---
+
+**Key Terms**
+
+| Term | Definition |
+|---|---|
+| Clone | A new file system created based on a snapshot of an existing file system. |
+| Source Snapshot | The snapshot used as a blueprint to create a clone. It is a point-in-time reference of a file system. |
+| Parent File System | The file system that contains data referenced by one or more clones. |
+| Hydration | Indicates whether the clone is currently copying metadata from the source. |
+| Clone Tree | A group of clones that descend from the same root file system. |
+| Clone Root | Indicates whether a file system is the root of a cloned tree. |
+| Descendants | Indicates whether a file system has been cloned. |
+
+> Note: The transcript uses “clone three” and “patent file system.” These are corrected here as clone tree** and parent file system.
+
+---
+
+**What Is a File System Clone?**
+
+A clone is a new file system created based on a snapshot of an existing file system.
+
+Key points:
+- If you take snapshots at regular intervals, you can create clones of the file system as it existed at multiple points in its lifetime.
+- At the point of creation, the data in the clone is identical to the data in the snapshot.
+- After creation, changes in the clone are not included in the original file system.
+- Changes to the original file system are not included in the clone.
+- Creating a clone does not replicate or move data from the parent file system to the clone.
+- Instead, the clone references the parent file system for any data they share.
+
+---
+
+**Example: Creating a Clone**
+
+Step 1: Start with a Snapshot  
+A file system snapshot is created with the name:
+
+```text
+22AprilSnapshot
+```
+
+Step 2: Perform the Clone  
+In the OCI Console, select the snapshot and click Clone.
+
+This creates a new file system. In the example, the new file system is named:
+
+```text
+clonedfilesystem
+```
+
+Step 3: Review Clone Information  
+Under the new file system’s information, you can see:
+
+| Property | Example Value / Meaning |
+|---|---|
+| Source Snapshot | `22AprilSnapshot` — the snapshot used to create the clone. |
+| Hydration | In progress — the clone is currently copying metadata from the source. |
+| Parent File System | The original file system from which the snapshot was created. |
+| Clone Root | Indicates whether this file system is the root of a cloned tree. |
+| Descendants | Indicates whether this file system has been cloned. |
+
+In the example:
+- The original file system was used to create the snapshot.
+- The snapshot was cloned to create `clonedfilesystem`.
+- Both Clone Root and Descendants were false.
+
+---
+
+**File System Cloning Concepts**
+
+1. Source Snapshot  
+The source snapshot is the snapshot used as a blueprint to create a clone.
+
+- A snapshot is a point-in-time reference of a file system.
+- The clone starts with the same data as the snapshot.
+
+2. Parent File System  
+The parent file system is the file system that contains data referenced by one or more clones.
+
+- The clone continues to reference the parent file system for any data they share in common.
+- This is why cloning does not duplicate all data immediately.
+
+3. Hydration  
+Hydration indicates whether the clone is currently copying metadata from the source.
+
+- You can use the clone while hydration is in progress.
+- Hydration does not prevent access to the clone.
+
+4. Clone Tree  
+A clone tree is a group of clones that descend from the same root file system.
+
+- It helps track the relationship between a root file system and its clones.
+- Clone Root and Descendants properties help identify a file system’s position in the clone tree.
+
+---
+
+**How Data Changes Are Handled**
+
+| Action | Effect |
+|---|---|
+| Create clone from snapshot | Clone data is identical to the snapshot at creation. |
+| Change data in the clone | Changes are not included in the original file system. |
+| Change data in the original file system | Changes are not included in the clone. |
+| Shared data | Clone references the parent file system instead of copying data. |
+
+---
+
+## 1.3 File System Replication
+
+File system replication in OCI File Storage asynchronously copies data updates from a source file system to a target file system. 
+
+The source and target have active and passive roles, and the source remains usable during replication. 
+
+Replication can occur across availability domains within a region or across regions, and a source can replicate to multiple target regions simultaneously.
+
+Key constructs include:
+- Source file system
+- Target file system — must never have been exported
+- Replication resource — attached to the source and controls replication
+- Replication target resource — receives and applies data to the target
+- Replication snapshot — captures incremental changes
+- Replication interval — must be at least 60 minutes
+
+The first transfer is the base copy. Subsequent incremental transfers are delta copies. The delta cycle has four states: Idle, Capturing, Transferring, and Applying. The replication process repeats at the specified interval, automatically deleting and recreating replication snapshots.
+
+Common use cases include disaster recovery, protection from regional outages, data redundancy, and compliance.
+
+---
+
+**1. What Is File System Replication?**
+
+File system replication copies data from a source to a target.
+
+Key points:
+- Data updates to the source file system are asynchronously replicated to the target file system.
+- The source and target file systems have active and passive roles.
+- You can actively use the source file system during replication.
+- Replication can be configured across multiple availability domains within a region or across different regions.
+- File system replication gives you consistent file system replicas, so applications can use the target file system with confidence in its consistency.
+- The underlying replication technology does not rely on block-level replication.
+- The source file system can be replicated to multiple target regions simultaneously.
+
+---
+
+**2. Key Replication Constructs**
+
+Source File System  
+The file system whose data you want to replicate to another region or availability domain at regular intervals.
+
+Target File System  
+The destination for replicated data from the source file system.
+
+> Important: Only a file system that has never been exported can be used as a target file system.
+
+Replication Resource  
+The control component of the replication process.
+
+- Contains all necessary configuration information for replication.
+- Attached to the source file system.
+- Captures updates by creating a replication snapshot.
+- Transmits the snapshot to the replication target.
+
+Replication Target Resource  
+Resides in the destination region or availability domain.
+
+- Receives the replication snapshot from the replication resource.
+- Applies the data to the target file system.
+- Automatically created when you create a replication resource.
+- The only manual operation you can perform on it is to delete it during a failover procedure.
+
+Replication Snapshot  
+Captures incremental changes in the source file system since the last snapshot.
+
+- Managed by the service.
+
+Replication Interval  
+The interval in minutes that determines the frequency of data replication.
+
+- Must be greater than or equal to 60 minutes.
+- Select an interval that meets your business needs.
+
+---
+
+**3. Replication Relationship: Base Copy and Delta Copy**
+
+A replication relationship is established between the source file system and the target file system. This relationship is represented by the replication resource.
+
+Base Copy  
+The initial data transfer from the source to the target file system is called the base copy.
+
+Delta Copy  
+When the base copy is complete:
+- Periodic system-driven snapshots are taken on the source.
+- Incremental data is securely transferred to the target.
+- These increments are called delta copies.
+
+The base copy and delta copy happen without any intervention from the user. The frequency of the delta copy is controlled by the replication interval you specify.
+
+---
+
+**4. Delta Cycle**
+
+There are four constructs in a delta cycle:
+
+| State | Meaning |
+|---|---|
+| Idle | Replication is not capturing or applying data. |
+| Capturing | Replication is capturing differentiated data in the source snapshot. |
+| Transferring | Replication is both capturing and committing snapshot data. |
+| Applying | Replication is committing the snapshot data to the target file system. |
+
+---
+
+**5. Replication Process**
+
+1. In the primary availability domain, there is a source file system that is exported.
+2. In the secondary availability domain, there is a target file system that is unexported.
+3. Instances perform data updates on the source file system.
+4. A replication resource is created on the source site.
+5. The replication resource creates a replication snapshot in the source file system.
+6. The snapshot is transferred to the replication target resource.
+7. The replication target resource writes the new data to the target file system.
+8. The replication snapshot remains in both the source and target file systems until the next interval.
+9. It is not deleted immediately. At the next interval, the application process automatically deletes the old replication snapshot and creates a new one.
+10. This process repeats at the specified interval as long as replication is in effect.
+
+The replication captures the delta of data written to the source file system in a replication snapshot. The data is then transferred from the replication resource to the replication target resource and copied to the target file system.
+
+---
+
+**6. Use Cases**
+
+Disaster Recovery  
+Cross-region replication for file storage:
+- Provides protection from regional outages.
+- Aids in disaster recovery efforts.
+- Addresses data redundancy compliance requirements.
+
+Example:   
+An Oracle E-Business Suite customer with primary operations in one availability domain in Phoenix can choose to have a backup or recovery site in another availability domain. The transcript uses “Aspen” for this example.
+
+This functionality is critical for customers who need disaster recovery solutions to protect critical business data while adhering to compliance requirements.
+
+---
 
 # 2. Security
 
