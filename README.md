@@ -2,7 +2,91 @@
 
 # 1. Saved
 
-## File System Snapshots
+## 1.1 File System Snapshots
+
+File system snapshots in OCI File Storage provide data protection by capturing a consistent, point-in-time view of a file system. 
+
+Snapshots are accessible under the file system’s root directory at `.snapshot/<snapshot_name>`. For example, a snapshot named `22AprilSnapshot` can be accessed from the mount point inside the `.snapshot` directory.
+
+Snapshots are storage-efficient: they initially consume no additional usage because they reference the original data rather than duplicating it. 
+
+This limits usage cost, and data usage is metered only against the differentiated snapshot data. 
+
+If nothing has changed since the last snapshot, the new snapshot does not consume more storage.
+
+
+---
+
+**What Are File System Snapshots?**
+
+Snapshots are provided for data protection of your file systems.
+
+Key characteristics:
+- They are a consistent, point-in-time view of your file systems.
+- They are accessible under the root directory of the file system at:
+
+```text
+.snapshot/<snapshot_name>
+```
+
+---
+
+**Accessing Snapshots**
+
+Step 1: Create a Snapshot  
+Using the OCI Console, create a snapshot with a descriptive name.
+
+Example from the transcript:  
+- Snapshot name: `22AprilSnapshot`
+
+Step 2: Access the Snapshot from the Mounted Instance  
+After the file system is mounted on an instance:  
+1. Navigate to the mount point.
+2. Locate the `.snapshot` directory inside the mount point.
+3. Open the `.snapshot` directory to see the snapshot.
+
+Example directory structure:
+
+```text
+<mount_point>/
+├── .snapshot/
+│   └── 22AprilSnapshot/
+└── (other file system contents)
+```
+
+---
+
+**Snapshot Storage and Cost**
+
+Initial Storage Usage  
+
+Snapshots initially consume no additional usage in the file system because they reference the original data instead of duplicating it.
+
+Benefit  
+- Limits usage cost.
+- Data usage is metered against the differentiated snapshot data.
+
+What This Means  
+If nothing has changed within the file system since the last snapshot was taken, the new snapshot does not consume more storage.
+
+| Scenario | Additional Storage Consumed |
+|---|---|
+| Nothing changed since last snapshot | None |
+| Some data changed | Only the changed (differentiated) data |
+
+---
+
+**Why Use Snapshots?**
+
+| Benefit | Description |
+|---|---|
+| Data protection | Provides a point-in-time view for recovery. |
+| Consistency | Captures a consistent state of the file system. |
+| Cost efficiency | References original data instead of duplicating it. |
+| Limited usage cost | Only differentiated data is metered. |
+
+---
+
 ## File System Cloning
 ## File System Replication
 
