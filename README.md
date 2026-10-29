@@ -187,5 +187,186 @@ You can also enable scheduled cross-region automated backups using user-defined 
 | Incremental | Includes only the changes since the last backup. |
 | Full | Includes all the changes since the volume was created. |
 
+### Block Volume Clones
 
+Block Volume Clones provide a fast way to create a copy of an existing block volume without using the backup and restore process. 
+
+A clone is a point-in-time, direct disk-to-disk deep copy of the source volume. 
+
+The clone operation occurs immediately, and the volume becomes available quickly, though data is copied in the background and can take up to 30 minutes. 
+
+Clones must be created within the same region, Availability Domain, and tenant. 
+
+If the source volume is attached, you can only create one clone at a time; if detached, you can create up to 10 clones simultaneously. 
+
+You can clone both volumes and volume groups. Remember that subsequent changes to the source volume are not copied to the clone.
+
+**What Is a Block Volume Clone?**
+
+Cloning enables you to make a copy of an existing block volume without needing to go through the backup and restore process.
+
+Key characteristics:
+
+- A cloned volume is a point-in-time, direct disk-to-disk deep copy of the source volume.
+- All data in the source volume at the time the clone is created is copied to the cloned volume.
+- Subsequent changes to the data on the source volume are not copied to the clone.
+
+---
+
+**Clone Operation and Availability**
+
+| Aspect | Description |
+|---|---|
+| Operation Timing | The clone operation occurs immediately. |
+| Usability | You can attach and use the cloned volume as a regular volume as soon as the state changes to available. |
+| Background Copy | Volume data is copied in the background. |
+| Copy Duration | Can take up to 30 minutes, depending on the size of the volume. |
+
+---
+
+**Clone Scope and Location**
+You can only create a clone for a volume within the:
+
+- Same region
+- Same Availability Domain
+- Same tenant
+
+The clone is created in the same Availability Domain as the original volume.
+
+Example: If you have a block volume created in Availability Domain 81 in the Phoenix region, and you create a clone, the clone is created in the same Availability Domain 81.
+
+---
+
+**Clone Limits Based on Source Volume State**
+
+| Source Volume State | Clone Limit |
+|---|---|
+| Attached | You can only create one clone at a time. You must wait for the first clone operation to complete before creating additional clones. |
+| Detached | You can create up to 10 clones from the same source volume simultaneously. |
+
+---
+
+**What Can Be Cloned?**
+You can create clones of:
+
+- Volumes
+- Volume groups
+
+---
+
+### Block Volume: Cross-Region Replication
+
+Cross-region replication provides ongoing asynchronous replication of boot and block volumes to other regions. 
+
+It is complementary to backup, not a replacement. 
+
+Replication starts with an initial sync, then continues continuously without downtime. 
+
+You cannot resize a volume while replication is enabled, and replication is not supported for volumes using customer-managed vault encryption keys. 
+
+You can create a new volume by activating a replica. 
+
+Costs include replica storage in the destination region and network costs, with the replica billed at the lower cost block storage price. 
+
+Use cases include disaster recovery, migration, and business expansion. 
+
+To enable replication, ensure you are subscribed to the target region, then edit the volume and select the destination region, availability domain, and replica name.
+
+**What Is Cross-Region Replication?**
+
+Using cross-region replication, you can perform ongoing automatic asynchronous replication of block volumes to other regions.
+
+Key points:
+
+- Supports both boot volumes and block volumes.
+- Replication is asynchronous.
+- Cross-region replication is complementary to backup, not a replacement.
+  - Backups give you a point-in-time snapshot of volumes.
+  - Replicas give you the current version of the data.
+- Cross-region replication does not cause downtime or impact on source volumes.
+
+---
+
+**How Replication Works**
+
+When you enable replication for a volume:
+
+1. An initial sync of data occurs from the source to the replica.
+   - Depending on volume size and amount of data written, the sync can take hours.
+2. After the initial synchronization completes, replication becomes continuous.
+
+---
+
+**Resizing a Volume with Cross-Region Replication**
+
+You cannot resize a volume while cross-region replication is enabled.
+
+To resize a volume:
+
+1. Disable cross-region replication.
+   - This deletes the volume replica.
+2. Resize the volume.
+3. Re-enable cross-region replication.
+   - Replication starts again from scratch.
+
+---
+
+**Encryption Limitation**
+
+Cross-region replication is not supported for volumes encrypted using customer-managed vault encryption keys.
+
+---
+
+**Creating a Volume from a Replica**
+
+To create a new volume from a volume replica, you must activate the replica.
+
+- The activation process creates a new volume by cloning the replica.
+
+---
+
+**Cost Considerations**
+
+From a cost standpoint, your bill includes:
+
+- Storage costs for the volume replica in the destination region.
+  - The replica is billed using the block storage lower cost option price, regardless of the volume type in the source region.
+- Any applicable network costs for the replication process between regions.
+
+---
+
+**Destination Region Selection**
+
+When you enable replication for a volume, you select a destination region.
+
+- The source region determines which target regions are available as destination regions.
+
+Examples:
+
+| Source Region | Available Destination Regions |
+|---|---|
+| UK West | UK South or London |
+| US West / Phoenix | Ashburn and San Jose |
+
+---
+
+**Use Cases for Cross-Region Replication**
+
+Cross-region replication can help with:
+
+- Disaster recovery if the primary region is unavailable.
+- Migration scenarios.
+- Business expansion scenarios.
+
+---
+
+**How to Enable Cross-Region Replication**
+
+Steps to enable:
+
+1. Ensure you are subscribed to the target region available as a possible destination region.
+2. Edit the volume properties.
+3. Enable cross-region replication.
+4. Select the region and, if applicable, the availability domain.
+5. Provide a name for your volume replica.
 
