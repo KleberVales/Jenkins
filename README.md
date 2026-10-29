@@ -32,5 +32,7 @@ OCI File Storage includes several protection features:
 
 # 2. File System
 
+# 3. Mount Target
+
 
 
