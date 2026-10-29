@@ -62,6 +62,19 @@ The export path is specified when an export is created. It:
 - Uniquely identifies the file system within the Mount Target.
 - Lets you associate many file systems to a single Mount Target.
 
+
+An export path uniquely identifies the file system within the Mount Target.
+
+Key points:
+- You can associate up to 100 file systems behind a single Mount Target.
+- The export path is unrelated to any path within the file system or the client instance.
+- An instance uses the export path to mount or logically attach to the file system.
+- Export paths cannot be edited after the export is created.
+- In the slide example, the export path uniquely identifies a file system within the Mount Target.
+
+> Note: The transcript mentions a “CIFS export” in the slide example. In the context of OCI File Storage, this refers to the export path that identifies the file system within the Mount Target.
+
+
 ## Export Options
 
 Parameters within an export that specify the level of access granted to NFS clients. Up to 100 options are allowed per export.
