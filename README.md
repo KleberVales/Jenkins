@@ -147,7 +147,7 @@ Example scenario:
 
 ---
 
-**2.5 Backup Policies**
+**Backup Policies**
 
 Oracle-Defined Policies
 
