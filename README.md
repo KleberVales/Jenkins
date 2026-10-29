@@ -66,4 +66,6 @@ The export path is specified when an export is created. It:
 
 Parameters within an export that specify the level of access granted to NFS clients. Up to 100 options are allowed per export.
 
+Export options are a set of parameters within the export. They specify the level of access granted to NFS clients when they connect to a Mount Target. You can have up to 100 options per export.
+
 
