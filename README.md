@@ -81,7 +81,7 @@ There are three offline options to increase volume size:
 
 ## 1.2 Save a copy
 
-### Block Volume Backups
+### 1.2.1 Block Volume Backups
 
 Block Volume Backups provide point-in-time snapshots of volume data. 
 
@@ -187,7 +187,7 @@ You can also enable scheduled cross-region automated backups using user-defined 
 | Incremental | Includes only the changes since the last backup. |
 | Full | Includes all the changes since the volume was created. |
 
-### Block Volume Clones
+### 1.2.2 Block Volume Clones
 
 Block Volume Clones provide a fast way to create a copy of an existing block volume without using the backup and restore process. 
 
@@ -254,7 +254,7 @@ You can create clones of:
 
 ---
 
-### Block Volume: Cross-Region Replication
+### 1.2.3 Block Volume: Cross-Region Replication
 
 Cross-region replication provides ongoing asynchronous replication of boot and block volumes to other regions. 
 
