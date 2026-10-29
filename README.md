@@ -370,7 +370,113 @@ Steps to enable:
 4. Select the region and, if applicable, the availability domain.
 5. Provide a name for your volume replica.
 
-## 1.2 Volume Groups
+### 1.2.4 Block Volume: Cross Availability Domain Replication
+
+Cross availability domain replication allows you to replicate block volumes, boot volumes, and volume groups to another availability domain within the same region. Key points to remember:
+
+- No network costs (unlike cross-region replication).
+- Storage costs apply for the replica in the destination region.
+- The replica is billed at the block storage lower cost option.
+- You cannot resize a volume while replication is enabled.
+- Disabling replication deletes the replica; re-enabling starts replication from scratch.
+- Not supported for volumes encrypted with customer-managed vault keys.
+- Activate the replica to create a new volume.
+- No downtime or impact on source volumes.
+- To enable, select the same region and a different availability domain, then provide a name for the replica.
+
+This feature is ideal for disaster recovery and high availability within a single region without incurring network costs.
+
+**Learning Objectives**
+
+By the end of this lesson, you should be able to:
+
+- Explain what cross availability domain replication is.
+- Identify the volume types that can be replicated.
+- Describe cost considerations for cross availability domain replication.
+- Explain limitations related to resizing and encryption.
+- Describe how to activate a replica to create a new volume.
+- Explain how to enable cross availability domain replication.
+
+---
+
+**What Is Cross Availability Domain Replication?**
+
+Using cross availability domain replication, you can perform replication of:
+
+- Block volumes
+- Boot volumes
+- Volume groups
+
+The replication target is another availability domain within the same region.
+
+Key characteristics:
+
+- Cross availability domain replication does not cause any downtime or impact on source volumes.
+- It is not supported for volumes encrypted using customer-managed vault encryption keys.
+
+---
+
+**Cost Considerations**
+
+| Cost Component | Cross Availability Domain Replication | Cross Region Replication |
+|---|---|---|
+| Storage Costs for Replica | Yes (in destination region) | Yes (in destination region) |
+| Network Costs | No network costs | Applicable network costs apply |
+| Replica Billing | Block storage lower cost option, regardless of source volume type | Block storage lower cost option, regardless of source volume type |
+
+Important consideration: Unlike cross-region replication, cross availability domain replication incurs no network costs.
+
+---
+
+**Resizing a Volume with Cross Availability Domain Replication**
+
+You cannot resize a volume while cross availability domain replication is enabled.
+
+To resize a volume:
+
+1. Disable cross availability domain replication.
+   - This deletes the volume replica.
+2. Resize the volume.
+3. Re-enable cross availability domain replication.
+   - Replication starts again from scratch.
+
+---
+
+**Encryption Limitation**
+Cross availability domain replication is not supported for volumes encrypted using customer-managed vault encryption keys.
+
+---
+
+**Creating a Volume from a Replica**
+To create a new volume from a volume replica, you must activate the replica.
+
+- The activation process creates a new volume by cloning the replica.
+
+---
+
+**How to Enable Cross Availability Domain Replication**
+
+Steps
+1. Edit the volume properties.
+2. Enable replication.
+3. Select a destination region.
+   - Important: For cross availability domain replication, the destination region is the same as the source region.
+4. Select another availability domain to which the block volume will be replicated.
+5. Provide a name for your volume replica.
+
+Example
+
+In the screenshot example:
+
+- The block volume is being created in the Ashburn region.
+- The destination region is also Ashburn (same region).
+- You select a different availability domain as the destination.
+- You provide a name for the volume replica.
+
+Key difference from cross-region replication: The region name is the same (Ashburn to Ashburn), and you simply select another availability domain.
+
+
+## 1.3 Volume Groups
 
 Volume groups in OCI allow you to group multiple volumes—both boot and block volumes—into a single logical unit. 
 
