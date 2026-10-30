@@ -658,4 +658,4 @@ Step 1: Create a Clone
   - testclone is metered only for its metadata.
 
 Step 2: Add Data to the Clone
-- Create a 2 GB
+- Create
