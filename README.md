@@ -667,4 +667,4 @@ Clone Metering Summary
 
 | File System | Metered For |
 |---|---|
-| Parent (Testfilesystem) | Data and metadata;
+| Parent (Testfilesystem) | Data and 
