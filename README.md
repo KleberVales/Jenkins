@@ -656,5 +656,3 @@ Step 1: Create a Clone
 - At creation, before any data is entered:
   - Testfilesystem (parent) is metered for its data and metadata.
   - testclone is metered only for its metadata.
-
-Step 2: 
