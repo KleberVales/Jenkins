@@ -666,5 +666,4 @@ Step 2: Add Data to the Clone
 Clone Metering Summary
 
 | File System | Metered For |
-|---|---|
 
