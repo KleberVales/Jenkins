@@ -668,5 +668,4 @@ Clone Metering Summary
 | File System | Metered For |
 |---|---|
 | Parent (Testfilesystem) | Data and metadata; data shared with descendant clones |
-| Clone (testclone) | Metadata; incremental changes
-
+| Clone (testclone) | Metadata; incremental
