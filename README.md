@@ -659,4 +659,3 @@ Step 1: Create a Clone
 
 Step 2: Add Data to the Clone
 - Create a 2 GB file in `testclone`.
-- Now:
