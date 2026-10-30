@@ -663,7 +663,5 @@ Step 2: Add Data to the Clone
   - Testfilesystem (parent) is metered for the data it shares with testclone.
   - testclone is metered for its metadata plus the 2 GB of change data incurred by the new file creation.
 
-Clone
-
 
 
