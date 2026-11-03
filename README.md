@@ -28,4 +28,8 @@
 
 ### Connectivity
 
+**Introdution**  
+**VCN to VCN**  
+**VCN to On-Premises**  
+
 
