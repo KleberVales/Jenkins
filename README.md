@@ -66,4 +66,12 @@
 ### Remote management and access
 ### Infrastructure Maintenance
 
+## 4. Object Storage
+
+### Introdution
+### Object
+### Bucket
+### Object Storage Tiers
+### Multipart Uploads
+
 
