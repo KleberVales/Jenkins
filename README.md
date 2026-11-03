@@ -25,3 +25,7 @@
 **Private IP address**  
 **BYOIP**  
 **Public IP Pools**
+
+### Connectivity
+
+
