@@ -41,4 +41,12 @@
 **Network Load Balancer**  
 **Web Application Acceleration**
 
+### DNS Management
+
+**Introdution**  
+**Zones**  
+**Private Views**  
+**HTTP redirects**  
+**Traffic Management**
+
 
