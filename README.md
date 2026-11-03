@@ -30,6 +30,15 @@
 
 **Introdution**  
 **VCN to VCN**  
-**VCN to On-Premises**  
+**VCN to On-Premises** 
+
+### Load Balancer
+
+**Introdution**  
+**Fundamental concepts**  
+**Public Load Balancer**  
+**Private Load Balancer**  
+**Network Load Balancer**  
+**Web Application Acceleration**
 
 
