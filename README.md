@@ -61,5 +61,9 @@
 ### Compute Instance
 ### Data Persistence
 ### Images
+### Scalling
+### Oracle Cloud Agent
+### Remote management and access
+### Infrastructure Maintenance
 
 
