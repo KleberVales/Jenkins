@@ -83,4 +83,14 @@
 ### Volume Access Types
 ### Boot Volumes
 
+## 6. File Storage
+
+### Introduction
+### File System
+### Mount Target
+### Exports
+### Saved
+### Security
+### File System Usage and Metering
+
 
