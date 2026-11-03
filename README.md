@@ -56,4 +56,10 @@
 
 ## 3. Compute
 
+### Introdution
+### Shapes
+### Compute Instance
+### Data Persistence
+### Images
+
 
