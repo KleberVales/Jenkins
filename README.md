@@ -12,8 +12,8 @@
 ## 2. Networking
 
 ### Virtual Cloud Network
-### CIDR Blocks
-### Subnets
-### Route Tables
-### Gateway
-### Security
+**CIDR Blocks**
+**Subnets**
+**Route Tables**
+**Gateway**
+**Security**
