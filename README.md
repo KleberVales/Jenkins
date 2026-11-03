@@ -17,3 +17,11 @@
 **Route Tables**  
 **Gateway**  
 **Security**  
+
+### IP Management
+
+**VNIC**  
+**Public IP Address**  
+**Private IP address**  
+**BYOIP**  
+**Public IP Pools**
