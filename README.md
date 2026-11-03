@@ -73,5 +73,7 @@
 ### Bucket
 ### Object Storage Tiers
 ### Multipart Uploads
+### Object Storage Logging
+### Security
 
 
