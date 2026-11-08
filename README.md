@@ -56,6 +56,7 @@
 - Network Visualizer
 - Network Path Analyzer
 - Flow Logs
+- Inter-Region Latency
 
 ## 3. Compute
 
