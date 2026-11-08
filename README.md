@@ -55,6 +55,7 @@
 **Tools**  
 - Network Visualizer
 - Network Path Analyzer
+- Flow Logs
 
 ## 3. Compute
 
