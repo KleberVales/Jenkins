@@ -58,6 +58,7 @@
 - Flow Logs
 - Inter-Region Latency
 - Virtual Test Access Points (VTAP)
+- Capture Filter
 
 ## 3. Compute
 
