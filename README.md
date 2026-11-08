@@ -51,8 +51,9 @@
 
 ### Network Command Center
 
-**Introdution**
-**Tools**
+**Introdution**  
+**Tools**  
+- Network Visualizer
 
 ## 3. Compute
 
