@@ -57,6 +57,7 @@
 - Network Path Analyzer
 - Flow Logs
 - Inter-Region Latency
+- Virtual Test Access Points (VTAP)
 
 ## 3. Compute
 
